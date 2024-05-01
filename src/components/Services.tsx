@@ -30,12 +30,15 @@ const features = [
 
 function Services() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white py-8 sm:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <div className="mx-auto mt-16 max-w-2xl lg:max-w-none">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3 mx-auto">
             {features.map((feature) => (
-              <div key={feature.name} className="flex flex-col">
+              <div
+                key={feature.name}
+                className="flex flex-col rounded-2xl bg-gray-200 p-5"
+              >
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <feature.icon
                     className="h-5 w-5 flex-none text-indigo-600"
