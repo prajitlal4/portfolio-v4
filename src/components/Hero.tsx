@@ -8,13 +8,13 @@ export default function Example() {
               How can I help you achieve greatness?
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Hi! My name is Prajit. I will help you create beautiful digital
-              experiences, and skyrocket your business to new heights.
+              Hi! My name is Prajit. I can create amazing websites and apps, and
+              help scale your business to new heights.
             </p>
             <div className="mt-10 flex items-center gap-x-6">
               <a
                 href="#"
-                className="transition ease-in-out delay-50 hover:scale-110 rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="transition ease-in-out delay-50 hover:scale-110 rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
               >
                 Contact me!
               </a>
@@ -22,7 +22,7 @@ export default function Example() {
                 href="#"
                 className="transition ease-in-out delay-50 hover:scale-110 text-sm font-semibold text-gray-900 border rounded-md bg-gray-100 px-3.5 py-2.5 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
               >
-                Who is Prajit? <span aria-hidden="true">→</span>
+                Who is Prajit?
               </a>
             </div>
           </div>

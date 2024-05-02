@@ -1,43 +1,38 @@
 function Content() {
   return (
-    <div className="bg-white py-8 sm:py-12">
+    <div className="bg-white py-8 sm:py-12 mt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-          <p className="text-base font-semibold leading-7 text-indigo-600">
-            Deploy faster
-          </p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            A better workflow
+            Passion for coding and problem solving.
           </h1>
           <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 md:max-w-none md:grid-cols-2">
             <div>
+              <strong>Little bit about myself</strong>
               <p>
-                Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget
-                risus enim. Mattis mauris semper sed amet vitae sed turpis id.
-                Id dolor praesent donec est. Odio penatibus risus viverra tellus
-                varius sit neque erat velit. Faucibus commodo massa rhoncus,
-                volutpat. Dignissim sed eget risus enim. Mattis mauris semper
-                sed amet vitae sed turpis id.
+                Thank you for dropping by. I&apos;m Prajit, a software developer
+                based in Perth, Western Australia. I develop websites and
+                web-applications to the highest quality, and I&apos;m always on
+                the lookout for new and exciting projects.
               </p>
               <p className="mt-8">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-                odio id et. Id blandit molestie auctor fermentum dignissim.
-                Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate
-                et ultrices hac adipiscing egestas.
+                If you are looking for a custom, high quality product, or
+                looking to bring your current project to the next level, I am
+                your guy.
               </p>
             </div>
             <div>
+              <strong>My mission</strong>
               <p>
-                Erat pellentesque dictumst ligula porttitor risus eget et eget.
-                Ultricies tellus felis id dignissim eget. Est augue maecenas
-                risus nulla ultrices congue nunc tortor.
+                I strive to provide only the best service possible. I believe
+                that a happy client is a returning client, and I will do
+                everything I can to make sure you are satisfied with the end
+                product.
               </p>
               <p className="mt-8">
-                Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis
-                odio id et. Id blandit molestie auctor fermentum dignissim.
-                Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate
-                et ultrices hac adipiscing egestas. Iaculis convallis ac tempor
-                et ut. Ac lorem vel integer orci.
+                Whether you are a small business looking to expand, I&apos;m
+                always available for a chat to see if my services are right for
+                you. Feel free to reach out to me at any time.
               </p>
             </div>
           </div>

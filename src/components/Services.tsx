@@ -1,61 +1,53 @@
 import {
-  ArrowPathIcon,
-  CloudArrowUpIcon,
-  LockClosedIcon,
+  CursorArrowRaysIcon,
+  GlobeAltIcon,
+  CircleStackIcon,
 } from "@heroicons/react/20/solid";
 
 const features = [
   {
-    name: "Push to deploy",
+    name: "Website Development",
     description:
-      "Commodo nec sagittis tortor mauris sed. Turpis tortor quis scelerisque diam id accumsan nullam tempus. Pulvinar etiam lacus volutpat eu. Phasellus praesent ligula sit faucibus.",
+      "Businesses with a website can grow up to 50% compared to those without. I will make you a website that your competitors will envy, or upgrade your current one to the best it can be.",
     href: "#",
-    icon: CloudArrowUpIcon,
+    icon: GlobeAltIcon,
   },
   {
-    name: "SSL certificates",
+    name: "Application Development",
     description:
-      "Pellentesque enim a commodo malesuada turpis eleifend risus. Facilisis donec placerat sapien consequat tempor fermentum nibh.",
+      "Tired of using excel spreadsheets to manage your business? Web applications can cut down mundane tasks and increase productivity. Let me build you an application that suites your needs.",
     href: "#",
-    icon: LockClosedIcon,
+    icon: CircleStackIcon,
   },
   {
-    name: "Simple queues",
+    name: "Search Engine Optimisation (SEO)",
     description:
       "Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.",
     href: "#",
-    icon: ArrowPathIcon,
+    icon: CursorArrowRaysIcon,
   },
 ];
 
 function Services() {
   return (
-    <div className="bg-white lg:mt-16 py-8 sm:py-12">
+    <div className="bg-white lg:mt-16 py-8 sm:py-12 mb-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-8 lg:max-w-none lg:grid-cols-3 mx-auto">
             {features.map((feature) => (
               <div
                 key={feature.name}
-                className="flex flex-col rounded-sm bg-gray-200 p-5"
+                className="flex flex-col rounded-sm bg-gray-100 p-5"
               >
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <feature.icon
-                    className="h-5 w-5 flex-none text-indigo-600"
+                    className="h-5 w-5 flex-none text-blue-600"
                     aria-hidden="true"
                   />
                   {feature.name}
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">{feature.description}</p>
-                  <p className="mt-6">
-                    <a
-                      href={feature.href}
-                      className="text-sm font-semibold leading-6 text-indigo-600"
-                    >
-                      Learn more <span aria-hidden="true">→</span>
-                    </a>
-                  </p>
                 </dd>
               </div>
             ))}
