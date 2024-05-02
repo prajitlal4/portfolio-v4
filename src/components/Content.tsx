@@ -9,7 +9,7 @@ function Content() {
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
             A better workflow
           </h1>
-          <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 lg:max-w-none lg:grid-cols-2">
+          <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 md:max-w-none md:grid-cols-2">
             <div>
               <p>
                 Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget

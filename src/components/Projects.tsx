@@ -21,8 +21,8 @@ const posts = [
 function Projects() {
   return (
     <>
-      <div className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-3/4 bg-white">
-        <div className="grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 mt-16">
+      <div className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-full bg-white">
+        <div className="grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1">
           <div className="relative flex">
             <img
               src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
@@ -46,16 +46,16 @@ function Projects() {
           </div>
           <div className="relative flex">
             <img
-              src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg"
+              src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
               alt=""
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
             <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-40 p-8 sm:p-12">
               <h2 className="text-lg font-medium text-white text-opacity-75">
-                Desk and Office
+                Self-Improvement
               </h2>
               <p className="mt-1 text-2xl font-medium text-white">
-                Work from home accessories
+                Journals and note-taking
               </p>
               <a
                 href="#"
