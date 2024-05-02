@@ -21,7 +21,7 @@ const posts = [
 function Projects() {
   return (
     <>
-      <div className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-full bg-white">
+      <div className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-full h-1/2 bg-white">
         <div className="grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1">
           <div className="relative flex">
             <img
