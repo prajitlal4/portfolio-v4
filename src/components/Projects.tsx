@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 const posts = [
   {
     id: 1,
@@ -21,50 +24,42 @@ const posts = [
 function Projects() {
   return (
     <>
-      <div className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-full h-1/2 bg-white">
-        <div className="grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1">
-          <div className="relative flex">
-            <img
+      <div className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-3/4 lg:h-1/2 bg-white">
+        <div className="grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 max-w-2xl lg:max-w-7xl mx-auto">
+          <Link className="relative flex" href="#">
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+              height={500}
+              width={500}
               alt=""
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
-            <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-40 p-8 sm:p-12">
-              <h2 className="text-lg font-medium text-white text-opacity-75">
-                Self-Improvement
+            <div className="transition ease-in-out delay-50 hover:bg-opacity-60 relative flex w-full flex-col items-start justify-end bg-black bg-opacity-30 p-8 sm:p-12">
+              <h2 className="text-xl font-medium text-white text-opacity-75">
+                New Website Development
               </h2>
-              <p className="mt-1 text-2xl font-medium text-white">
-                Journals and note-taking
+              <p className="mt-1 text-3xl font-medium text-white">
+                Jestin Auto Electrics
               </p>
-              <a
-                href="#"
-                className="mt-4 rounded-md bg-white px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50"
-              >
-                Shop now
-              </a>
             </div>
-          </div>
-          <div className="relative flex">
-            <img
+          </Link>
+          <Link className="relative flex" href="#">
+            <Image
               src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+              height={500}
+              width={500}
               alt=""
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
-            <div className="relative flex w-full flex-col items-start justify-end bg-black bg-opacity-40 p-8 sm:p-12">
-              <h2 className="text-lg font-medium text-white text-opacity-75">
-                Self-Improvement
+            <div className="transition ease-in-out delay-50 hover:bg-opacity-60 relative flex w-full flex-col items-start justify-end bg-black bg-opacity-30 p-8 sm:p-12">
+              <h2 className="text-xl font-medium text-white text-opacity-75">
+                Website Update
               </h2>
-              <p className="mt-1 text-2xl font-medium text-white">
-                Journals and note-taking
+              <p className="mt-1 text-3xl font-medium text-white">
+                Perth Liquid Limestone
               </p>
-              <a
-                href="#"
-                className="mt-4 rounded-md bg-white px-4 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-50"
-              >
-                Shop now
-              </a>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </>
