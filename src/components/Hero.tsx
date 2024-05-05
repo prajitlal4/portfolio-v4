@@ -11,8 +11,9 @@ export default function Example() {
               How can I help you achieve greatness?
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Hi! My name is Prajit. I can create amazing websites and apps, and
-              help scale your business to new heights.
+              Hi! My name is Prajit. I can create amazing personalised websites
+              and apps, and help scale your business traffic, sales and customer
+              satisfaction to new heights.
             </p>
             <div className="mt-10 flex items-center gap-x-6">
               <Link

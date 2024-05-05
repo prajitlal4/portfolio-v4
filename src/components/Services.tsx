@@ -9,21 +9,18 @@ const features = [
     name: "Website Development",
     description:
       "Businesses with a website can grow up to 50% compared to those without. I will make you a website that your competitors will envy, or upgrade your current one to the best it can be.",
-    href: "#",
     icon: GlobeAltIcon,
   },
   {
     name: "Application Development",
     description:
-      "Tired of using excel spreadsheets to manage your business? Web applications can cut down mundane tasks and increase productivity. Let me build you an application that suites your needs.",
-    href: "#",
+      "Tired of using excel spreadsheets to manage your business? Web applications can cut down mundane tasks and increase productivity by tenfold. Let me build you an application that suites your needs.",
     icon: CircleStackIcon,
   },
   {
     name: "Search Engine Optimisation (SEO)",
     description:
-      "Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.",
-    href: "#",
+      "Most users click on the first 3 links that appear on Google after making a search. I can make your website appear at the top of most google searches, so your potential customers see you first.",
     icon: CursorArrowRaysIcon,
   },
 ];
