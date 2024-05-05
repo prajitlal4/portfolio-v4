@@ -20,12 +20,6 @@ export default defineType({
       },
     }),
     defineField({
-      name: 'author',
-      title: 'Author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -41,10 +35,10 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'categories',
-      title: 'Categories',
+      name: 'client',
+      title: 'Client',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{type: 'reference', to: {type: 'client'}}],
     }),
     defineField({
       name: 'publishedAt',
