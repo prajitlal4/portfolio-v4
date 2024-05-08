@@ -11,28 +11,28 @@ function Content() {
               <strong>Little bit about myself</strong>
               <p>
                 Thank you for dropping by. I&apos;m Prajit, a software developer
-                based in Perth, Western Australia. I develop websites and
-                web-applications to the highest quality, and I&apos;m always on
-                the lookout for new and exciting projects.
+                based in Perth, Western Australia. We develop websites and
+                web-applications to the highest quality, and we&apos;re always
+                on the lookout for new and exciting projects.
               </p>
               <p className="mt-8">
                 If you are looking for a custom, high quality product, or
-                looking to bring your current project to the next level, I am
-                your guy.
+                looking to bring your current project to the next level, come to
+                us first.
               </p>
             </div>
             <div>
               <strong>My mission</strong>
               <p>
-                I strive to provide only the best service possible. I believe
-                that a happy client is a returning client, and I will do
-                everything I can to make sure you are satisfied with the end
+                We strive to provide only the best service possible. We believe
+                that a happy client is a returning client, and will do
+                everything we can to make sure you are satisfied with the end
                 product.
               </p>
               <p className="mt-8">
-                Whether you are a small business looking to expand, I&apos;m
+                Whether you are a small business looking to expand, we&apos;re
                 always available for a chat to see if my services are right for
-                you. Feel free to reach out to me at any time.
+                you. Feel free to reach out to us at any time.
               </p>
             </div>
           </div>
