@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const callouts = [
   {
     name: "E-Commerce",
@@ -7,7 +9,7 @@ const callouts = [
       "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg",
     imageAlt:
       "A simple e-commerce site to drive your sales and build healthy customer relations.",
-    href: "#",
+    href: "https://example-project-1-snowy.vercel.app",
   },
   {
     name: "Marketing",
@@ -32,7 +34,7 @@ const callouts = [
 
 function ExampleWebsites() {
   return (
-    <div className="bg-gray-100">
+    <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
           <h2 className="text-2xl font-bold text-gray-900">Example Websites</h2>
@@ -48,10 +50,10 @@ function ExampleWebsites() {
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500">
-                  <a href={callout.href}>
+                  <Link href={callout.href}>
                     <span className="absolute inset-0" />
                     {callout.name}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-base font-semibold text-gray-900">
                   {callout.description}

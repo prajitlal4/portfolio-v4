@@ -8,7 +8,7 @@ export default function Example() {
         <div className="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
           <div className="mx-auto max-w-2xl lg:mx-0">
             <h1 className="mt-12 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
-              How can I help you achieve greatness?
+              How can we help you achieve greatness?
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-600">
               Hi! My name is Prajit. I can create amazing personalised websites
@@ -20,7 +20,7 @@ export default function Example() {
                 href="#"
                 className="transition ease-in-out delay-50 hover:scale-110 rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
               >
-                Contact me!
+                Contact us!
               </Link>
               <Link
                 href="#"
