@@ -8,12 +8,11 @@ function Content() {
           </h1>
           <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 md:max-w-none md:grid-cols-2">
             <div>
-              <strong>Little bit about myself</strong>
+              <strong className="text-lg">Little bit about us</strong>
               <p>
-                Thank you for dropping by. I&apos;m Prajit, a software developer
-                based in Perth, Western Australia. We develop websites and
-                web-applications to the highest quality, and we&apos;re always
-                on the lookout for new and exciting projects.
+                We are a Perth based software company that specialises in
+                creating websites and web applications to the highest quality,
+                and are always on the lookout for new and exciting projects.
               </p>
               <p className="mt-8">
                 If you are looking for a custom, high quality product, or
@@ -22,7 +21,7 @@ function Content() {
               </p>
             </div>
             <div>
-              <strong>My mission</strong>
+              <strong className="text-lg">Our mission</strong>
               <p>
                 We strive to provide only the best service possible. We believe
                 that a happy client is a returning client, and will do

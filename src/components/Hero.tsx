@@ -1,44 +1,66 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect } from "react";
 
 export default function Example() {
+  const [pageLoaded, setPageLoaded] = React.useState(false);
+
+  useEffect(() => {
+    setPageLoaded(true);
+  }, []);
   return (
-    <div className="relative bg-white">
-      <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-12 lg:gap-x-8 lg:px-8">
-        <div className="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
-          <div className="mx-auto max-w-2xl lg:mx-0">
-            <h1 className="mt-12 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
-              How can we help you achieve greatness?
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Hi! My name is Prajit. I can create amazing personalised websites
-              and apps, and help scale your business traffic, sales and customer
-              satisfaction to new heights.
-            </p>
-            <div className="mt-10 flex items-center gap-x-6">
-              <Link
-                href="#"
-                className="transition ease-in-out delay-50 hover:scale-110 rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
-              >
-                Contact us!
-              </Link>
-              <Link
-                href="#"
-                className="transition ease-in-out delay-50 hover:scale-110 text-sm font-semibold text-gray-900 border rounded-md bg-gray-100 px-3.5 py-2.5 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
-              >
-                Who is Prajit?
-              </Link>
-            </div>
+    <div className="relative isolate overflow-hidden pt-14">
+      <video
+        muted
+        autoPlay
+        loop
+        className="absolute inset-0 -z-10 h-full w-full object-cover"
+        height={1080}
+        width={1920}
+      >
+        <source
+          src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20Video.mp4"
+          type="video/mp4"
+        />
+        Your browser does not support this video tag.
+      </video>
+      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+        <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+          <div className="bg-gray-200 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-700 ring-1 ring-white/10 hover:ring-white/20">
+            <strong>Check out our example projects! </strong>
+            <a href="#" className="font-semibold text-gray-900">
+              <span className="absolute inset-0" aria-hidden="true" />
+              Click here <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
-        <div className="relative lg:col-span-5 xl:col-span-6 px-6 max-w-2xl mx-auto lg:mx-0">
-          <Image
-            className="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full rounded-sm"
-            src="https://images.unsplash.com/photo-1498758536662-35b82cd15e29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2102&q=80"
-            alt=""
-            height={1920}
-            width={1080}
-          />
+        <div
+          className={`transition-opacity duration-1000 ease-in-out delay-50 text-center ${pageLoaded ? "opacity-100" : "opacity-0"}`}
+        >
+          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            How can we help you achieve greatness?
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-gray-200 mx-5 md:mx-auto">
+            Need a website or an application? We can create amazing websites and
+            solutions to help scale your business, traffic and customer
+            satisfaction to new heights.
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-x-6">
+            <Link
+              href="#"
+              className="transition ease-in-out delay-50 hover:scale-110 rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
+            >
+              Contact us!
+            </Link>
+            <Link
+              href="#about"
+              className="transition ease-in-out delay-50 hover:scale-110 text-sm font-semibold text-gray-900 border rounded-md bg-gray-100 px-3.5 py-2.5 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
+            >
+              Who are we?
+            </Link>
+          </div>
         </div>
       </div>
     </div>
