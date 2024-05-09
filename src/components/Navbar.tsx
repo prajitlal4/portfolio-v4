@@ -9,7 +9,7 @@ import Image from "next/image";
 const navigation = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#" },
+  { name: "Contact", href: "#contact" },
 ];
 
 function Navbar() {
@@ -48,7 +48,7 @@ function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-semibold leading-6 text-gray-900"
+              className="text-lg font-semibold leading-6 text-gray-900"
             >
               {item.name}
             </Link>
@@ -67,11 +67,12 @@ function Navbar() {
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">PL Solutions</span>
               <Image
-                className="h-8 w-auto"
+                className="h-12 w-auto"
                 src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20White.png"
                 alt=""
-                height={48}
+                height={200}
                 width={200}
+                onClick={() => setMobileMenuOpen(false)}
               />
             </a>
             <button
@@ -90,7 +91,8 @@ function Navbar() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    className=" transition-transform ease-in-out duration-100 translate-x-6 -mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     {item.name}
                   </Link>

@@ -1,11 +1,15 @@
+import Image from "next/image";
+
 function Testimonial() {
   return (
     <section className="relative isolate overflow-hidden bg-white px-6 py-8 sm:py-12 lg:px-8 ">
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
-        <img
+        <Image
           className="mx-auto h-12"
-          src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg"
+          src="/PerthLiquidLimestoneLogo.png"
           alt=""
+          width={150}
+          height={200}
         />
         <figure className="mt-10">
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
