@@ -16,6 +16,7 @@ export default function Example() {
         muted
         autoPlay
         loop
+        playsInline
         className="absolute inset-0 -z-10 h-full w-full object-cover"
         height={1080}
         width={1920}
