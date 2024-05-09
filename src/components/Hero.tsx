@@ -22,7 +22,7 @@ export default function Example() {
         width={1920}
       >
         <source
-          src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20Video.mp4"
+          src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20Video1.mp4"
           type="video/mp4"
         />
         Your browser does not support this video tag.
