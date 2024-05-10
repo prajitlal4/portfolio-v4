@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 
-const libreBaskerville = Libre_Baskerville({
+const font = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html className="h-full bg-white" lang="en">
-      <body className={`h-full ${libreBaskerville.className}`}>{children}</body>
+      <body className={`h-full ${font.className}`}>{children}</body>
     </html>
   );
 }

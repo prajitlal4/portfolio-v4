@@ -27,23 +27,23 @@ const features = [
 
 function Services() {
   return (
-    <div className="bg-white lg:mt-16 py-8 sm:py-12 mb-8">
+    <div className="bg-white py-16 sm:py-20 mb-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-8 lg:max-w-none lg:grid-cols-3 mx-auto">
             {features.map((feature) => (
               <div
                 key={feature.name}
-                className="flex flex-col rounded-sm bg-gray-100 p-5"
+                className="transition-transform ease-in-out delay-50 hover:scale-110 hover:cursor-default flex flex-col rounded-sm bg-gray-100 p-5"
               >
-                <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
+                <dt className="flex items-center gap-x-3 font-semibold leading-7 text-gray-900 text-lg">
                   <feature.icon
                     className="h-5 w-5 flex-none text-blue-600"
                     aria-hidden="true"
                   />
                   {feature.name}
                 </dt>
-                <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="mt-8 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">{feature.description}</p>
                 </dd>
               </div>
