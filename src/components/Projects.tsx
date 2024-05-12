@@ -6,7 +6,7 @@ function Projects() {
     <>
       <div
         id="projects"
-        className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-3/4 lg:h-1/2 bg-white"
+        className="max-w-7xl mx-auto py-8 lg:py-12 px-6 h-3/4 lg:h-1/2 bg-white mt-12"
       >
         <div className="gap-x-5 gap-y-5 grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 max-w-2xl lg:max-w-7xl mx-auto">
           <Link
