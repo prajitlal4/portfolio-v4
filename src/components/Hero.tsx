@@ -31,10 +31,10 @@ export default function Example() {
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="bg-gray-200 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-700 ring-1 ring-white/10 hover:ring-white/20">
             <strong>Check out our example projects! </strong>
-            <a href="#" className="font-semibold text-gray-900">
+            <Link href="#examples" className="font-semibold text-gray-900">
               <span className="absolute inset-0" aria-hidden="true" />
               Click here <span aria-hidden="true">&rarr;</span>
-            </a>
+            </Link>
           </div>
         </div>
         <div

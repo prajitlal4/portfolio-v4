@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function Content() {
   return (
     <div id="about" className="bg-white py-8 sm:py-12 mt-12">
@@ -36,17 +38,14 @@ function Content() {
             </div>
           </div>
           <div className="relative overflow-hidden pt-16">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <img
-                src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
+            <div className="mx-auto max-w-3xl h-1/2">
+              <Image
+                src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PLSolutionsContentImage.jpg"
                 alt="App screenshot"
-                className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
+                className="rounded-xl shadow-2xl ring-1 ring-gray-900/10"
                 width={2432}
                 height={1442}
               />
-              <div className="relative" aria-hidden="true">
-                <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-white pt-[7%]" />
-              </div>
             </div>
           </div>
         </div>
