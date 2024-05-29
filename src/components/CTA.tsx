@@ -79,7 +79,7 @@ function CTA() {
               today!
             </p>
             <div className=" flex items-center justify-center">
-              <form>
+              <form data-netlify="true">
                 <div className="mt-10 flex gap-x-4 flex-col md:flex-row gap-y-4">
                   <label htmlFor="email-address" className="sr-only">
                     Name
@@ -90,7 +90,7 @@ function CTA() {
                     type="name"
                     autoComplete="name"
                     required
-                    className="min-w-0 text-center flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                    className="min-w-0 text-left flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                     placeholder="Name"
                   />
                   <label htmlFor="email-address" className="sr-only">
@@ -102,14 +102,14 @@ function CTA() {
                     type="email"
                     autoComplete="email"
                     required
-                    className="min-w-0 text-center flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                    className="min-w-0 text-left flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                     placeholder="Email"
                   />
                   <button
                     type="submit"
                     className="transition-transform ease-in-out delay-50 hover:scale-110 flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
                   >
-                    Contact us
+                    Contact me
                   </button>
                 </div>
               </form>

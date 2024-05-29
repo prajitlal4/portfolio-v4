@@ -10,30 +10,31 @@ function Content() {
           </h1>
           <div className="mt-10 grid max-w-xl grid-cols-1 gap-8 text-base leading-7 text-gray-700 md:max-w-none md:grid-cols-2">
             <div>
-              <strong className="text-lg">Little bit about us</strong>
+              <strong className="text-lg">Little bit about me</strong>
               <p>
-                We are a Perth based software company that specialises in
-                creating websites and web applications to the highest quality,
-                and are always on the lookout for new and exciting projects.
+                Hi! I&apos;m Prajit, a Perth based software developer that
+                specialises in creating websites and web applications to the
+                highest quality, and are always on the lookout for new and
+                exciting projects.
               </p>
               <p className="mt-8">
                 If you are looking for a custom, high quality product, or
                 looking to bring your current project to the next level, come to
-                us first.
+                me first.
               </p>
             </div>
             <div>
               <strong className="text-lg">Our mission</strong>
               <p>
-                We strive to provide only the best service possible. We believe
+                I strive to provide only the best service possible. I believe
                 that a happy client is a returning client, and will do
-                everything we can to make sure you are satisfied with the end
+                everything I can to make sure you are satisfied with the end
                 product.
               </p>
               <p className="mt-8">
-                Whether you are a small business looking to expand, we&apos;re
+                Whether you are a small business looking to expand, I&apos;m
                 always available for a chat to see if my services are right for
-                you. Feel free to reach out to us at any time.
+                you. Feel free to reach out to me at any time.
               </p>
             </div>
           </div>
