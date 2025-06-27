@@ -126,8 +126,7 @@ function CTA() {
                 >
                   Send Message
                 </button>
-                {/* Success message placeholder */}
-                <p className="mt-4 text-green-400 text-center hidden" id="form-success">Thank you for reaching out! I'll get back to you soon.</p>
+                <p className="mt-4 text-green-400 text-center hidden" id="form-success">Thank you for reaching out! I&apos;ll get back to you soon.</p>
               </form>
             </div>
           </div>

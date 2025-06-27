@@ -10,7 +10,7 @@ const font = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: "PL Solutions",
-  description: "Perth's best website development agency.",
+  description: "Perth&apos;s best website development agency.",
 };
 
 export default function RootLayout({

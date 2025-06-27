@@ -11,7 +11,7 @@ const features = [
   {
     name: "Website Development",
     description:
-      "Your website is often the first impression your business makes. I build custom websites that look great and are designed to convert visitors into loyal customers. You'll always have direct communication and fast support from me.",
+      "Your website is often the first impression your business makes. I build custom websites that look great and are designed to convert visitors into loyal customers. You&apos;ll always have direct communication and fast support from me.",
     icon: GlobeAltIcon,
   },
   {
