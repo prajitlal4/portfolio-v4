@@ -77,40 +77,57 @@ function CTA() {
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
               Let&apos;s work together to create a website or application that truly sets you apart. With me, you get direct access to the developer, fast support, and a commitment to your success—no agencies, no middlemen. Reach out today and see the difference personal service can make.
             </p>
-            <div className=" flex items-center justify-center">
-              <form data-netlify="true">
-                <div className="mt-10 flex gap-x-4 flex-col md:flex-row gap-y-4">
-                  <label htmlFor="email-address" className="sr-only">
-                    Name
-                  </label>
+            <div className="flex items-center justify-center">
+              <form 
+                name="contact" 
+                method="POST" 
+                data-netlify="true" 
+                className="w-full max-w-lg bg-white/10 rounded-xl p-8 shadow-lg backdrop-blur"
+              >
+                <input type="hidden" name="form-name" value="contact" />
+                <div className="mb-6">
+                  <label htmlFor="name" className="block mb-2 text-left text-sm font-medium text-white">Name</label>
                   <input
                     id="name"
                     name="name"
-                    type="name"
+                    type="text"
                     autoComplete="name"
                     required
-                    className="min-w-0 text-left flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                    placeholder="Name"
+                    className="block w-full rounded-md border-0 bg-white/80 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-base"
+                    placeholder="Your Name"
                   />
-                  <label htmlFor="email-address" className="sr-only">
-                    Email address
-                  </label>
+                </div>
+                <div className="mb-6">
+                  <label htmlFor="email-address" className="block mb-2 text-left text-sm font-medium text-white">Email</label>
                   <input
                     id="email-address"
                     name="email-address"
                     type="email"
                     autoComplete="email"
                     required
-                    className="min-w-0 text-left flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                    placeholder="Email"
+                    className="block w-full rounded-md border-0 bg-white/80 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-base"
+                    placeholder="you@email.com"
                   />
-                  <button
-                    type="submit"
-                    className="transition-transform ease-in-out delay-50 hover:scale-110 flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                  >
-                    Contact me
-                  </button>
                 </div>
+                <div className="mb-8">
+                  <label htmlFor="message" className="block mb-2 text-left text-sm font-medium text-white">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    className="block w-full rounded-md border-0 bg-white/80 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-base"
+                    placeholder="How can I help you?"
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full transition-transform ease-in-out delay-50 hover:scale-105 rounded-md bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow-md hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
+                >
+                  Send Message
+                </button>
+                {/* Success message placeholder */}
+                <p className="mt-4 text-green-400 text-center hidden" id="form-success">Thank you for reaching out! I'll get back to you soon.</p>
               </form>
             </div>
           </div>
