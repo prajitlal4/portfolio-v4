@@ -72,11 +72,10 @@ function CTA() {
         <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Are you ready to propel your business?
+              Ready to Take Your Business to the Next Level?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              What are you waiting for? Let&apos;s get started on your project
-              today!
+              Let&apos;s work together to create a website or application that truly sets you apart. With me, you get direct access to the developer, fast support, and a commitment to your success—no agencies, no middlemen. Reach out today and see the difference personal service can make.
             </p>
             <div className=" flex items-center justify-center">
               <form data-netlify="true">

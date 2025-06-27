@@ -30,7 +30,7 @@ export default function Example() {
       <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="bg-gray-200 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-700 ring-1 ring-white/10 hover:ring-white/20">
-            <strong>Check out our example projects! </strong>
+            <strong>See my recent client projects! </strong>
             <Link href="#examples" className="font-semibold text-gray-900">
               <span className="absolute inset-0" aria-hidden="true" />
               Click here <span aria-hidden="true">&rarr;</span>
@@ -41,12 +41,10 @@ export default function Example() {
           className={`transition-opacity duration-1000 ease-in-out delay-50 text-center ${pageLoaded ? "opacity-100" : "opacity-0"}`}
         >
           <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            How can I help you achieve greatness?
+            Stand Out Online With Personalised, High-Impact Web Solutions
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-200 mx-5 md:mx-auto">
-            Need a website or an application? I can create amazing websites and
-            solutions to help scale your business, traffic and customer
-            satisfaction to new heights.
+            Looking for a website or application that truly sets your business apart? I deliver custom solutions that help you attract more clients, rank higher on Google, and grow your business—all with direct, one-on-one support. No agencies, no middlemen, just results you can trust.
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <Link

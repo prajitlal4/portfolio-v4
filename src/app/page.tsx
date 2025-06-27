@@ -1,6 +1,5 @@
 import CTA from "@/components/CTA";
 import Content from "@/components/Content";
-import ExampleWebsites from "@/components/ExampleWebsites";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
@@ -15,7 +14,6 @@ export default function Home() {
       <Hero />
       <Content />
       <Services />
-      <ExampleWebsites />
       <Projects />
       <Testimonial />
       <CTA />
