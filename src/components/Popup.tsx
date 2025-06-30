@@ -51,7 +51,9 @@ export default function Popup({ open, setOpen }: PopupProps) {
                     </Dialog.Title>
                     <div className="mt-2">
                       <p className="text-sm text-gray-500">
-                        I'll get back to you as soon as possible. In the meantime, feel free to browse my portfolio or contact me directly for urgent requests.
+                        I&apos;ll get back to you as soon as possible. In the
+                        meantime, feel free to browse my portfolio or contact me
+                        directly for urgent requests.
                       </p>
                     </div>
                   </div>

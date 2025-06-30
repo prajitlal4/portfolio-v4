@@ -76,15 +76,27 @@ function CTA() {
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Ready to Grow Your Business Online?
               </h2>
-              <p className="mt-6 text-lg text-gray-300" style={{ fontSize: '18px' }}>
-                Let's build a website or app that helps your business grow. You get direct access, fast support, and a personal commitment to your success with no agencies or middlemen.
+              <p
+                className="mt-6 text-lg text-gray-300"
+                style={{ fontSize: "18px" }}
+              >
+                Let&apos;s build a website or app that helps your business grow.
+                You get direct access, fast support, and a personal commitment
+                to your success with no agencies or middlemen.
               </p>
             </div>
             {/* Right: Form */}
             <div className="flex-1 w-full flex justify-center items-center">
               <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
-                <form name="cta-contact" method="POST" data-netlify="true" className="space-y-5">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                  GET IN TOUCH
+                </h2>
+                <form
+                  name="cta-contact"
+                  method="POST"
+                  data-netlify="true"
+                  className="space-y-5"
+                >
                   <input type="hidden" name="form-name" value="cta-contact" />
                   <input
                     type="text"

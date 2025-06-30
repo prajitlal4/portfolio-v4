@@ -6,9 +6,22 @@ function Testimonial() {
       <div className="mx-auto max-w-2xl lg:max-w-4xl">
         <figure className="mt-10 bg-white rounded-xl shadow-lg p-8">
           <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9 text-[18px]">
-            <p className="mb-2 font-bold text-blue-700 max-w-2xl mx-auto">"Prajit is an exceptional talent. I would recommend him to any business or person."</p>
+            <p className="mb-2 font-bold text-blue-700 max-w-2xl mx-auto">
+              &quot;Prajit is an exceptional talent. I would recommend him to
+              any business or person.&quot;
+            </p>
             <p className="text-sm md:text-lg font-normal text-gray-700 mt-4">
-              He solved an issue within my website in 1 day saving my business, something that had left other developers answerless and floundering for 5 months unresolved. He then went further and did SEO, made the entire site more user friendly and significantly boosted my rankings which continue to improve daily. Prajit is a true gentleman and a pleasure to deal with. He also has extensive knowledge across multiple disciplines from website design all the way through to the development of apps. I would recommend him to anybody except people in my industry because he gives me such a competitive advantage. I would sing from the rooftops about what Prajit has done for myself and business.
+              He solved an issue within my website in 1 day saving my business,
+              something that had left other developers answerless and
+              floundering for 5 months unresolved. He then went further and did
+              SEO, made the entire site more user friendly and significantly
+              boosted my rankings which continue to improve daily. Prajit is a
+              true gentleman and a pleasure to deal with. He also has extensive
+              knowledge across multiple disciplines from website design all the
+              way through to the development of apps. I would recommend him to
+              anybody except people in my industry because he gives me such a
+              competitive advantage. I would sing from the rooftops about what
+              Prajit has done for myself and business.
             </p>
           </blockquote>
           <figcaption className="mt-10">
@@ -26,14 +39,14 @@ function Testimonial() {
               <div className="text-gray-600">Owner</div>
             </div>
             <div className="flex flex-col items-center">
-          <Image
-            className="mx-auto h-12 mt-4"
-            src="/PerthLiquidLimestoneLogo.png"
-            alt="Client logo"
-            width={150}
-            height={200}
-          />
-        </div>
+              <Image
+                className="mx-auto h-12 mt-4"
+                src="/PerthLiquidLimestoneLogo.png"
+                alt="Client logo"
+                width={150}
+                height={200}
+              />
+            </div>
           </figcaption>
         </figure>
       </div>
