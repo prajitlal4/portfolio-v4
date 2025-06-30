@@ -67,88 +67,56 @@ const navigation = [
 
 function CTA() {
   return (
-    <div id="contact" className="bg-white">
-      <div className="relative isolate overflow-hidden bg-gray-900">
+    <div id="contact" className="bg-gray-900">
+      <div className="relative isolate overflow-hidden w-full">
         <div className="px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to Take Your Business to the Next Level?
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-300">
-              Let&apos;s work together to create a website or application that truly sets you apart. With me, you get direct access to the developer, fast support, and a commitment to your success—no agencies, no middlemen. Reach out today and see the difference personal service can make.
-            </p>
-            <div className="flex items-center justify-center">
-              <form 
-                name="contact" 
-                method="POST" 
-                data-netlify="true" 
-                className="w-full max-w-lg bg-white/10 rounded-xl p-8 shadow-lg backdrop-blur"
-              >
-                <input type="hidden" name="form-name" value="contact" />
-                <div className="mb-6">
-                  <label htmlFor="name" className="block mb-2 text-left text-sm font-medium text-white">Name</label>
+          <div className="mx-auto max-w-7xl flex flex-col lg:flex-row items-center gap-12">
+            {/* Left: Text */}
+            <div className="flex-1 w-full max-w-xl text-left">
+              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                Ready to Grow Your Business Online?
+              </h2>
+              <p className="mt-6 text-lg text-gray-300" style={{ fontSize: '18px' }}>
+                Let's build a website or app that helps your business grow. You get direct access, fast support, and a personal commitment to your success with no agencies or middlemen.
+              </p>
+            </div>
+            {/* Right: Form */}
+            <div className="flex-1 w-full flex justify-center items-center">
+              <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
+                <form name="cta-contact" method="POST" data-netlify="true" className="space-y-5">
+                  <input type="hidden" name="form-name" value="cta-contact" />
                   <input
-                    id="name"
-                    name="name"
                     type="text"
-                    autoComplete="name"
+                    name="name"
                     required
-                    className="block w-full rounded-md border-0 bg-white/80 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-base"
                     placeholder="Your Name"
+                    className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 bg-gray-100 focus:ring-2 focus:ring-blue-700 focus:border-blue-700 text-base"
                   />
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="email-address" className="block mb-2 text-left text-sm font-medium text-white">Email</label>
                   <input
-                    id="email-address"
-                    name="email-address"
                     type="email"
-                    autoComplete="email"
+                    name="email"
                     required
-                    className="block w-full rounded-md border-0 bg-white/80 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-base"
-                    placeholder="you@email.com"
+                    placeholder="Email *"
+                    className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 bg-gray-100 focus:ring-2 focus:ring-blue-700 focus:border-blue-700 text-base"
                   />
-                </div>
-                <div className="mb-8">
-                  <label htmlFor="message" className="block mb-2 text-left text-sm font-medium text-white">Message</label>
                   <textarea
-                    id="message"
                     name="message"
                     rows={4}
                     required
-                    className="block w-full rounded-md border-0 bg-white/80 px-4 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-base"
-                    placeholder="How can I help you?"
+                    placeholder="How can we help your business?"
+                    className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 bg-gray-100 focus:ring-2 focus:ring-blue-700 focus:border-blue-700 text-base"
                   />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full transition-transform ease-in-out delay-50 hover:scale-105 rounded-md bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow-md hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
-                >
-                  Send Message
-                </button>
-                <p className="mt-4 text-green-400 text-center hidden" id="form-success">Thank you for reaching out! I&apos;ll get back to you soon.</p>
-              </form>
+                  <button
+                    type="submit"
+                    className="w-full rounded-md bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow hover:bg-blue-800 transition-colors"
+                  >
+                    ENQUIRE NOW
+                  </button>
+                </form>
+              </div>
             </div>
           </div>
-          <svg
-            viewBox="0 0 1024 1024"
-            className="absolute left-1/2 top-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)]"
-            aria-hidden="true"
-          >
-            <circle
-              cx={512}
-              cy={512}
-              r={512}
-              fill="url(#827591b1-ce8c-4110-b064-7cb85a0b1217)"
-              fillOpacity="1"
-            />
-            <defs>
-              <radialGradient id="827591b1-ce8c-4110-b064-7cb85a0b1217">
-                <stop offset="0%" stopColor="#0B3C73" />
-                <stop offset="100%" stopColor="#042F58" />
-              </radialGradient>
-            </defs>
-          </svg>
         </div>
       </div>
     </div>

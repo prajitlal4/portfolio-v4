@@ -1,67 +1,80 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
 
-export default function Example() {
+const servicePills = [
+  "Website Development",
+  "Application Development",
+  "SEO Optimization",
+  "Website Maintenance & Security",
+  "Support & Consulting",
+];
+
+export default function Hero() {
   const [pageLoaded, setPageLoaded] = React.useState(false);
 
   useEffect(() => {
     setPageLoaded(true);
   }, []);
   return (
-    <div className="relative isolate overflow-hidden pt-14">
-      <video
-        muted
-        autoPlay
-        loop
-        playsInline
-        className="absolute inset-0 -z-10 h-full w-full object-cover"
-        height={1080}
-        width={1920}
-      >
-        <source
-          src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20Video1.mp4"
-          type="video/mp4"
-        />
-        Your browser does not support this video tag.
-      </video>
-      <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-        <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-          <div className="bg-gray-200 relative rounded-full px-3 py-1 text-sm leading-6 text-gray-700 ring-1 ring-white/10 hover:ring-white/20">
-            <strong>See my recent client projects! </strong>
-            <Link href="#examples" className="font-semibold text-gray-900">
-              <span className="absolute inset-0" aria-hidden="true" />
-              Click here <span aria-hidden="true">&rarr;</span>
-            </Link>
+    <section className="relative bg-gray-900 py-16 sm:py-24">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-12">
+        {/* Left: Headline and content */}
+        <div className="flex-1 w-full max-w-xl">
+          <div className="mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mt-2">
+              Websites That Get You Hired, Not Just Seen.
+            </h1>
+            <p className="mt-6 text-lg text-gray-200" style={{ fontSize: '18px' }}>
+              From the first click to a confirmed job, we help you win better work with proven marketing strategies.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3 mt-4">
+            {servicePills.map((pill) => (
+              <span key={pill} className="bg-blue-700 text-white font-semibold rounded px-4 py-2 text-sm">
+                {pill}
+              </span>
+            ))}
           </div>
         </div>
-        <div
-          className={`transition-opacity duration-1000 ease-in-out delay-50 text-center ${pageLoaded ? "opacity-100" : "opacity-0"}`}
-        >
-          <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-            Stand Out Online With Personalised, High-Impact Web Solutions
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-200 mx-5 md:mx-auto">
-            Looking for a website or application that truly sets your business apart? I deliver custom solutions that help you attract more clients, rank higher on Google, and grow your business—all with direct, one-on-one support. No agencies, no middlemen, just results you can trust.
-          </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <Link
-              href="#contact"
-              className="transition ease-in-out delay-50 hover:scale-110 rounded-md bg-blue-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
-            >
-              Contact me
-            </Link>
-            <Link
-              href="#about"
-              className="transition ease-in-out delay-50 hover:scale-110 text-sm font-semibold text-gray-900 border rounded-md bg-gray-100 px-3.5 py-2.5 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200"
-            >
-              Who is Prajit?
-            </Link>
+        {/* Right: Contact Form */}
+        <div className="flex-1 w-full flex justify-center items-center">
+          <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
+            <form name="hero-contact" method="POST" data-netlify="true" className="space-y-5">
+              <input type="hidden" name="form-name" value="hero-contact" />
+              <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your Name"
+                className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 bg-gray-100 focus:ring-2 focus:ring-blue-700 focus:border-blue-700 text-base"
+              />
+              <input
+                type="email"
+                name="email"
+                required
+                placeholder="Email *"
+                className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 bg-gray-100 focus:ring-2 focus:ring-blue-700 focus:border-blue-700 text-base"
+              />
+              <textarea
+                name="message"
+                rows={4}
+                required
+                placeholder="How can we help your business?"
+                className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 bg-gray-100 focus:ring-2 focus:ring-blue-700 focus:border-blue-700 text-base"
+              />
+              <button
+                type="submit"
+                className="w-full rounded-md bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow hover:bg-blue-800 transition-colors"
+              >
+                ENQUIRE NOW
+              </button>
+            </form>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

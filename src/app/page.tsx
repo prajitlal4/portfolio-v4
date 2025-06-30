@@ -6,6 +6,7 @@ import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Testimonial from "@/components/Testimonials";
 import Image from "next/image";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Projects />
       <Testimonial />
       <CTA />
+      <Footer />
     </main>
   );
 }

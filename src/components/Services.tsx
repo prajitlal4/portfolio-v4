@@ -1,61 +1,82 @@
 'use client';
 
-import {
-  CursorArrowRaysIcon,
-  GlobeAltIcon,
-  CircleStackIcon,
-} from "@heroicons/react/20/solid";
 import { motion } from "framer-motion";
+import { CodeBracketSquareIcon, WrenchScrewdriverIcon, MagnifyingGlassCircleIcon, ShieldCheckIcon, UserGroupIcon } from '@heroicons/react/24/outline';
 
-const features = [
+const services = [
   {
-    name: "Website Development",
-    description:
-      "Your website is often the first impression your business makes. I build custom websites that look great and are designed to convert visitors into loyal customers. You&apos;ll always have direct communication and fast support from me.",
-    icon: GlobeAltIcon,
+    title: "Website Development",
+    subtitle: "Launch a high-converting website that works 24/7 to grow your business and outshine competitors.",
+    icon: CodeBracketSquareIcon,
   },
   {
-    name: "Application Development",
-    description:
-      "Streamline your business with web applications that automate tasks and boost productivity. I take the time to understand your needs and deliver solutions that work for you. As a solo developer, I offer a personal touch and am always available for updates or support.",
-    icon: CircleStackIcon,
+    title: "Application Development",
+    subtitle: "Build custom solutions that eliminate bottlenecks, save hours daily, and scale with your success.",
+    icon: WrenchScrewdriverIcon,
   },
   {
-    name: "Search Engine Optimisation (SEO)",
-    description:
-      "A beautiful website is only effective if people can find it. I use proven SEO strategies so your business ranks higher than your competitors and attracts more customers. You can always reach out to me directly for ongoing SEO support and advice—no middlemen involved.",
-    icon: CursorArrowRaysIcon,
+    title: "SEO Optimization",
+    subtitle: "Dominate page one of Google and watch qualified leads find you instead of your competition.",
+    icon: MagnifyingGlassCircleIcon,
+  },
+  {
+    title: "Website Maintenance & Security",
+    subtitle: "Sleep soundly knowing your site is bulletproof, lightning-fast, and always generating revenue.",
+    icon: ShieldCheckIcon,
+  },
+  {
+    title: "Support & Consulting",
+    subtitle: "Get instant answers and strategic insights from me, and I will treat your success like my mission.",
+    icon: UserGroupIcon,
   },
 ];
 
 function Services() {
   return (
-    <div className="bg-white py-16 sm:py-20 mb-12">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:max-w-none">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-8 lg:max-w-none lg:grid-cols-3 mx-auto">
-            {features.map((feature, idx) => (
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+        <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-950 sm:text-5xl text-center">
+          Professional web development services
+        </h2>
+        {/* Top row: 3 cards */}
+        <div className="mt-10 flex flex-col items-center gap-6 sm:mt-16">
+          <div className="flex flex-col sm:flex-row gap-6 w-full justify-center">
+            {services.slice(0, 3).map((service, idx) => (
               <motion.div
-                key={feature.name}
+                key={service.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.7, delay: idx * 0.15 }}
-                className="transition-transform ease-in-out delay-50 hover:scale-110 hover:cursor-default flex flex-col rounded-sm bg-gray-100 p-5"
+                transition={{ duration: 0.3, delay: idx * 0.1 }}
+                className="bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col items-center justify-center p-10 hover:shadow-lg transition-shadow text-center w-full sm:w-[340px]"
               >
-                <dt className="flex items-center gap-x-3 font-semibold leading-7 text-gray-900 text-lg">
-                  <feature.icon
-                    className="h-5 w-5 flex-none text-blue-600"
-                    aria-hidden="true"
-                  />
-                  {feature.name}
-                </dt>
-                <dd className="mt-8 flex flex-auto flex-col text-base leading-7 text-gray-600">
-                  <p className="flex-auto">{feature.description}</p>
-                </dd>
+                <service.icon className="h-14 w-14 text-blue-700 mb-6" />
+                <div className="flex flex-col items-center">
+                  <h3 className="text-xl font-bold text-blue-700 mb-2">{service.title}</h3>
+                  <p className="text-base text-gray-600">{service.subtitle}</p>
+                </div>
               </motion.div>
             ))}
-          </dl>
+          </div>
+          {/* Bottom row: 2 cards */}
+          <div className="flex flex-col sm:flex-row gap-6 w-full justify-center mt-6">
+            {services.slice(3).map((service, idx) => (
+              <motion.div
+                key={service.title}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.3, delay: 0.2 + idx * 0.1 }}
+                className="bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col items-center justify-center p-10 hover:shadow-lg transition-shadow text-center w-full sm:w-[340px]"
+              >
+                <service.icon className="h-14 w-14 text-blue-700 mb-6" />
+                <div className="flex flex-col items-center">
+                  <h3 className="text-xl font-bold text-blue-700 mb-2">{service.title}</h3>
+                  <p className="text-base text-gray-600">{service.subtitle}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

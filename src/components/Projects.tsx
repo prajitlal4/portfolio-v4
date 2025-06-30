@@ -18,7 +18,7 @@ function Projects() {
             transition={{ duration: 0.7 }}
           >
             <Link
-              className="relative flex"
+              className="relative flex group"
               href="https://jestinautoelectrics.com"
             >
               <Image
@@ -26,16 +26,18 @@ function Projects() {
                 height={500}
                 width={500}
                 alt="Jestin Auto Electrics website screenshot"
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                className="absolute inset-0 h-full w-full object-cover object-center rounded-2xl"
               />
-              <div className="transition ease-in-out delay-50 hover:bg-opacity-60 relative flex w-full flex-col items-start justify-end bg-black bg-opacity-30 p-8 sm:p-12">
-                <h2 className="text-xl font-medium text-white text-opacity-75">
+              <div className="absolute inset-0 bg-black/60 rounded-2xl z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-40 transition-opacity duration-200 rounded-2xl z-20 pointer-events-none" />
+              <div className="transition ease-in-out delay-50 relative flex w-full flex-col items-start justify-end p-8 sm:p-12 rounded-2xl z-30">
+                <h2 className="text-lg font-semibold text-white mb-1">
                   Custom Website Launch
                 </h2>
-                <p className="mt-1 text-3xl font-medium text-white">
+                <p className="mt-1 text-2xl font-semibold text-white">
                   Jestin Auto Electrics
                 </p>
-                <p className="mt-2 text-base text-white text-opacity-80">
+                <p className="mt-2 text-base text-white">
                   Delivered a high-performance, SEO-optimised website that helped this business attract more clients and stand out in their industry. I provide direct communication and ongoing support for every client.
                 </p>
               </div>
@@ -48,7 +50,7 @@ function Projects() {
             transition={{ duration: 0.7, delay: 0.15 }}
           >
             <Link
-              className="relative flex"
+              className="relative flex group"
               href="https://perthliquidlimestone.com.au"
             >
               <Image
@@ -56,16 +58,18 @@ function Projects() {
                 height={500}
                 width={500}
                 alt="Perth Liquid Limestone website screenshot"
-                className="absolute inset-0 h-full w-full object-cover object-center"
+                className="absolute inset-0 h-full w-full object-cover object-center rounded-2xl"
               />
-              <div className="transition ease-in-out delay-50 hover:bg-opacity-60 relative flex w-full flex-col items-start justify-end bg-black bg-opacity-30 p-8 sm:p-12">
-                <h2 className="text-xl font-medium text-white text-opacity-75">
+              <div className="absolute inset-0 bg-black/60 rounded-2xl z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-40 transition-opacity duration-200 rounded-2xl z-20 pointer-events-none" />
+              <div className="transition ease-in-out delay-50 relative flex w-full flex-col items-start justify-end p-8 sm:p-12 rounded-2xl z-30">
+                <h2 className="text-lg font-semibold text-white mb-1">
                   Website Revamp & SEO Boost
                 </h2>
-                <p className="mt-1 text-3xl font-medium text-white">
+                <p className="mt-1 text-2xl font-semibold text-white">
                   Perth Liquid Limestone
                 </p>
-                <p className="mt-2 text-base text-white text-opacity-80">
+                <p className="mt-2 text-base text-white">
                   Upgraded an existing website for better usability, faster load times, and higher Google rankings. My hands-on approach means clients always have direct access to me for updates and support.
                 </p>
               </div>
