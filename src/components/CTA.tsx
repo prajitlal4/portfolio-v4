@@ -80,7 +80,7 @@ function CTA() {
                 Ready to Grow Your Business Online?
               </h2>
               <p className="mt-6 text-lg text-gray-300" style={{ fontSize: '18px' }}>
-                Let's build a website or app that helps your business grow. You get direct access, fast support, and a personal commitment to your success with no agencies or middlemen.
+                Let&apos;s build a website or app that helps your business grow. You get direct access, fast support, and a personal commitment to your success with no agencies or middlemen.
               </p>
             </div>
             {/* Right: Form */}
