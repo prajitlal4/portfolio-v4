@@ -111,9 +111,16 @@ function CTA() {
                   method="POST"
                   data-netlify="true"
                   className="space-y-5"
+                  netlify-honeypot="bot-field"
                   onSubmit={handleSubmit}
                 >
                   <input type="hidden" name="form-name" value="contact" />
+                  <p hidden>
+                    <label>
+                      Don’t fill this out if you're human:
+                      <input name="bot-field" />
+                    </label>
+                  </p>
                   <input
                     type="text"
                     name="name"
