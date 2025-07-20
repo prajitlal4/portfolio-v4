@@ -55,7 +55,7 @@ export default function Hero() {
         <div className="flex-1 w-full flex justify-center items-center">
           <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
-            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" className="space-y-5" onSubmit={handleSubmit}>
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you" className="space-y-5">
               <input type="hidden" name="form-name" value="contact" />
               <p hidden>
                 <label>
