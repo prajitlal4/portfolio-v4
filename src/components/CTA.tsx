@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { JSX, SVGProps } from "react";
 
+'use client';
+
 const navigation = [
   {
     name: "Facebook",

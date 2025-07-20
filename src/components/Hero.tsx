@@ -14,6 +14,19 @@ const servicePills = [
 export default function Hero() {
   const [pageLoaded, setPageLoaded] = React.useState(false);
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(new FormData(form) as any).toString(),
+    })
+      .then(() => alert("Success!"))
+      .catch((error) => alert(error));
+  };
+  
+
   useEffect(() => {
     setPageLoaded(true);
   }, []);
@@ -42,7 +55,7 @@ export default function Hero() {
         <div className="flex-1 w-full flex justify-center items-center">
           <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
-            <form name="contact" method="POST" data-netlify="true" className="space-y-5">
+            <form name="contact" method="POST" data-netlify="true" className="space-y-5" onSubmit={handleSubmit}>
               <input type="hidden" name="form-name" value="contact" />
               <input
                 type="text"
