@@ -67,18 +67,6 @@ const navigation = [
   },
 ];
 
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const form = e.currentTarget;
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams(new FormData(form) as any).toString(),
-  })
-    .then(() => alert("Success!"))
-    .catch((error) => alert(error));
-};
-
 
 function CTA() {
   return (
@@ -91,28 +79,21 @@ function CTA() {
               <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                 Ready to Grow Your Business Online?
               </h2>
-              <p
-                className="mt-6 text-lg text-gray-300"
-                style={{ fontSize: "18px" }}
-              >
-                Let&apos;s build a website or app that helps your business grow.
-                You get direct access, fast support, and a personal commitment
-                to your success with no agencies or middlemen.
+              <p className="mt-6 text-lg text-gray-300" style={{ fontSize: '18px' }}>
+                Let's build a website or app that helps your business grow. You get direct access, fast support, and a personal commitment to your success with no agencies or middlemen.
               </p>
             </div>
             {/* Right: Form */}
             <div className="flex-1 w-full flex justify-center items-center">
               <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-                  GET IN TOUCH
-                </h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
                 <form
                   name="contact"
                   method="POST"
                   data-netlify="true"
-                  className="space-y-5"
-                  netlify-honeypot="bot-field"
+                  data-netlify-honeypot="bot-field"
                   action="/thank-you"
+                  className="space-y-5"
                 >
                   <input type="hidden" name="form-name" value="contact" />
                   <p hidden>
@@ -154,6 +135,12 @@ function CTA() {
           </div>
         </div>
       </div>
+      {/* Hidden static form for Netlify detection */}
+      <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="email" name="email" />
+        <textarea name="message" />
+      </form>
     </div>
   );
 }
