@@ -65,6 +65,19 @@ const navigation = [
   },
 ];
 
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams(new FormData(form) as any).toString(),
+  })
+    .then(() => alert("Success!"))
+    .catch((error) => alert(error));
+};
+
+
 function CTA() {
   return (
     <div id="contact" className="bg-gray-900">
@@ -96,6 +109,7 @@ function CTA() {
                   method="POST"
                   data-netlify="true"
                   className="space-y-5"
+                  onSubmit={handleSubmit}
                 >
                   <input type="hidden" name="form-name" value="contact" />
                   <input

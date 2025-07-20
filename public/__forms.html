@@ -3,8 +3,13 @@
   <body>
     <form name="contact" data-netlify="true" hidden>
       <input type="hidden" name="form-name" value="contact" />
+      <p hidden>
+        <label>
+          Don’t fill this out if you're human: <input name="bot-field" />
+        </label>
+      </p>
       <input name="name" type="text" />
-      <input name="email-address" type="email" />
+      <input name="email" type="email" />
       <textarea name="message" rows="4"></textarea>
     </form>
   </body>
