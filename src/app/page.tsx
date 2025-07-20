@@ -8,6 +8,8 @@ import Testimonial from "@/components/Testimonials";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <main className="bg-white h-full">
