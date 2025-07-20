@@ -67,7 +67,7 @@ function Content() {
                     <div className="text-green-500 text-xl mt-1">✓</div>
                     <div>
                       <strong className="block text-lg">Local-First Focus</strong>
-                      <p className="text-base text-muted-foreground">I prioritise your Google Business Profile because it's what people see first when they search for businesses near them.</p>
+                      <p className="text-base text-muted-foreground">I prioritise your Google Business Profile because it&apos;s what people see first when they search for businesses near them.</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
