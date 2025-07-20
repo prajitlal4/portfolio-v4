@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 
 const servicePills = [
   "Website Development",
-  "Application Development",
+  "Google Business Profile Management",
   "SEO Optimization",
   "Website Maintenance & Security",
   "Support & Consulting",
@@ -24,10 +24,10 @@ export default function Hero() {
         <div className="flex-1 w-full max-w-xl">
           <div className="mb-6">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-tight mt-2">
-              Websites That Get You Hired, Not Just Seen.
+              Websites That Get You Leads, Not Just Seen.
             </h1>
             <p className="mt-6 text-lg text-gray-200" style={{ fontSize: '18px' }}>
-              From the first click to a confirmed job, we help you win better work with proven marketing strategies.
+              From the first click to the final quote, I help you land real jobs with proven digital strategies tailored to your business.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 mt-4">

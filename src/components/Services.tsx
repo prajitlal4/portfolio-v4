@@ -10,8 +10,8 @@ const services = [
     icon: CodeBracketSquareIcon,
   },
   {
-    title: "Application Development",
-    subtitle: "Build custom solutions that eliminate bottlenecks, save hours daily, and scale with your success.",
+    title: "Google Business Profile Management",
+    subtitle: "Get more leads from Google by optimizing your profile and ensuring your business appears in the right places.",
     icon: WrenchScrewdriverIcon,
   },
   {

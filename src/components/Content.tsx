@@ -61,8 +61,30 @@ function Content() {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="flex-1 flex flex-col gap-6 order-1 md:order-2 text-[18px] leading-7 text-gray-700"
               >
-                <strong className="text-2xl sm:text-3xl">Websites That Work as Hard as You Do</strong>
-                <p className="text-lg sm:text-xl">Your website shouldn&apos;t just look good. It should perform. Through thoughtful design, technical precision, and SEO-driven strategy, I help you attract more customers, convert more leads, and stand out from the competition.</p>
+                <strong className="text-2xl sm:text-3xl">What Sets My Approach Apart</strong>
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="text-green-500 text-xl mt-1">✓</div>
+                    <div>
+                      <strong className="block text-lg">Local-First Focus</strong>
+                      <p className="text-base text-muted-foreground">I prioritise your Google Business Profile because it's what people see first when they search for businesses near them.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="text-green-500 text-xl mt-1">✓</div>
+                    <div>
+                      <strong className="block text-lg">Strategic Website Pairing</strong>
+                      <p className="text-base text-muted-foreground">Your website is designed to match and support your profile, building trust with both Google and your customers.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="text-green-500 text-xl mt-1">✓</div>
+                    <div>
+                      <strong className="block text-lg">No Wasted Effort</strong>
+                      <p className="text-base text-muted-foreground">No blog spam or fluff. Just consistent, meaningful updates that improve rankings and bring in leads.</p>
+                    </div>
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
