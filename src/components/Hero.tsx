@@ -42,8 +42,8 @@ export default function Hero() {
         <div className="flex-1 w-full flex justify-center items-center">
           <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">GET IN TOUCH</h2>
-            <form name="hero-contact" method="POST" data-netlify="true" className="space-y-5">
-              <input type="hidden" name="form-name" value="hero-contact" />
+            <form name="contact" method="POST" data-netlify="true" className="space-y-5">
+              <input type="hidden" name="form-name" value="contact" />
               <input
                 type="text"
                 name="name"
