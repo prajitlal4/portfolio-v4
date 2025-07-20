@@ -92,12 +92,12 @@ function CTA() {
                   GET IN TOUCH
                 </h2>
                 <form
-                  name="cta-contact"
+                  name="contact"
                   method="POST"
                   data-netlify="true"
                   className="space-y-5"
                 >
-                  <input type="hidden" name="form-name" value="cta-contact" />
+                  <input type="hidden" name="form-name" value="contact" />
                   <input
                     type="text"
                     name="name"
