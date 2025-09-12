@@ -10,7 +10,7 @@ function Projects() {
         id="projects"
         className="max-w-7xl mx-auto py-8 lg:py-12 px-6 bg-white mt-12 mb-2"
       >
-        <div className="gap-x-5 gap-y-5 grid min-h-full grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1 max-w-2xl lg:max-w-7xl mx-auto">
+        <div className="gap-x-5 gap-y-5 grid min-h-full grid-cols-1 grid-rows-4 lg:grid-cols-2 lg:grid-rows-2 max-w-2xl lg:max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -71,6 +71,70 @@ function Projects() {
                 </p>
                 <p className="mt-2 text-base text-white">
                   Upgraded an existing website for better usability, faster load times, and higher Google rankings. My hands-on approach means clients always have direct access to me for updates and support.
+                </p>
+              </div>
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+          >
+            <Link
+              className="relative flex group"
+              href="https://highsideplumbing.com.au"
+            >
+              <Image
+                src="/highside-image.png"
+                height={500}
+                width={500}
+                alt="Highside Plumbing and Gas website screenshot"
+                className="absolute inset-0 h-full w-full object-cover object-center rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-black/60 rounded-2xl z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-40 transition-opacity duration-200 rounded-2xl z-20 pointer-events-none" />
+              <div className="transition ease-in-out delay-50 relative flex w-full flex-col items-start justify-end p-8 sm:p-12 rounded-2xl z-30">
+                <h2 className="text-lg font-semibold text-white mb-1">
+                  Professional Plumbing Website
+                </h2>
+                <p className="mt-1 text-2xl font-semibold text-white">
+                  Highside Plumbing and Gas
+                </p>
+                <p className="mt-2 text-base text-white">
+                  Created a modern, professional website for a trusted plumbing and gas service provider. Designed to showcase their expertise and make it easy for customers to get in touch for reliable service.
+                </p>
+              </div>
+            </Link>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+          >
+            <Link
+              className="relative flex group"
+              href="https://scopebathroomrenovations.com"
+            >
+              <Image
+                src="/scopebathrooms-image.webp"
+                height={500}
+                width={500}
+                alt="Scope Bathroom Renovations website screenshot"
+                className="absolute inset-0 h-full w-full object-cover object-center rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-black/60 rounded-2xl z-10 pointer-events-none" />
+              <div className="absolute inset-0 bg-blue-900 opacity-0 group-hover:opacity-40 transition-opacity duration-200 rounded-2xl z-20 pointer-events-none" />
+              <div className="transition ease-in-out delay-50 relative flex w-full flex-col items-start justify-end p-8 sm:p-12 rounded-2xl z-30">
+                <h2 className="text-lg font-semibold text-white mb-1">
+                  Bathroom Renovation Showcase
+                </h2>
+                <p className="mt-1 text-2xl font-semibold text-white">
+                  Scope Bathroom Renovations
+                </p>
+                <p className="mt-2 text-base text-white">
+                  Built a stunning showcase website for a premium bathroom renovation company. Features their beautiful work with an elegant design that converts visitors into customers.
                 </p>
               </div>
             </Link>
