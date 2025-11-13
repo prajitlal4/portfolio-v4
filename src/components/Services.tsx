@@ -1,7 +1,11 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { CodeBracketSquareIcon, WrenchScrewdriverIcon, MagnifyingGlassCircleIcon, ShieldCheckIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
@@ -32,51 +36,80 @@ const services = [
 ];
 
 function Services() {
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Title animation
+      gsap.from(titleRef.current, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
+
+      // Card animations
+      const cards = cardsRef.current?.querySelectorAll('.service-card');
+      if (cards) {
+        cards.forEach((card, index) => {
+          gsap.from(card, {
+            opacity: 0,
+            y: 40,
+            duration: 0.6,
+            delay: index * 0.1,
+            scrollTrigger: {
+              trigger: card,
+              start: "top 80%",
+              toggleActions: "play none none none"
+            }
+          });
+        });
+      }
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="bg-white py-24 sm:py-32">
-      <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-950 sm:text-5xl text-center">
-          Professional web development services
+    <div id="services" className="bg-dark py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 
+          ref={titleRef}
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-light text-center max-w-4xl mx-auto leading-tight"
+        >
+          Professional Web Development Services
         </h2>
-        {/* Top row: 3 cards */}
-        <div className="mt-10 flex flex-col items-center gap-6 sm:mt-16">
-          <div className="flex flex-col sm:flex-row gap-6 w-full justify-center">
-            {services.slice(0, 3).map((service, idx) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.3, delay: idx * 0.1 }}
-                className="bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col items-center justify-center p-10 hover:shadow-lg transition-shadow text-center w-full sm:w-[340px]"
-              >
-                <service.icon className="h-14 w-14 text-blue-700 mb-6" />
-                <div className="flex flex-col items-center">
-                  <h3 className="text-xl font-bold text-blue-700 mb-2">{service.title}</h3>
-                  <p className="text-base text-gray-600">{service.subtitle}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          {/* Bottom row: 2 cards */}
-          <div className="flex flex-col sm:flex-row gap-6 w-full justify-center mt-6">
-            {services.slice(3).map((service, idx) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.3, delay: 0.2 + idx * 0.1 }}
-                className="bg-white border border-gray-200 rounded-2xl shadow-sm flex flex-col items-center justify-center p-10 hover:shadow-lg transition-shadow text-center w-full sm:w-[340px]"
-              >
-                <service.icon className="h-14 w-14 text-blue-700 mb-6" />
-                <div className="flex flex-col items-center">
-                  <h3 className="text-xl font-bold text-blue-700 mb-2">{service.title}</h3>
-                  <p className="text-base text-gray-600">{service.subtitle}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+
+        {/* Grid layout for all cards */}
+        <div ref={cardsRef} className="mt-16 sm:mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.map((service, idx) => (
+            <div
+              key={service.title}
+              className="service-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-apple-blue/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
+            >
+              {/* Icon with glow effect */}
+              <div className="relative mb-6">
+                <div className="absolute inset-0 bg-apple-blue/30 blur-xl rounded-full group-hover:bg-apple-blue/50 transition-all duration-500" />
+                <service.icon className="relative h-16 w-16 text-apple-blue group-hover:text-apple-blue-light group-hover:scale-110 transition-all duration-500" />
+              </div>
+
+              {/* Content */}
+              <h3 className="text-xl sm:text-2xl font-bold font-heading text-light mb-4 group-hover:text-apple-blue-light transition-colors duration-300">
+                {service.title}
+              </h3>
+              <p className="text-base sm:text-lg text-light-muted leading-relaxed">
+                {service.subtitle}
+              </p>
+
+              {/* Decorative gradient on hover */}
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-apple-blue/0 via-apple-blue/0 to-apple-blue/0 group-hover:from-apple-blue/5 group-hover:via-transparent group-hover:to-apple-blue/5 transition-all duration-500 pointer-events-none" />
+            </div>
+          ))}
         </div>
       </div>
     </div>

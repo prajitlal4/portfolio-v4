@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
 
-const font = Plus_Jakarta_Sans({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-outfit",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "PL Solutions",
-  description: "Perth&apos;s best website development agency.",
+  title: "PL Solutions - Web Development Perth",
+  description: "Perth's best website development agency. Professional web development services that get you leads, not just seen.",
 };
 
 export default function RootLayout({
@@ -19,8 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="h-full bg-white" lang="en">
-      <body className={`h-full ${font.className}`}>{children}</body>
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
+      <body className="font-sans bg-dark text-light antialiased">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

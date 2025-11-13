@@ -5,14 +5,13 @@ import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Testimonial from "@/components/Testimonials";
-import Image from "next/image";
 import Footer from "@/components/Footer";
 
 export const dynamic = "force-static";
 
 export default function Home() {
   return (
-    <main className="bg-white h-full">
+    <main className="bg-dark min-h-screen">
       <form name="contact" data-netlify="true" hidden>
         <input type="hidden" name="form-name" value="contact" />
         <input type="text" name="name" />
