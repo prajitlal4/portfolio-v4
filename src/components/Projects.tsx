@@ -109,35 +109,35 @@ function Projects() {
                   className="absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                 />
 
-                {/* Gradient Overlay - lighter on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/70 group-hover:via-black/20 transition-all duration-500" />
+                {/* Gradient Overlay - stronger for better text visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent md:from-black/90 md:via-black/40 md:group-hover:from-black/70 md:group-hover:via-black/20 transition-all duration-500" />
 
                 {/* Blue glow on hover */}
-                <div className="absolute inset-0 bg-apple-blue/0 group-hover:bg-apple-blue/10 transition-all duration-500" />
+                <div className="absolute inset-0 bg-apple-blue/0 md:group-hover:bg-apple-blue/10 transition-all duration-500" />
 
                 {/* Content */}
-                <div className="relative h-full flex flex-col justify-end p-8 sm:p-10 z-10 group-hover:translate-y-[-8px] transition-transform duration-500">
-                  <span className="inline-block text-sm font-semibold text-apple-blue-light mb-3 tracking-wide uppercase">
+                <div className="relative h-full flex flex-col justify-end p-6 sm:p-8 md:p-10 z-10 md:group-hover:translate-y-[-8px] transition-transform duration-500">
+                  <span className="inline-block text-xs sm:text-sm font-bold text-apple-blue-light mb-2 sm:mb-3 tracking-wide uppercase" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                     {project.category}
                   </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-white mb-4">
+                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-white mb-3 sm:mb-4" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
                     {project.title}
                   </h3>
-                  <p className="text-base sm:text-lg text-light-muted leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all duration-300">
+                  <p className="text-sm sm:text-base md:text-lg text-light leading-relaxed line-clamp-4 md:line-clamp-3 md:group-hover:line-clamp-none transition-all duration-300" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
                     {project.description}
                   </p>
 
                   {/* View Project Arrow */}
-                  <div className="mt-6 flex items-center gap-2 text-apple-blue-light font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="mt-4 sm:mt-6 flex items-center gap-2 text-apple-blue-light font-semibold opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                     <span>View Project</span>
-                    <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 md:group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
                 </div>
 
                 {/* Border effect on hover */}
-                <div className="absolute inset-0 rounded-3xl border border-white/0 group-hover:border-apple-blue/50 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-3xl border border-white/0 md:group-hover:border-apple-blue/50 transition-all duration-500 pointer-events-none" />
               </Link>
             </div>
           ))}
