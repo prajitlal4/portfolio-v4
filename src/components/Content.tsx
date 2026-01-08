@@ -96,12 +96,12 @@ function Content() {
   }, []);
 
   return (
-    <div id="about" className="bg-dark-100 py-24 sm:py-32">
+    <div id="about" className="bg-light-100 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto lg:mx-0 lg:max-w-none">
           <h2 
             ref={titleRef}
-            className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl font-bold font-heading tracking-tight text-light leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl font-bold font-heading tracking-tight text-dark leading-tight"
           >
             Building Trust Through Excellence in Web Development
           </h2>
@@ -113,13 +113,13 @@ function Content() {
                 ref={row1TextRef}
                 className="flex-1 flex flex-col gap-6 order-2 lg:order-1"
               >
-                <h3 className="text-3xl sm:text-4xl font-bold font-heading text-light">
+                <h3 className="text-3xl sm:text-4xl font-bold font-heading text-dark">
                   Your Strategic Partner in Digital Growth
                 </h3>
-                <p className="text-lg sm:text-xl text-light-muted leading-relaxed">
+                <p className="text-lg sm:text-xl text-dark-200 leading-relaxed">
                   I&apos;m Prajit, a Perth-based software developer dedicated to helping businesses grow online through high-performance websites and applications.
                 </p>
-                <p className="text-lg sm:text-xl text-light-muted leading-relaxed">
+                <p className="text-lg sm:text-xl text-dark-200 leading-relaxed">
                   My process is personal, transparent, and streamlined from day one so you get clarity and results without the confusion. With direct access to me at every step, you&apos;re always informed and never left in the dark.
                 </p>
               </div>
@@ -163,7 +163,7 @@ function Content() {
                 ref={row2TextRef}
                 className="flex-1 flex flex-col gap-6 order-2"
               >
-                <h3 className="text-3xl sm:text-4xl font-bold font-heading text-light">
+                <h3 className="text-3xl sm:text-4xl font-bold font-heading text-dark">
                   What Sets My Approach Apart
                 </h3>
                 <div className="space-y-6">
@@ -183,16 +183,16 @@ function Content() {
                   ].map((item, index) => (
                     <div
                       key={item.title}
-                      className="feature-card flex items-start gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 hover:bg-white/[0.07] hover:border-apple-blue/30 transition-all duration-300"
+                      className="feature-card flex items-start gap-4 bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-2xl p-5 hover:bg-dark/[0.07] hover:border-apple-blue/30 transition-all duration-300"
                     >
                       <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-apple-blue to-apple-blue-dark flex items-center justify-center text-white font-bold">
                         ✓
                       </div>
                       <div className="flex-1">
-                        <strong className="block text-lg sm:text-xl text-light font-semibold mb-2">
+                        <strong className="block text-lg sm:text-xl text-dark font-semibold mb-2">
                           {item.title}
                         </strong>
-                        <p className="text-base sm:text-lg text-light-muted leading-relaxed">
+                        <p className="text-base sm:text-lg text-dark-200 leading-relaxed">
                           {item.description}
                         </p>
                       </div>

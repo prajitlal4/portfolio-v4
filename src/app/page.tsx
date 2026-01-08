@@ -11,7 +11,7 @@ export const dynamic = "force-static";
 
 export default function Home() {
   return (
-    <main className="bg-dark min-h-screen">
+    <main className="bg-light min-h-screen">
       <Navbar />
       <Hero />
       <Content />

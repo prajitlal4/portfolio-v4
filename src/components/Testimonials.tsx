@@ -27,9 +27,9 @@ function Testimonial() {
   }, []);
 
   return (
-    <section ref={cardRef} className="relative isolate overflow-hidden bg-dark px-6 py-24 sm:py-32 lg:px-8">
+    <section ref={cardRef} className="relative isolate overflow-hidden bg-light px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-4xl">
-        <figure className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-glass p-10 sm:p-12 lg:p-16">
+        <figure className="relative bg-dark/5 backdrop-blur-xl border border-dark/10 rounded-3xl shadow-glass p-10 sm:p-12 lg:p-16">
           {/* Blue accent bar */}
           <div className="absolute left-0 top-12 bottom-12 w-1 bg-gradient-to-b from-apple-blue-light to-apple-blue-dark rounded-full" />
 
@@ -38,7 +38,7 @@ function Testimonial() {
               &quot;Prajit is an exceptional talent. I would recommend him to
               any business or person.&quot;
             </p>
-            <p className="text-base sm:text-lg text-light-muted leading-relaxed">
+            <p className="text-base sm:text-lg text-dark-200 leading-relaxed">
               He solved an issue within my website in 1 day saving my business,
               something that had left other developers answerless and
               floundering for 5 months unresolved. He then went further and did
@@ -56,17 +56,17 @@ function Testimonial() {
           <figcaption className="mt-10 pl-8">
             <div className="flex items-center gap-6 flex-wrap">
               <div className="flex items-center gap-3">
-                <div className="font-semibold text-light text-lg">Chris Price</div>
+                <div className="font-semibold text-dark text-lg">Chris Price</div>
                 <svg
                   viewBox="0 0 2 2"
                   width={3}
                   height={3}
                   aria-hidden="true"
-                  className="fill-light-muted"
+                  className="fill-dark-200"
                 >
                   <circle cx={1} cy={1} r={1} />
                 </svg>
-                <div className="text-light-muted">Owner</div>
+                <div className="text-dark-200">Owner</div>
               </div>
               <div className="flex items-center">
                 <div className="bg-white rounded-lg p-2">

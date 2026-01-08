@@ -163,9 +163,9 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-dark via-dark to-dark-100 pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
+    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-light via-light to-light-100 pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/10 via-transparent to-apple-blue/5 animate-gradientShift opacity-50" 
+      <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
            style={{ backgroundSize: "200% 200%" }} />
       
       <div className="relative max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 w-full">
@@ -174,7 +174,7 @@ export default function Hero() {
           <div className="mb-8">
             <h1 
               ref={headlineRef}
-              className="opacity-0 text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-light leading-[1.1] tracking-tight"
+              className="opacity-0 text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight"
             >
               Websites That{" "}
               <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
@@ -184,7 +184,7 @@ export default function Hero() {
             </h1>
             <p 
               ref={subheadlineRef}
-              className="opacity-0 mt-8 text-xl sm:text-2xl text-light-muted leading-relaxed"
+              className="opacity-0 mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed"
             >
               From the first click to the final quote, I help you land real jobs with proven digital strategies tailored to your business.
             </p>
@@ -193,7 +193,7 @@ export default function Hero() {
             {servicePills.map((pill) => (
               <span 
                 key={pill} 
-                className="opacity-0 bg-white/5 backdrop-blur-sm border border-white/10 text-light font-medium rounded-full px-5 py-2.5 text-sm hover:bg-white/10 hover:border-apple-blue/50 transition-all duration-300"
+                className="opacity-0 bg-dark/5 backdrop-blur-sm border border-dark/10 text-dark font-medium rounded-full px-5 py-2.5 text-sm hover:bg-dark/10 hover:border-apple-blue/50 transition-all duration-300"
               >
                 {pill}
               </span>
@@ -203,8 +203,8 @@ export default function Hero() {
 
         {/* Right: Contact Form */}
         <div ref={formRef} className="opacity-0 flex-1 w-full flex justify-center items-center">
-          <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-glass p-8 hover:bg-white/[0.07] transition-all duration-500">
-            <h2 className="text-2xl font-bold font-heading text-light mb-6 text-center">
+          <div className="w-full max-w-md bg-dark/5 backdrop-blur-xl border border-dark/10 rounded-3xl shadow-glass p-8 hover:bg-dark/[0.07] transition-all duration-500">
+            <h2 className="text-2xl font-bold font-heading text-dark mb-6 text-center">
               GET IN TOUCH
             </h2>
             <form
@@ -221,7 +221,7 @@ export default function Hero() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Your Name"
-                  className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-white/20'} bg-white/5 px-4 py-3.5 text-light placeholder:text-light-muted focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
+                  className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
                 />
                 {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
               </div>
@@ -233,7 +233,7 @@ export default function Hero() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Email *"
-                  className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-white/20'} bg-white/5 px-4 py-3.5 text-light placeholder:text-light-muted focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
+                  className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
                 />
                 {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
               </div>
@@ -245,7 +245,7 @@ export default function Hero() {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="How can we help your business?"
-                  className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-white/20'} bg-white/5 px-4 py-3.5 text-light placeholder:text-light-muted focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm resize-none`}
+                  className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm resize-none`}
                 />
                 {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
               </div>

@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const navigation = [
   { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
+  { name: "Services", href: "/services" },
   { name: "Projects", href: "#projects" },
   { name: "Contact", href: "#contact" },
 ];
@@ -35,7 +35,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-dark border-t border-white/10">
+    <footer ref={footerRef} className="bg-light border-t border-dark/10">
       <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
         <div className="flex flex-col items-center justify-center gap-8">
           {/* Navigation Links */}
@@ -44,7 +44,7 @@ export default function Footer() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-base text-light-muted hover:text-apple-blue transition-colors duration-300 relative group"
+                className="text-base text-dark-200 hover:text-apple-blue transition-colors duration-300 relative group"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-blue transition-all duration-300 group-hover:w-full" />
@@ -53,7 +53,7 @@ export default function Footer() {
           </nav>
 
           {/* Copyright */}
-          <p className="text-center text-sm text-light-muted">
+          <p className="text-center text-sm text-dark-200">
             &copy; 2025 PL Solutions. All rights reserved.
           </p>
         </div>

@@ -79,11 +79,11 @@ function Projects() {
   }, []);
 
   return (
-    <div id="projects" className="bg-dark-100 py-24 sm:py-32">
+    <div id="projects" className="bg-light-100 py-24 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <h2
           ref={titleRef}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-light text-center mb-16 sm:mb-20"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-dark text-center mb-16 sm:mb-20"
         >
           Recent Projects
         </h2>
@@ -98,7 +98,7 @@ function Projects() {
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block overflow-hidden rounded-3xl aspect-[4/3] bg-dark-200"
+                className="group relative block overflow-hidden rounded-3xl aspect-[4/3] bg-light-200"
               >
                 {/* Project Image */}
                 <Image
@@ -123,7 +123,7 @@ function Projects() {
                   <h3 className="text-xl sm:text-2xl md:text-3xl font-bold font-heading text-white mb-3 sm:mb-4" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
                     {project.title}
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-light leading-relaxed line-clamp-4 md:line-clamp-3 md:group-hover:line-clamp-none transition-all duration-300" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
+                  <p className="text-sm sm:text-base md:text-lg text-white leading-relaxed line-clamp-4 md:line-clamp-3 md:group-hover:line-clamp-none transition-all duration-300" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.6)' }}>
                     {project.description}
                   </p>
 

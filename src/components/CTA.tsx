@@ -136,9 +136,9 @@ function CTA() {
   };
 
   return (
-    <div id="contact" className="relative bg-dark-100 overflow-hidden">
+    <div id="contact" className="relative bg-light-100 overflow-hidden">
       {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/10 via-transparent to-apple-blue/5 animate-gradientShift opacity-50" 
+      <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
            style={{ backgroundSize: "200% 200%" }} />
 
       <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -146,20 +146,20 @@ function CTA() {
           {/* Left: Text */}
           <div className="flex-1 w-full max-w-2xl">
             <h2 ref={headlineRef} className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
-              <span className="text-light">Ready to Grow </span>
+              <span className="text-dark">Ready to Grow </span>
               <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
                 Your Business Online?
               </span>
             </h2>
-            <p ref={textRef} className="mt-8 text-xl sm:text-2xl text-light-muted leading-relaxed">
+            <p ref={textRef} className="mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed">
               Let&apos;s build a website or app that helps your business grow. You get direct access, fast support, and a personal commitment to your success with no agencies or middlemen.
             </p>
           </div>
 
           {/* Right: Form */}
           <div ref={formRef} className="flex-1 w-full flex justify-center items-center">
-            <div className="w-full max-w-md bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl shadow-glass p-8 hover:bg-white/[0.07] transition-all duration-500">
-              <h3 className="text-2xl font-bold font-heading text-light mb-6 text-center">
+            <div className="w-full max-w-md bg-dark/5 backdrop-blur-xl border border-dark/10 rounded-3xl shadow-glass p-8 hover:bg-dark/[0.07] transition-all duration-500">
+              <h3 className="text-2xl font-bold font-heading text-dark mb-6 text-center">
                 GET IN TOUCH
               </h3>
               <form
@@ -176,7 +176,7 @@ function CTA() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your Name"
-                    className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-white/20'} bg-white/5 px-4 py-3.5 text-light placeholder:text-light-muted focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue focus:shadow-glow transition-all duration-300 text-base backdrop-blur-sm`}
+                    className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue focus:shadow-glow transition-all duration-300 text-base backdrop-blur-sm`}
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
                 </div>
@@ -188,7 +188,7 @@ function CTA() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Email *"
-                    className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-white/20'} bg-white/5 px-4 py-3.5 text-light placeholder:text-light-muted focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue focus:shadow-glow transition-all duration-300 text-base backdrop-blur-sm`}
+                    className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue focus:shadow-glow transition-all duration-300 text-base backdrop-blur-sm`}
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
                 </div>
@@ -200,7 +200,7 @@ function CTA() {
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="How can we help your business?"
-                    className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-white/20'} bg-white/5 px-4 py-3.5 text-light placeholder:text-light-muted focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue focus:shadow-glow transition-all duration-300 text-base backdrop-blur-sm resize-none`}
+                    className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue focus:shadow-glow transition-all duration-300 text-base backdrop-blur-sm resize-none`}
                   />
                   {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
                 </div>

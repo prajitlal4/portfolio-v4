@@ -34,10 +34,10 @@ const callouts = [
 
 function ExampleWebsites() {
   return (
-    <div id="examples" className="bg-gray-900">
+    <div id="examples" className="bg-light-100">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className="text-3xl font-bold text-gray-100">
+          <h2 className="text-3xl font-bold text-dark">
             Demo Websites
           </h2>
           <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
@@ -59,11 +59,11 @@ function ExampleWebsites() {
                     width={400}
                   />
                 </div>
-                <h3 className="mt-6 text-sm text-gray-300">
+                <h3 className="mt-6 text-sm text-dark-100">
                   <span className="absolute inset-0" />
                   {callout.name}
                 </h3>
-                <p className="mt-2 text-base font-semibold text-gray-200">
+                <p className="mt-2 text-base font-semibold text-dark">
                   {callout.description}
                 </p>
               </motion.div>
