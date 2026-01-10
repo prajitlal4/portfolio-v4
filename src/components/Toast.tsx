@@ -58,7 +58,7 @@ export default function Toast({ show, message, type = 'success', onClose }: Toas
                 <div className="ml-4 flex flex-shrink-0">
                   <button
                     type="button"
-                    className="inline-flex rounded-md bg-dark/5 text-dark-200 hover:text-dark hover:bg-dark/10 focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2 transition-all duration-200"
+                    className="inline-flex rounded-md bg-dark/5 text-dark-200 hover:text-dark hover:bg-dark/10 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200"
                     onClick={onClose}
                   >
                     <span className="sr-only">Close</span>

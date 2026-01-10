@@ -7,10 +7,12 @@ import Link from "next/link";
 import Image from "next/image";
 
 const navigation = [
-  { name: "About", href: "#about" },
+  { name: "About", href: "/#about" },
   { name: "Services", href: "/services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Guides", href: "/guides" },
+  { name: "Projects", href: "/#projects" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 function Navbar() {
@@ -70,7 +72,7 @@ function Navbar() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-dark hover:text-apple-blue transition-colors"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-dark hover:text-accent transition-colors"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -82,10 +84,10 @@ function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="relative text-base font-medium text-dark hover:text-apple-blue transition-all duration-300 group"
+              className="relative text-base font-medium text-dark hover:text-accent transition-all duration-300 group"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-blue transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
@@ -111,7 +113,7 @@ function Navbar() {
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-dark hover:text-apple-blue transition-colors"
+              className="-m-2.5 rounded-md p-2.5 text-dark hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -124,7 +126,7 @@ function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block rounded-lg px-4 py-3 text-base font-semibold text-dark hover:bg-dark/5 hover:text-apple-blue transition-all duration-300"
+                  className="block rounded-lg px-4 py-3 text-base font-semibold text-dark hover:bg-dark/5 hover:text-accent transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

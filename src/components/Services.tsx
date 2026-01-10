@@ -90,16 +90,16 @@ function Services() {
           {services.map((service, idx) => (
             <div
               key={service.title}
-              className="service-card group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-apple-blue/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
+              className="service-card group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-accent/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
             >
               {/* Icon with glow effect */}
               <div className="relative mb-6">
-                <div className="absolute inset-0 bg-apple-blue/20 blur-xl rounded-full group-hover:bg-apple-blue/40 transition-all duration-500" />
-                <service.icon className="relative h-16 w-16 text-apple-blue group-hover:text-apple-blue-light group-hover:scale-110 transition-all duration-500" />
+                <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/40 transition-all duration-500" />
+                <service.icon className="relative h-16 w-16 text-accent group-hover:text-accent-dark group-hover:scale-110 transition-all duration-500" />
               </div>
 
               {/* Content */}
-              <h3 className="text-xl sm:text-2xl font-bold font-heading text-dark mb-4 group-hover:text-apple-blue-light transition-colors duration-300">
+              <h3 className="text-xl sm:text-2xl font-bold font-heading text-dark mb-4 group-hover:text-accent transition-colors duration-300">
                 {service.title}
               </h3>
               <p className="text-base sm:text-lg text-dark-200 leading-relaxed">
@@ -107,7 +107,7 @@ function Services() {
               </p>
 
               {/* Decorative gradient on hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-apple-blue/0 via-apple-blue/0 to-apple-blue/0 group-hover:from-apple-blue/5 group-hover:via-transparent group-hover:to-apple-blue/5 transition-all duration-500 pointer-events-none" />
+              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 transition-all duration-500 pointer-events-none" />
             </div>
           ))}
         </div>

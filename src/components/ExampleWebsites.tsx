@@ -34,41 +34,64 @@ const callouts = [
 
 function ExampleWebsites() {
   return (
-    <div id="examples" className="bg-light-100">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className="text-3xl font-bold text-dark">
-            Demo Websites
+    <div id="examples" className="relative bg-light-100 py-24 sm:py-32 overflow-hidden">
+      {/* Decorative orbs */}
+      <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -right-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mb-16 sm:mb-20">
+          <span className="inline-block text-sm font-semibold text-accent-dark uppercase tracking-wide mb-4">
+            Case Studies
+          </span>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight max-w-3xl">
+            Demo Websites <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">in Action</span>
           </h2>
-          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-            {callouts.map((callout, idx) => (
-              <motion.div
-                key={callout.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.7, delay: idx * 0.15 }}
-                className="group relative"
-              >
-                <div className="transition-[transform,opacity] ease-in-out delay-50 duration-300 group-hover:-translate-y-6 relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                  <Image
-                    src={callout.imageSrc}
-                    alt={callout.imageAlt}
-                    className="h-full w-full object-cover object-center"
-                    height={400}
-                    width={400}
-                  />
+          <p className="mt-6 text-lg sm:text-xl text-dark-200 max-w-2xl leading-relaxed">
+            Explore different website types and see how they're built to convert visitors into customers.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {callouts.map((callout, idx) => (
+            <motion.div
+              key={callout.name}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.7, delay: idx * 0.15 }}
+              className="group relative flex flex-col h-full bg-light border border-dark/10 rounded-3xl overflow-hidden hover:border-accent/30 hover:shadow-glow transition-all duration-500"
+            >
+              <div className="relative h-64 overflow-hidden bg-light-100">
+                <Image
+                  src={callout.imageSrc}
+                  alt={callout.imageAlt}
+                  className="h-full w-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
+                  height={400}
+                  width={400}
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all duration-500" />
+              </div>
+
+              <div className="flex-1 flex flex-col justify-between p-8">
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-bold font-heading text-dark mb-3 group-hover:text-accent transition-colors">
+                    {callout.name}
+                  </h3>
+                  <p className="text-base text-dark-200 leading-relaxed">
+                    {callout.description}
+                  </p>
                 </div>
-                <h3 className="mt-6 text-sm text-dark-100">
-                  <span className="absolute inset-0" />
-                  {callout.name}
-                </h3>
-                <p className="mt-2 text-base font-semibold text-dark">
-                  {callout.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+
+                <div className="mt-6 flex items-center gap-2 text-accent-dark font-semibold opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <span>View Details</span>
+                  <svg className="w-5 h-5 group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

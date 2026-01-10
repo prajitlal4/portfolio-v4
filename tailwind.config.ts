@@ -11,23 +11,30 @@ const config: Config = {
       colors: {
         light: {
           DEFAULT: "#ffffff",
-          100: "#f5f5f7",
-          200: "#e8e8ed",
+          100: "#fafaf8",
+          200: "#f3f1ed",
         },
         dark: {
-          DEFAULT: "#1d1d1f",
-          100: "#424245",
-          200: "#6e6e73",
+          DEFAULT: "#2d2620",
+          100: "#4a4238",
+          200: "#6b6258",
         },
-        apple: {
-          blue: "#0071e3",
-          "blue-light": "#2997ff",
-          "blue-dark": "#0051a5",
+        // Sophisticated color palette - Light mode focused
+        accent: {
+          DEFAULT: "#6b5844",
+          dark: "#5a4a3a",
+        },
+        sage: {
+          DEFAULT: "#5a6f63",
+          dark: "#4a5f53",
+        },
+        charcoal: {
+          DEFAULT: "#2a2a2a",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        heading: ["var(--font-outfit)", "system-ui", "sans-serif"],
+        heading: ["var(--font-lora)", "system-ui", "serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

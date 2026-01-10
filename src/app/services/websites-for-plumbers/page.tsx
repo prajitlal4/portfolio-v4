@@ -247,13 +247,17 @@ export default function PlumberWebsitesPage() {
         
         {/* Hero Section */}
         <section ref={heroRef} className="relative min-h-[80vh] flex items-center bg-gradient-to-b from-light via-light to-light-100 pt-32 pb-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3 animate-gradientShift opacity-50"
                style={{ backgroundSize: "200% 200%" }} />
-          
+
+          {/* Decorative orbs */}
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
           <div className="relative max-w-7xl mx-auto px-6 text-center">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight max-w-5xl mx-auto">
               Websites for{" "}
-              <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
                 Plumbers
               </span>
             </h1>
@@ -263,7 +267,7 @@ export default function PlumberWebsitesPage() {
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="#contact"
-                className="rounded-xl bg-gradient-to-r from-apple-blue to-apple-blue-dark px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="rounded-xl bg-gradient-to-r from-accent to-sage px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 Get a Free Quote
               </a>
@@ -272,10 +276,13 @@ export default function PlumberWebsitesPage() {
         </section>
 
         {/* Section 1: The Problem */}
-        <section className="bg-light py-24">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-dark mb-8">
-              Your Website Has One Job
+        <section className="relative bg-light py-24 overflow-hidden">
+          {/* Decorative orbs */}
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+
+          <div className="relative max-w-4xl mx-auto px-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-8 leading-tight">
+              Your Website Has <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">One Job</span>
             </h2>
             <div className="space-y-6 text-lg text-dark-200 leading-relaxed">
               <p>
@@ -292,11 +299,20 @@ export default function PlumberWebsitesPage() {
         </section>
 
         {/* Section 2: What Customers Look For */}
-        <section className="bg-light-100 py-24">
-          <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-dark mb-6 text-center">
-              What Customers Need to See Immediately
-            </h2>
+        <section className="relative bg-light-100 py-24 overflow-hidden">
+          {/* Decorative orbs */}
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="mb-16 sm:mb-20">
+              <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
+                Critical Elements
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight">
+                What Customers <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Need to See</span> Immediately
+              </h2>
+            </div>
             <p className="text-xl text-dark-200 text-center max-w-3xl mx-auto mb-16">
               When someone lands on your website, they're looking for specific information. If they can't find it within a few seconds, they leave.
             </p>
@@ -305,11 +321,11 @@ export default function PlumberWebsitesPage() {
               {customerNeeds.map((need, idx) => (
                 <div
                   key={idx}
-                  className="group bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-apple-blue/30 hover:-translate-y-2 transition-all duration-500"
+                  className="group bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-accent/30 hover:-translate-y-2 transition-all duration-500"
                 >
                   <div className="relative mb-6">
-                    <div className="absolute inset-0 bg-apple-blue/20 blur-xl rounded-full group-hover:bg-apple-blue/40 transition-all duration-500" />
-                    <need.icon className="relative h-12 w-12 text-apple-blue group-hover:text-apple-blue-light transition-all duration-500" />
+                    <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/40 transition-all duration-500" />
+                    <need.icon className="relative h-12 w-12 text-accent group-hover:text-accent transition-all duration-500" />
                   </div>
                   <h3 className="text-xl font-bold font-heading text-dark mb-3">
                     {need.title}
@@ -328,23 +344,38 @@ export default function PlumberWebsitesPage() {
         </section>
 
         {/* Section 3: What We Build */}
-        <section className="bg-light py-24">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-dark mb-12 text-center">
-              Websites That Actually Work for Plumbers
-            </h2>
-            <p className="text-lg text-dark-200 mb-12 text-center max-w-3xl mx-auto">
-              We don't use generic templates. Every site is built around how your customers search and what information they need to see.
-            </p>
-            <div className="space-y-8">
+        <section className="relative bg-light py-24 overflow-hidden">
+          {/* Decorative orbs */}
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+
+          <div className="relative max-w-4xl mx-auto px-6">
+            <div className="mb-16 sm:mb-20 text-center">
+              <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
+                Our Approach
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
+                Websites That <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Actually Work</span> for Plumbers
+              </h2>
+              <p className="text-lg sm:text-xl text-dark-200 max-w-3xl mx-auto leading-relaxed">
+                We don't use generic templates. Every site is built around how your customers search and what information they need to see.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {features.map((feature, idx) => (
-                <div key={idx} className="bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-apple-blue/30 transition-all duration-500">
-                  <h3 className="text-xl font-bold font-heading text-dark mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-base text-dark-200 leading-relaxed">
-                    {feature.description}
-                  </p>
+                <div key={idx} className="group bg-light border border-dark/10 rounded-3xl p-8 hover:border-accent/30 hover:shadow-glow transition-all duration-500">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-accent via-sage to-charcoal flex items-center justify-center text-white font-bold flex-none mt-1">
+                      ✓
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold font-heading text-dark mb-2 group-hover:text-accent transition-colors">
+                        {feature.title}
+                      </h3>
+                      <p className="text-base text-dark-200 leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -352,12 +383,20 @@ export default function PlumberWebsitesPage() {
         </section>
 
         {/* Section 4: Why It Matters */}
-        <section className="bg-light-100 py-24">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-dark mb-8 text-center">
-              Own Your Leads
-            </h2>
-            <div className="bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 sm:p-12">
+        <section className="relative bg-light-100 py-24 overflow-hidden">
+          {/* Decorative orbs */}
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+
+          <div className="relative max-w-4xl mx-auto px-6">
+            <div className="mb-12 text-center">
+              <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
+                Strategy
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
+                <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Own</span> Your Leads
+              </h2>
+            </div>
+            <div className="bg-light border border-dark/10 rounded-3xl p-8 sm:p-12 hover:border-accent/30 hover:shadow-glow transition-all duration-500">
               <div className="space-y-6 text-lg text-dark-200 leading-relaxed">
                 <p>
                   Platforms like HiPages charge $15–40 per lead. That lead gets sent to multiple plumbers. You're competing on price before you've even answered the phone.
@@ -377,18 +416,26 @@ export default function PlumberWebsitesPage() {
         </section>
 
         {/* Section 5: Pricing */}
-        <section className="bg-light py-24">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-dark mb-12 text-center">
-              Pricing
-            </h2>
-            <div className="bg-gradient-to-br from-apple-blue/5 to-apple-blue/10 border border-apple-blue/20 rounded-3xl p-8 sm:p-12">
+        <section className="relative bg-light py-24 overflow-hidden">
+          {/* Decorative orbs */}
+          <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+
+          <div className="relative max-w-4xl mx-auto px-6">
+            <div className="mb-16 sm:mb-20 text-center">
+              <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
+                Investment
+              </span>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight">
+                Simple, Transparent <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Pricing</span>
+              </h2>
+            </div>
+            <div className="bg-gradient-to-br from-accent/10 via-transparent to-accent/5 border border-accent/20 rounded-3xl p-8 sm:p-12 hover:border-accent/40 hover:shadow-glow transition-all duration-500">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                 <div className="text-center">
                   <p className="text-lg text-dark-200 mb-2">Upfront</p>
                   <p className="text-4xl sm:text-5xl font-bold font-heading text-dark">
                     From{" "}
-                    <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
                       $1,500
                     </span>
                   </p>
@@ -397,7 +444,7 @@ export default function PlumberWebsitesPage() {
                   <p className="text-lg text-dark-200 mb-2">Monthly</p>
                   <p className="text-4xl sm:text-5xl font-bold font-heading text-dark">
                     From{" "}
-                    <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+                    <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
                       $49/mo
                     </span>
                   </p>
@@ -409,27 +456,27 @@ export default function PlumberWebsitesPage() {
                   <h3 className="text-xl font-bold font-heading text-dark mb-4">The build includes:</h3>
                   <ul className="space-y-3 text-base text-dark-200">
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Custom design for your business</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Mobile-first, fast-loading site</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Service pages and suburb pages</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Google reviews integration</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Contact forms and click-to-call</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>SEO setup</span>
                     </li>
                   </ul>
@@ -439,19 +486,19 @@ export default function PlumberWebsitesPage() {
                   <h3 className="text-xl font-bold font-heading text-dark mb-4">Monthly covers:</h3>
                   <ul className="space-y-3 text-base text-dark-200">
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Hosting and SSL</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Security updates and backups</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Minor content updates</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <CheckCircleIcon className="h-6 w-6 text-apple-blue flex-shrink-0 mt-0.5" />
+                      <CheckCircleIcon className="h-6 w-6 text-accent flex-shrink-0 mt-0.5" />
                       <span>Support when you need it</span>
                     </li>
                   </ul>
@@ -465,7 +512,7 @@ export default function PlumberWebsitesPage() {
               <div className="text-center">
                 <a
                   href="#contact"
-                  className="inline-block rounded-xl bg-gradient-to-r from-apple-blue to-apple-blue-dark px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                  className="inline-block rounded-xl bg-gradient-to-r from-accent to-sage px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
                   Get a Quote
                 </a>
@@ -484,7 +531,7 @@ export default function PlumberWebsitesPage() {
               {faqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-apple-blue/30"
+                  className="bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-2xl overflow-hidden transition-all duration-300 hover:border-accent/30"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
@@ -494,7 +541,7 @@ export default function PlumberWebsitesPage() {
                       {faq.question}
                     </span>
                     <ChevronDownIcon
-                      className={`h-6 w-6 text-apple-blue flex-shrink-0 transition-transform duration-300 ${
+                      className={`h-6 w-6 text-accent flex-shrink-0 transition-transform duration-300 ${
                         openFaqIndex === idx ? 'rotate-180' : ''
                       }`}
                     />
@@ -514,7 +561,7 @@ export default function PlumberWebsitesPage() {
 
         {/* Section 7: Final CTA */}
         <section id="contact" className="relative bg-light overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
+          <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3 animate-gradientShift opacity-50" 
                style={{ backgroundSize: "200% 200%" }} />
 
           <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
@@ -523,7 +570,7 @@ export default function PlumberWebsitesPage() {
               <div className="flex-1 w-full max-w-2xl">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
                   <span className="text-dark">Get More Calls </span>
-                  <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+                  <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
                     From Google
                   </span>
                 </h2>
@@ -533,7 +580,7 @@ export default function PlumberWebsitesPage() {
                 <div className="mt-8">
                   <a 
                     href="tel:+61412345678" 
-                    className="inline-flex items-center gap-2 text-xl font-semibold text-apple-blue hover:text-apple-blue-dark transition-colors"
+                    className="inline-flex items-center gap-2 text-xl font-semibold text-accent hover:text-accent-dark transition-colors"
                   >
                     <PhoneIcon className="h-6 w-6" />
                     <span>Or call now: 0412 345 678</span>
@@ -561,7 +608,7 @@ export default function PlumberWebsitesPage() {
                         value={formData.name}
                         onChange={handleChange}
                         placeholder="Your Name"
-                        className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
+                        className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base backdrop-blur-sm`}
                       />
                       {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
                     </div>
@@ -573,7 +620,7 @@ export default function PlumberWebsitesPage() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="Email *"
-                        className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
+                        className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base backdrop-blur-sm`}
                       />
                       {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
                     </div>
@@ -585,7 +632,7 @@ export default function PlumberWebsitesPage() {
                         value={formData.message}
                         onChange={handleChange}
                         placeholder="Tell me about your plumbing business"
-                        className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm resize-none`}
+                        className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base backdrop-blur-sm resize-none`}
                       />
                       {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
                     </div>
@@ -593,7 +640,7 @@ export default function PlumberWebsitesPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full rounded-xl bg-gradient-to-r from-apple-blue to-apple-blue-dark px-6 py-4 text-base font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full rounded-xl bg-gradient-to-r from-accent to-sage px-6 py-4 text-base font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'SENDING...' : 'GET MY FREE QUOTE'}
                     </button>

@@ -17,7 +17,7 @@ export default function Hero() {
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
   const pillsRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  
+
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,18 +30,18 @@ export default function Hero() {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
       tl.fromTo(
-          headlineRef.current,
-          {
-            y: 60,
-            opacity: 0,
-          },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            delay: 0.3,
-          }
-        )
+        headlineRef.current,
+        {
+          y: 60,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.3,
+        }
+      )
         .fromTo(
           subheadlineRef.current,
           {
@@ -121,7 +121,7 @@ export default function Hero() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -156,33 +156,28 @@ export default function Hero() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
   return (
-    <section className="relative min-h-screen flex items-center bg-gradient-to-b from-light via-light to-light-100 pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
-           style={{ backgroundSize: "200% 200%" }} />
-      
+    <section className="relative min-h-screen flex items-center bg-light pt-24 pb-16 sm:pt-32 sm:pb-24 overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 w-full">
         {/* Left: Headline and content */}
         <div className="flex-1 w-full max-w-2xl">
           <div className="mb-8">
-            <h1 
+            <h1
               ref={headlineRef}
               className="opacity-0 text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight"
             >
               Websites That{" "}
-              <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
                 Generate Leads
               </span>
               , Not Just Traffic.
             </h1>
-            <p 
+            <p
               ref={subheadlineRef}
               className="opacity-0 mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed"
             >
@@ -191,9 +186,9 @@ export default function Hero() {
           </div>
           <div ref={pillsRef} className="flex flex-wrap gap-3 mt-8">
             {servicePills.map((pill) => (
-              <span 
-                key={pill} 
-                className="opacity-0 bg-dark/5 backdrop-blur-sm border border-dark/10 text-dark font-medium rounded-full px-5 py-2.5 text-sm hover:bg-dark/10 hover:border-apple-blue/50 transition-all duration-300"
+              <span
+                key={pill}
+                className="opacity-0 bg-dark/5 border border-dark/10 text-dark font-medium rounded-full px-5 py-2.5 text-sm hover:bg-dark/10 hover:border-accent/50 transition-all duration-300"
               >
                 {pill}
               </span>
@@ -203,67 +198,72 @@ export default function Hero() {
 
         {/* Right: Contact Form */}
         <div ref={formRef} className="opacity-0 flex-1 w-full flex justify-center items-center">
-          <div className="w-full max-w-md bg-dark/5 backdrop-blur-xl border border-dark/10 rounded-3xl shadow-glass p-8 hover:bg-dark/[0.07] transition-all duration-500">
-            <h2 className="text-2xl font-bold font-heading text-dark mb-6 text-center">
-              GET IN TOUCH
-            </h2>
-            <form
-              onSubmit={handleSubmit}
-              className="space-y-5"
-            >
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="bot-field" />
-              
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  className={`w-full rounded-xl border ${errors.name ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
-                />
-                {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
-              </div>
-              
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Email *"
-                  className={`w-full rounded-xl border ${errors.email ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm`}
-                />
-                {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
-              </div>
-              
-              <div>
-                <textarea
-                  name="message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="How can we help your business?"
-                  className={`w-full rounded-xl border ${errors.message ? 'border-red-500' : 'border-dark/20'} bg-dark/5 px-4 py-3.5 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-apple-blue/50 focus:border-apple-blue transition-all duration-300 text-base backdrop-blur-sm resize-none`}
-                />
-                {errors.message && <p className="mt-1 text-sm text-red-400">{errors.message}</p>}
-              </div>
-              
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full rounded-xl bg-gradient-to-r from-apple-blue to-apple-blue-dark px-6 py-4 text-base font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          <div className="w-full max-w-md">
+            <div className="bg-light-100 border border-dark/10 rounded-2xl p-8 hover:border-accent/30 transition-all duration-500">
+              <h2 className="text-2xl font-bold font-heading text-dark mb-2 text-center">
+                GET IN TOUCH
+              </h2>
+              <p className="text-center text-sm text-dark-200 mb-6">
+                Let's discuss your project
+              </p>
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5"
               >
-                {isSubmitting ? 'SENDING...' : 'ENQUIRE NOW'}
-              </button>
-            </form>
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="bot-field" />
+
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your Name"
+                    className={`w-full rounded-lg border ${errors.name ? 'border-red-500' : 'border-dark/10'} bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base`}
+                  />
+                  {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+                </div>
+
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email *"
+                    className={`w-full rounded-lg border ${errors.email ? 'border-red-500' : 'border-dark/10'} bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base`}
+                  />
+                  {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                </div>
+
+                <div>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="How can we help your business?"
+                    className={`w-full rounded-lg border ${errors.message ? 'border-red-500' : 'border-dark/10'} bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base resize-none`}
+                  />
+                  {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full rounded-lg bg-gradient-to-r from-accent to-sage px-6 py-3 text-base font-semibold text-white hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'SENDING...' : 'ENQUIRE NOW'}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
 
-      <Toast 
-        show={showToast} 
+      <Toast
+        show={showToast}
         message={toastMessage}
         type={toastType}
         onClose={() => setShowToast(false)}

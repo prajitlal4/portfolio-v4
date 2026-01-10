@@ -132,13 +132,17 @@ export default function ServicesPageContent() {
       
       {/* Hero Section */}
       <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-light via-light to-light-100 pt-32 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3 animate-gradientShift opacity-50"
              style={{ backgroundSize: "200% 200%" }} />
-        
+
+        {/* Decorative orbs */}
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight max-w-5xl mx-auto">
             Digital Services That{" "}
-            <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
               Drive Results
             </span>
           </h1>
@@ -159,16 +163,16 @@ export default function ServicesPageContent() {
             {coreServices.map((service, idx) => (
               <div
                 key={service.title}
-                className="service-card group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-apple-blue/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
+                className="service-card group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-accent/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
               >
                 {/* Icon with glow effect */}
                 <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-apple-blue/20 blur-xl rounded-full group-hover:bg-apple-blue/40 transition-all duration-500" />
-                  <service.icon className="relative h-16 w-16 text-apple-blue group-hover:text-apple-blue-light group-hover:scale-110 transition-all duration-500" />
+                  <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/40 transition-all duration-500" />
+                  <service.icon className="relative h-16 w-16 text-accent group-hover:text-accent group-hover:scale-110 transition-all duration-500" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl sm:text-2xl font-bold font-heading text-dark mb-4 group-hover:text-apple-blue-light transition-colors duration-300">
+                <h3 className="text-xl sm:text-2xl font-bold font-heading text-dark mb-4 group-hover:text-accent transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-base sm:text-lg text-dark-200 leading-relaxed">
@@ -176,7 +180,7 @@ export default function ServicesPageContent() {
                 </p>
 
                 {/* Decorative gradient on hover */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-apple-blue/0 via-apple-blue/0 to-apple-blue/0 group-hover:from-apple-blue/5 group-hover:via-transparent group-hover:to-apple-blue/5 transition-all duration-500 pointer-events-none" />
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 transition-all duration-500 pointer-events-none" />
               </div>
             ))}
           </div>
@@ -184,24 +188,33 @@ export default function ServicesPageContent() {
       </section>
 
       {/* Industry-Specific Services */}
-      <section className="bg-light-100 py-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-heading text-dark mb-6 text-center">
-            Industry-Specific Websites
-          </h2>
-          <p className="text-xl text-dark-200 text-center max-w-3xl mx-auto mb-16">
-            Specialized websites designed for your industry's unique needs
-          </p>
+      <section className="relative bg-light-100 py-24 overflow-hidden">
+        {/* Decorative orbs */}
+        <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -right-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
+        <div className="relative max-w-7xl mx-auto px-6">
+          <div className="mb-16 sm:mb-20">
+            <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
+              Specialized Solutions
+            </span>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
+              Industry-Specific <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Websites</span>
+            </h2>
+            <p className="text-lg sm:text-xl text-dark-200 max-w-3xl leading-relaxed">
+              Specialized websites designed for your industry's unique needs and growth opportunities.
+            </p>
+          </div>
           
           <div ref={industryServicesRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {industryServices.map((service, idx) => (
               <div
                 key={service.title}
-                className="industry-card group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-apple-blue/30 transition-all duration-500"
+                className="industry-card group relative bg-light border border-dark/10 rounded-3xl p-8 hover:border-accent/30 hover:shadow-glow transition-all duration-500"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold font-heading text-dark mb-3 group-hover:text-apple-blue-light transition-colors duration-300">
+                    <h3 className="text-2xl font-bold font-heading text-dark mb-3 group-hover:text-accent transition-colors duration-300">
                       {service.title}
                     </h3>
                     <p className="text-base sm:text-lg text-dark-200 leading-relaxed mb-6">
@@ -211,7 +224,7 @@ export default function ServicesPageContent() {
                     {service.available ? (
                       <Link
                         href={service.href}
-                        className="inline-flex items-center gap-2 text-apple-blue font-semibold hover:text-apple-blue-dark transition-colors group-hover:gap-3 duration-300"
+                        className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-dark transition-colors group-hover:gap-3 duration-300"
                       >
                         Learn More
                         <ArrowRightIcon className="h-5 w-5" />
@@ -231,14 +244,18 @@ export default function ServicesPageContent() {
 
       {/* CTA Section */}
       <section className="relative bg-light overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-apple-blue/5 via-transparent to-apple-blue/3 animate-gradientShift opacity-50" 
+        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3 animate-gradientShift opacity-50"
              style={{ backgroundSize: "200% 200%" }} />
+
+        {/* Decorative orbs */}
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
               <span className="text-dark">Ready to Grow Your </span>
-              <span className="bg-gradient-to-r from-apple-blue-light via-apple-blue to-apple-blue-dark bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
                 Business Online?
               </span>
             </h2>
@@ -248,13 +265,13 @@ export default function ServicesPageContent() {
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="/#contact"
-                className="rounded-xl bg-gradient-to-r from-apple-blue to-apple-blue-dark px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="rounded-xl bg-gradient-to-r from-accent to-sage px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 Get in Touch
               </a>
               <Link
                 href="/#projects"
-                className="rounded-xl border-2 border-apple-blue text-apple-blue px-8 py-4 text-lg font-semibold hover:bg-apple-blue hover:text-white transition-all duration-300"
+                className="rounded-xl border-2 border-accent text-accent px-8 py-4 text-lg font-semibold hover:bg-accent hover:text-white transition-all duration-300"
               >
                 View Our Work
               </Link>

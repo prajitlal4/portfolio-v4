@@ -96,10 +96,14 @@ function Content() {
   }, []);
 
   return (
-    <div id="about" className="bg-light-100 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div id="about" className="relative bg-light-100 py-24 sm:py-32 overflow-hidden">
+      {/* Decorative orbs */}
+      <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto lg:mx-0 lg:max-w-none">
-          <h2 
+          <h2
             ref={titleRef}
             className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl font-bold font-heading tracking-tight text-dark leading-tight"
           >
@@ -129,7 +133,7 @@ function Content() {
                 className="flex-1 flex justify-center order-1 lg:order-2"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-apple-blue/20 blur-3xl rounded-full" />
+                  <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
                   <Image
                     src="/partnership.svg"
                     alt="Strategic partnership illustration"
@@ -148,7 +152,7 @@ function Content() {
                 className="flex-1 flex justify-center order-1"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-apple-blue/20 blur-3xl rounded-full" />
+                  <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
                   <Image
                     src="/website-traffic.svg"
                     alt="Website traffic growth illustration"
@@ -183,9 +187,9 @@ function Content() {
                   ].map((item, index) => (
                     <div
                       key={item.title}
-                      className="feature-card flex items-start gap-4 bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-2xl p-5 hover:bg-dark/[0.07] hover:border-apple-blue/30 transition-all duration-300"
+                      className="feature-card flex items-start gap-4 bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-2xl p-6 hover:bg-dark/[0.07] hover:border-accent/30 hover:shadow-glow transition-all duration-300"
                     >
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-apple-blue to-apple-blue-dark flex items-center justify-center text-white font-bold">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-accent via-sage to-charcoal flex items-center justify-center text-white font-bold flex-none mt-1">
                         ✓
                       </div>
                       <div className="flex-1">
