@@ -384,35 +384,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="mb-16">
-            <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-4">
-              Have Questions?
-            </h2>
-            <p className="text-lg text-dark-200">
-              Check out the pricing page for common questions about costs and timeline.
-            </p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-6">
-            <Link
-              href="/pricing"
-              className="flex-1 rounded-lg border-2 border-accent text-accent px-6 py-4 text-center font-semibold hover:bg-accent hover:text-white transition-colors duration-200"
-            >
-              View Pricing & FAQ
-            </Link>
-            <Link
-              href="/guides"
-              className="flex-1 rounded-lg border-2 border-dark/10 text-dark px-6 py-4 text-center font-semibold hover:border-accent hover:text-accent transition-colors duration-200"
-            >
-              Read the Guides
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {toast && <Toast message={toast.message} type={toast.type} />}
       <Footer />
     </main>

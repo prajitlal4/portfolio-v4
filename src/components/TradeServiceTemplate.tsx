@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import { CheckCircleIcon } from '@heroicons/react/24/outline';
-import Toast from './Toast';
+import CTA from './CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -52,16 +52,12 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
   } = props;
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
-  const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({ name: '', phone: '', business: '' });
 
   const heroRef = useRef<HTMLDivElement>(null);
   const problemRef = useRef<HTMLDivElement>(null);
   const needsRef = useRef<HTMLDivElement>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const casesRef = useRef<HTMLDivElement>(null);
-  const pricingRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -133,18 +129,6 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
         },
       });
 
-      // Pricing
-      gsap.from(pricingRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.4,
-        scrollTrigger: {
-          trigger: pricingRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      });
-
       // FAQ
       gsap.from(faqRef.current, {
         opacity: 0,
@@ -160,46 +144,6 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
 
     return () => ctx.revert();
   }, []);
-
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams({
-          'form-name': 'contact',
-          name: formData.name,
-          phone: formData.phone,
-          business: formData.business,
-          trade: tradeName,
-          message: `Website inquiry for ${tradeName}`,
-        }).toString(),
-      });
-
-      if (response.ok) {
-        setToast({ type: 'success', message: "Thanks! I'll be in touch within 24 hours." });
-        setFormData({ name: '', phone: '', business: '' });
-        setTimeout(() => setToast(null), 5000);
-      } else {
-        throw new Error('Failed');
-      }
-    } catch {
-      setToast({ type: 'error', message: 'Something went wrong. Please try calling directly.' });
-      setTimeout(() => setToast(null), 5000);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   return (
     <>
@@ -367,110 +311,8 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
         </section>
       )}
 
-      {/* Pricing & CTA Section */}
-      <section ref={pricingRef} className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Pricing Info */}
-            <div>
-              <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-6 leading-tight">
-                Transparent Pricing
-              </h2>
-              <p className="text-lg text-dark-200 mb-8 leading-relaxed">
-                Get a professional {tradeName} website without breaking the bank. All costs upfront. No surprises.
-              </p>
-
-              <div className="space-y-6 mb-10">
-                <div className="bg-light border border-dark/10 rounded-lg p-6">
-                  <p className="text-sm text-dark-200 mb-2">Upfront Investment</p>
-                  <p className="text-4xl font-bold font-heading text-dark">$1,500+</p>
-                </div>
-                <div className="bg-light border border-dark/10 rounded-lg p-6">
-                  <p className="text-sm text-dark-200 mb-2">Monthly Support (Optional)</p>
-                  <p className="text-4xl font-bold font-heading text-accent">$99/month</p>
-                </div>
-              </div>
-
-              <Link
-                href="/pricing"
-                className="inline-flex items-center justify-center px-6 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-colors duration-200"
-              >
-                View All Pricing
-              </Link>
-            </div>
-
-            {/* Quick Contact Form */}
-            <div className="bg-light border border-dark/10 rounded-lg p-8 sm:p-10">
-              <h3 className="text-2xl font-bold font-heading text-dark mb-6">
-                Get Your Free Quote
-              </h3>
-
-              <form name="contact" onSubmit={handleFormSubmit} className="space-y-6">
-                <input type="hidden" name="form-name" value="contact" />
-
-                <div>
-                  <label htmlFor="name" className="block text-sm font-semibold text-dark mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleFormChange}
-                    required
-                    placeholder="John"
-                    className="w-full rounded-lg border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="business" className="block text-sm font-semibold text-dark mb-2">
-                    Business Name
-                  </label>
-                  <input
-                    type="text"
-                    id="business"
-                    name="business"
-                    value={formData.business}
-                    onChange={handleFormChange}
-                    placeholder="Your Business"
-                    className="w-full rounded-lg border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-semibold text-dark mb-2">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleFormChange}
-                    required
-                    placeholder="0412 345 678"
-                    className="w-full rounded-lg border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full rounded-lg bg-accent px-6 py-3 text-base font-semibold text-white hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
-                >
-                  {isSubmitting ? 'Sending...' : 'Get My Quote'}
-                </button>
-
-                <p className="text-xs text-dark-200 text-center">
-                  I'll respond within 24 hours with a customized quote.
-                </p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section */}
+      <CTA />
 
       {/* FAQ Section */}
       <section ref={faqRef} className="py-24 sm:py-32 bg-light">
@@ -519,16 +361,6 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
           </div>
         </div>
       </section>
-
-      {toast && (
-        <div
-          className={`fixed bottom-6 right-6 rounded-lg px-6 py-4 text-white font-semibold shadow-lg ${
-            toast.type === 'success' ? 'bg-green-600' : 'bg-red-600'
-          }`}
-        >
-          {toast.message}
-        </div>
-      )}
     </>
   );
 }

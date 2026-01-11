@@ -30,16 +30,8 @@ export const navigationLinks = [
     ],
   },
   {
-    label: "Pricing",
-    href: "/pricing",
-  },
-  {
     label: "Our Work",
     href: "/case-studies",
-  },
-  {
-    label: "Resources",
-    href: "/guides",
   },
   {
     label: "Contact",
@@ -77,10 +69,6 @@ export const footerColumns = {
         href: "/case-studies",
       },
       {
-        label: "Pricing",
-        href: "/pricing",
-      },
-      {
         label: "About",
         href: "/about",
       },
@@ -90,16 +78,8 @@ export const footerColumns = {
     title: "Resources",
     links: [
       {
-        label: "All Guides",
-        href: "/guides",
-      },
-      {
         label: "Case Studies",
         href: "/case-studies",
-      },
-      {
-        label: "Blog",
-        href: "/guides",
       },
     ],
   },
