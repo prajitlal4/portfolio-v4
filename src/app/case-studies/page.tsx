@@ -113,7 +113,7 @@ export default function CaseStudiesPage() {
               </span>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight mb-6">
                 Real Results from{" "}
-                <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
+                <span className="text-accent">
                   Trade Websites
                 </span>
               </h1>

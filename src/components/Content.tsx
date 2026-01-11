@@ -13,93 +13,10 @@ function Content() {
   const row2ImageRef = useRef<HTMLDivElement>(null);
   const row2TextRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Title animation
-      gsap.from(titleRef.current, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
-
-      // Row 1 animations
-      gsap.from(row1TextRef.current, {
-        opacity: 0,
-        x: -40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: row1TextRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
-
-      gsap.from(row1ImageRef.current, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: row1ImageRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
-
-      // Row 2 animations
-      gsap.from(row2ImageRef.current, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: row2ImageRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
-
-      gsap.from(row2TextRef.current, {
-        opacity: 0,
-        x: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: row2TextRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
-      });
-
-      // Card animations
-      const cards = row2TextRef.current?.querySelectorAll('.feature-card');
-      if (cards) {
-        cards.forEach((card, index) => {
-          gsap.from(card, {
-            opacity: 0,
-            y: 20,
-            duration: 0.5,
-            delay: index * 0.1,
-            scrollTrigger: {
-              trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
-          });
-        });
-      }
-    });
-
-    return () => ctx.revert();
-  }, []);
+  // Animations removed - keep it simple
 
   return (
     <div id="about" className="relative bg-light-100 py-24 sm:py-32 overflow-hidden">
-      {/* Decorative orbs */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-      <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto lg:mx-0 lg:max-w-none">
@@ -107,7 +24,7 @@ function Content() {
             ref={titleRef}
             className="text-4xl sm:text-5xl lg:text-6xl max-w-4xl font-bold font-heading tracking-tight text-dark leading-tight"
           >
-            Building Trust Through Excellence in Web Development
+            About Me
           </h2>
 
           <div className="mt-20 flex flex-col gap-32">
@@ -118,13 +35,13 @@ function Content() {
                 className="flex-1 flex flex-col gap-6 order-2 lg:order-1"
               >
                 <h3 className="text-3xl sm:text-4xl font-bold font-heading text-dark">
-                  Your Strategic Partner in Digital Growth
+                  I&apos;m Prajit
                 </h3>
                 <p className="text-lg sm:text-xl text-dark-200 leading-relaxed">
-                  I&apos;m Prajit, a Perth-based software developer dedicated to helping businesses grow online through high-performance websites and applications.
+                  I build websites for tradie businesses across Perth. Plumbers, electricians, builders, renovators - I understand your industry and what works for you online.
                 </p>
                 <p className="text-lg sm:text-xl text-dark-200 leading-relaxed">
-                  My process is personal, transparent, and streamlined from day one so you get clarity and results without the confusion. With direct access to me at every step, you&apos;re always informed and never left in the dark.
+                  You get direct access to me. No agencies, no middlemen. You need a change? You call me. You have a question? You get me on the phone. That's how I work.
                 </p>
               </div>
               
@@ -133,13 +50,12 @@ function Content() {
                 className="flex-1 flex justify-center order-1 lg:order-2"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
                   <Image
                     src="/partnership.svg"
-                    alt="Strategic partnership illustration"
+                    alt="Partnership illustration"
                     width={450}
                     height={300}
-                    className="relative z-10 drop-shadow-2xl"
+                    className="drop-shadow"
                   />
                 </div>
               </div>
@@ -152,13 +68,12 @@ function Content() {
                 className="flex-1 flex justify-center order-1"
               >
                 <div className="relative">
-                  <div className="absolute inset-0 bg-accent/20 blur-3xl rounded-full" />
                   <Image
                     src="/website-traffic.svg"
-                    alt="Website traffic growth illustration"
+                    alt="Website growth illustration"
                     width={450}
                     height={300}
-                    className="relative z-10 drop-shadow-2xl"
+                    className="drop-shadow"
                   />
                 </div>
               </div>
@@ -168,28 +83,28 @@ function Content() {
                 className="flex-1 flex flex-col gap-6 order-2"
               >
                 <h3 className="text-3xl sm:text-4xl font-bold font-heading text-dark">
-                  What Sets My Approach Apart
+                  How It Works
                 </h3>
                 <div className="space-y-6">
                   {[
                     {
-                      title: "Local-First Focus",
-                      description: "I prioritise your Google Business Profile because it's what people see first when they search for businesses near them.",
+                      title: "Get Found on Google",
+                      description: "I set up your Google Business Profile and get your site ranking locally so people searching in your area find you.",
                     },
                     {
-                      title: "Strategic Website Pairing",
-                      description: "Your website is designed to match and support your profile, building trust with both Google and your customers.",
+                      title: "Direct Access",
+                      description: "You work with me, not a support team. You need something updated or have a question? You get me.",
                     },
                     {
-                      title: "No Wasted Effort",
-                      description: "No blog spam or fluff. Just consistent, meaningful updates that improve rankings and bring in leads.",
+                      title: "Ongoing Support",
+                      description: "I'm here after launch. No one-off project nonsense. I'll help you with updates and keep your site running smoothly.",
                     },
                   ].map((item, index) => (
                     <div
                       key={item.title}
-                      className="feature-card flex items-start gap-4 bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-2xl p-6 hover:bg-dark/[0.07] hover:border-accent/30 hover:shadow-glow transition-all duration-300"
+                      className="feature-card flex items-start gap-4 bg-light border border-dark/10 rounded-lg p-6 hover:border-accent hover:bg-light-100 transition-colors duration-200"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-accent via-sage to-charcoal flex items-center justify-center text-white font-bold flex-none mt-1">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-accent flex items-center justify-center text-white font-bold flex-none text-sm mt-1">
                         ✓
                       </div>
                       <div className="flex-1">

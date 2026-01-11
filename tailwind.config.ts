@@ -11,55 +11,35 @@ const config: Config = {
       colors: {
         light: {
           DEFAULT: "#ffffff",
-          100: "#fafaf8",
-          200: "#f3f1ed",
+          100: "#f8f8f8",
+          200: "#f0f0f0",
         },
         dark: {
-          DEFAULT: "#2d2620",
-          100: "#4a4238",
-          200: "#6b6258",
+          DEFAULT: "#1a1a1a",
+          100: "#333333",
+          200: "#666666",
         },
-        // Sophisticated color palette - Light mode focused
         accent: {
-          DEFAULT: "#6b5844",
-          dark: "#5a4a3a",
+          DEFAULT: "#ff6b35",
+          dark: "#e55a24",
         },
         sage: {
-          DEFAULT: "#5a6f63",
-          dark: "#4a5f53",
+          DEFAULT: "#a7c957",
+          dark: "#9ca3af",
         },
         charcoal: {
-          DEFAULT: "#2a2a2a",
+          DEFAULT: "#2d3436",
+          light: "#636e72",
         },
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
         heading: ["var(--font-lora)", "system-ui", "serif"],
       },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-      },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
-        },
-        fadeUp: {
-          "0%": { opacity: "0", transform: "translateY(40px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        scaleIn: {
-          "0%": { opacity: "0", transform: "scale(0.9)" },
-          "100%": { opacity: "1", transform: "scale(1)" },
-        },
-        slideInRight: {
-          "0%": { opacity: "0", transform: "translateX(60px)" },
-          "100%": { opacity: "1", transform: "translateX(0)" },
-        },
-        slideInLeft: {
-          "0%": { opacity: "0", transform: "translateX(-60px)" },
-          "100%": { opacity: "1", transform: "translateX(0)" },
         },
         gradientShift: {
           "0%, 100%": { backgroundPosition: "0% 50%" },
@@ -67,17 +47,13 @@ const config: Config = {
         },
       },
       animation: {
-        fadeIn: "fadeIn 0.6s ease-out forwards",
-        fadeUp: "fadeUp 0.7s ease-out forwards",
-        scaleIn: "scaleIn 0.6s ease-out forwards",
-        slideInRight: "slideInRight 0.7s ease-out forwards",
-        slideInLeft: "slideInLeft 0.7s ease-out forwards",
-        gradientShift: "gradientShift 8s ease infinite",
+        fadeIn: "fadeIn 0.3s ease-out forwards",
+        gradientShift: "gradientShift 3s ease infinite",
       },
       boxShadow: {
-        glow: "0 0 20px rgba(0, 113, 227, 0.3)",
-        "glow-lg": "0 0 40px rgba(0, 113, 227, 0.4)",
-        glass: "0 8px 32px 0 rgba(0, 0, 0, 0.1)",
+        sm: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        glow: "0 0 20px rgba(255, 107, 53, 0.3)",
+        "glow-lg": "0 0 30px rgba(255, 107, 53, 0.4)",
       },
     },
   },

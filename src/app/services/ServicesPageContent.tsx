@@ -19,28 +19,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const coreServices = [
   {
-    title: "Website Development",
-    subtitle: "Launch a high-converting website that works 24/7 to grow your business and outshine competitors.",
+    title: "Website Design & Build",
+    subtitle: "A professional website that showcases your work and makes it easy for customers to find you and book jobs.",
     icon: CodeBracketSquareIcon,
   },
   {
-    title: "Google Business Profile Management",
-    subtitle: "Get more leads from Google by optimizing your profile and ensuring your business appears in the right places.",
+    title: "Google Maps Setup",
+    subtitle: "Get your business on Google Maps so locals can find you when they search for your trade in their area.",
     icon: WrenchScrewdriverIcon,
   },
   {
-    title: "SEO Optimization",
-    subtitle: "Dominate page one of Google and watch qualified leads find you instead of your competition.",
+    title: "Local SEO",
+    subtitle: "Show up in Google search results for the areas you service. Simple as that.",
     icon: MagnifyingGlassCircleIcon,
   },
   {
-    title: "Website Maintenance & Security",
-    subtitle: "Sleep soundly knowing your site is bulletproof, lightning-fast, and always generating revenue.",
+    title: "Website Maintenance",
+    subtitle: "Keep your site secure, fast, and up to date. No surprises, no downtime.",
     icon: ShieldCheckIcon,
   },
   {
-    title: "Support & Consulting",
-    subtitle: "Get instant answers and strategic insights from me, and I will treat your success like my mission.",
+    title: "Direct Support",
+    subtitle: "You get my number. Direct access when you need changes, advice, or just have a question.",
     icon: UserGroupIcon,
   },
 ];
@@ -56,19 +56,19 @@ const industryServices = [
     title: "Websites for Electricians",
     description: "Get more emergency callouts with fast, professional websites designed for electrical contractors.",
     href: "/services/websites-for-electricians",
-    available: false,
+    available: true,
   },
   {
-    title: "Websites for Builders",
-    description: "Showcase your projects and attract high-value clients with stunning portfolio websites.",
-    href: "/services/websites-for-builders",
-    available: false,
+    title: "Websites for Landscapers",
+    description: "Showcase your best work with stunning galleries and win premium landscaping projects.",
+    href: "/services/websites-for-landscapers",
+    available: true,
   },
   {
-    title: "Websites for Tradies",
-    description: "Custom websites for all trades—designed to get you more leads and less hassle.",
-    href: "/services/websites-for-tradies",
-    available: false,
+    title: "Websites for Renovators",
+    description: "Powerful before/after portfolios that attract high-value renovation clients.",
+    href: "/services/websites-for-renovators",
+    available: true,
   },
 ];
 
@@ -79,45 +79,45 @@ export default function ServicesPageContent() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Hero animation
       gsap.from(heroRef.current, {
         opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: "power3.out"
+        y: 20,
+        duration: 0.3,
       });
 
-      // Core services animation
+      // Core services cards animation
       const coreCards = coreServicesRef.current?.querySelectorAll('.service-card');
       if (coreCards) {
         coreCards.forEach((card, index) => {
           gsap.from(card, {
             opacity: 0,
-            y: 40,
-            duration: 0.6,
-            delay: index * 0.1,
+            y: 20,
+            duration: 0.3,
+            delay: 0.1 + index * 0.05,
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
           });
         });
       }
 
-      // Industry services animation
+      // Industry services cards animation
       const industryCards = industryServicesRef.current?.querySelectorAll('.industry-card');
       if (industryCards) {
         industryCards.forEach((card, index) => {
           gsap.from(card, {
             opacity: 0,
-            y: 40,
-            duration: 0.6,
-            delay: index * 0.1,
+            y: 20,
+            duration: 0.3,
+            delay: 0.1 + index * 0.05,
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
           });
         });
       }
@@ -131,20 +131,11 @@ export default function ServicesPageContent() {
       <Navbar />
       
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-gradient-to-b from-light via-light to-light-100 pt-32 pb-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3 animate-gradientShift opacity-50"
-             style={{ backgroundSize: "200% 200%" }} />
-
-        {/* Decorative orbs */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-light pt-32 pb-24 overflow-hidden">
 
         <div className="relative max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight max-w-5xl mx-auto">
-            Digital Services That{" "}
-            <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
-              Drive Results
-            </span>
+            What We Offer
           </h1>
           <p className="mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-3xl mx-auto">
             From custom websites to SEO and ongoing support—everything you need to grow your business online.
@@ -163,24 +154,20 @@ export default function ServicesPageContent() {
             {coreServices.map((service, idx) => (
               <div
                 key={service.title}
-                className="service-card group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl p-8 hover:bg-dark/[0.07] hover:border-accent/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
+                className="service-card group relative bg-light border border-dark/10 rounded-lg p-8 hover:border-accent hover:bg-light-100 transition-colors duration-200 flex flex-col items-center text-center"
               >
-                {/* Icon with glow effect */}
-                <div className="relative mb-6">
-                  <div className="absolute inset-0 bg-accent/20 blur-xl rounded-full group-hover:bg-accent/40 transition-all duration-500" />
-                  <service.icon className="relative h-16 w-16 text-accent group-hover:text-accent group-hover:scale-110 transition-all duration-500" />
+                {/* Icon */}
+                <div className="mb-6">
+                  <service.icon className="h-12 w-12 text-accent" />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl sm:text-2xl font-bold font-heading text-dark mb-4 group-hover:text-accent transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold font-heading text-dark mb-3">
                   {service.title}
                 </h3>
-                <p className="text-base sm:text-lg text-dark-200 leading-relaxed">
+                <p className="text-sm sm:text-base text-dark-200 leading-relaxed">
                   {service.subtitle}
                 </p>
-
-                {/* Decorative gradient on hover */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent/0 via-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:via-transparent group-hover:to-accent/5 transition-all duration-500 pointer-events-none" />
               </div>
             ))}
           </div>
@@ -189,9 +176,6 @@ export default function ServicesPageContent() {
 
       {/* Industry-Specific Services */}
       <section className="relative bg-light-100 py-24 overflow-hidden">
-        {/* Decorative orbs */}
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -right-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="mb-16 sm:mb-20">
@@ -199,7 +183,7 @@ export default function ServicesPageContent() {
               Specialized Solutions
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
-              Industry-Specific <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Websites</span>
+              Industry-Specific Websites
             </h2>
             <p className="text-lg sm:text-xl text-dark-200 max-w-3xl leading-relaxed">
               Specialized websites designed for your industry's unique needs and growth opportunities.
@@ -210,21 +194,21 @@ export default function ServicesPageContent() {
             {industryServices.map((service, idx) => (
               <div
                 key={service.title}
-                className="industry-card group relative bg-light border border-dark/10 rounded-3xl p-8 hover:border-accent/30 hover:shadow-glow transition-all duration-500"
+                className="industry-card relative bg-light border border-dark/10 rounded-lg p-8 hover:border-accent hover:bg-light-100 transition-colors duration-200"
               >
                 <div className="flex items-start justify-between gap-4">
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold font-heading text-dark mb-3 group-hover:text-accent transition-colors duration-300">
+                    <h3 className="text-xl font-bold font-heading text-dark mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-base sm:text-lg text-dark-200 leading-relaxed mb-6">
+                    <p className="text-sm sm:text-base text-dark-200 leading-relaxed mb-6">
                       {service.description}
                     </p>
-                    
+
                     {service.available ? (
                       <Link
                         href={service.href}
-                        className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-dark transition-colors group-hover:gap-3 duration-300"
+                        className="inline-flex items-center gap-2 text-accent font-semibold hover:text-accent-dark transition-colors"
                       >
                         Learn More
                         <ArrowRightIcon className="h-5 w-5" />
@@ -244,34 +228,26 @@ export default function ServicesPageContent() {
 
       {/* CTA Section */}
       <section className="relative bg-light overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-accent/3 animate-gradientShift opacity-50"
-             style={{ backgroundSize: "200% 200%" }} />
-
-        {/* Decorative orbs */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
 
         <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
-              <span className="text-dark">Ready to Grow Your </span>
-              <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
-                Business Online?
-              </span>
+              <span className="text-dark">Ready to </span>
+              <span className="text-accent">Get Started?</span>
             </h2>
             <p className="mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed">
-              Let's chat about your business goals and find the right solution for you.
+              Let's talk about what you need. Get in touch and we'll find the right solution for your business.
             </p>
             <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="/#contact"
-                className="rounded-xl bg-gradient-to-r from-accent to-sage px-8 py-4 text-lg font-semibold text-white shadow-glow hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="rounded-lg bg-accent px-8 py-3 text-base font-semibold text-white hover:bg-accent-dark transition-colors duration-200"
               >
                 Get in Touch
               </a>
               <Link
                 href="/#projects"
-                className="rounded-xl border-2 border-accent text-accent px-8 py-4 text-lg font-semibold hover:bg-accent hover:text-white transition-all duration-300"
+                className="rounded-lg border border-dark/20 text-dark px-8 py-3 text-base font-semibold hover:border-accent hover:text-accent transition-colors duration-200"
               >
                 View Our Work
               </Link>

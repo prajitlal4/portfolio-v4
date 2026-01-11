@@ -5,15 +5,13 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
+import { navigationLinks } from "@/lib/data/navigation";
 
-const navigation = [
-  { name: "About", href: "/#about" },
-  { name: "Services", href: "/services" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Guides", href: "/guides" },
-  { name: "Projects", href: "/#projects" },
-  { name: "Contact", href: "/#contact" },
-];
+// Map navigation links for display
+const navigation = navigationLinks.map((link) => ({
+  name: link.label,
+  href: link.href,
+}));
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,10 +82,9 @@ function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="relative text-base font-medium text-dark hover:text-accent transition-all duration-300 group"
+              className="text-base font-medium text-dark hover:text-accent transition-colors duration-200"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>

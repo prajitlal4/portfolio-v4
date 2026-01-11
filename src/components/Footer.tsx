@@ -4,17 +4,9 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { footerColumns } from "@/lib/data/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "/services" },
-  { name: "Case Studies", href: "/case-studies" },
-  { name: "Guides", href: "/guides" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -38,32 +30,108 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef} className="relative bg-light border-t border-dark/10 overflow-hidden">
-      {/* Decorative orbs */}
-      <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-
       <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
-        <div className="flex flex-col items-center justify-center gap-10">
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-base font-medium text-dark hover:text-accent transition-all duration-300 relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-accent to-sage transition-all duration-300 group-hover:w-full" />
+        {/* Four Column Footer */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Services Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.services.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.services.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.company.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.company.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.resources.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.resources.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.contact.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.contact.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="text-sm text-dark-200">Perth, WA</li>
+              <li className="text-sm text-dark-200">9am - 5pm AWST</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-dark/10 pt-8">
+          {/* Bottom Links */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
+            <p className="text-sm text-dark-200">
+              &copy; 2025 PL Solutions. Crafted with care for Australian trade businesses.
+            </p>
+            <nav className="flex gap-6 text-sm text-dark-200">
+              <Link href="/privacy" className="hover:text-accent transition-colors duration-200">
+                Privacy Policy
               </Link>
-            ))}
-          </nav>
+              <Link href="/terms" className="hover:text-accent transition-colors duration-200">
+                Terms of Service
+              </Link>
+            </nav>
+          </div>
 
-          {/* Divider */}
-          <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-accent/50 to-transparent rounded-full" />
-
-          {/* Copyright */}
-          <p className="text-center text-sm text-dark max-w-md">
-            &copy; 2025 PL Solutions. Crafted with care for Australian businesses.
+          {/* ABN */}
+          <p className="text-xs text-dark-200 text-center">
+            ABN: [Your ABN Here]
           </p>
         </div>
       </div>

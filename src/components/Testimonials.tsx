@@ -11,15 +11,16 @@ function Testimonial() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Card animation
       gsap.from(cardRef.current, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
+        y: 20,
+        duration: 0.3,
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
       });
     });
 
@@ -29,9 +30,9 @@ function Testimonial() {
   return (
     <section ref={cardRef} className="relative isolate overflow-hidden bg-light px-6 py-24 sm:py-32 lg:px-8">
       <div className="mx-auto max-w-4xl">
-        <figure className="relative bg-light-100 border border-dark/10 rounded-2xl p-10 sm:p-12 lg:p-16 hover:border-accent/30 transition-all duration-500">
+        <figure className="relative bg-light-100 border border-dark/10 rounded-lg p-10 sm:p-12 lg:p-16 hover:border-accent/50 transition-colors duration-200">
           {/* Accent bar */}
-          <div className="absolute left-0 top-12 bottom-12 w-1 bg-gradient-to-b from-accent via-sage to-charcoal rounded-full" />
+          <div className="absolute left-0 top-12 bottom-12 w-1 bg-accent rounded-full" />
 
           <blockquote className="text-left pl-8">
             <p className="text-2xl sm:text-3xl font-bold font-heading text-dark leading-relaxed mb-8">

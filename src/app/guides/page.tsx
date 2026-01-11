@@ -102,16 +102,16 @@ export default function BlogPage() {
       // Hero animation
       gsap.from(heroRef.current, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
+        y: 20,
+        duration: 0.3,
       });
 
       // Title animation
       gsap.from(titleRef.current, {
         opacity: 0,
-        y: 30,
-        duration: 0.8,
-        delay: 0.2,
+        y: 15,
+        duration: 0.3,
+        delay: 0.1,
         scrollTrigger: {
           trigger: titleRef.current,
           start: 'top 85%',
@@ -122,9 +122,9 @@ export default function BlogPage() {
       // Featured post animation
       gsap.from(featuredRef.current, {
         opacity: 0,
-        scale: 0.95,
-        duration: 0.8,
-        delay: 0.3,
+        y: 20,
+        duration: 0.3,
+        delay: 0.15,
         scrollTrigger: {
           trigger: featuredRef.current,
           start: 'top 85%',
@@ -138,9 +138,9 @@ export default function BlogPage() {
         posts.forEach((post, index) => {
           gsap.from(post, {
             opacity: 0,
-            y: 30,
-            duration: 0.6,
-            delay: 0.4 + index * 0.1,
+            y: 15,
+            duration: 0.3,
+            delay: 0.2 + index * 0.05,
             scrollTrigger: {
               trigger: post,
               start: 'top 85%',
@@ -159,10 +159,7 @@ export default function BlogPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-gradient-to-b from-light via-light to-light-100 overflow-hidden">
-        {/* Decorative orbs */}
-        <div className="absolute -top-40 -right-32 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-20 -left-40 w-80 h-80 bg-accent/5 rounded-full blur-3xl" />
+      <section ref={heroRef} className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-light overflow-hidden">
 
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -170,7 +167,7 @@ export default function BlogPage() {
               Resources & Insights
             </span>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight mb-6">
-              Web Strategy & SEO <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">For Trade Pros</span>
+              Web Strategy & SEO For Trade Pros
             </h1>
             <p className="text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-2xl">
               Learn how to build websites that generate leads, rank on Google, and outshine your competition.
@@ -191,10 +188,8 @@ export default function BlogPage() {
           <Link href={`/blog/${featuredPost.slug}`}>
             <article
               ref={featuredRef}
-              className="group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden hover:bg-dark/[0.07] hover:border-accent/30 transition-all duration-500 cursor-pointer"
+              className="group relative bg-light border border-dark/10 rounded-lg overflow-hidden hover:border-accent hover:bg-light-100 transition-colors duration-200 cursor-pointer"
             >
-              {/* Glow effect on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/0 to-accent/0 group-hover:from-accent/5 group-hover:to-accent/5 transition-all duration-500" />
 
               <div className="relative flex flex-col lg:flex-row">
                 {/* Image */}
@@ -246,9 +241,6 @@ export default function BlogPage() {
                   </div>
                 </div>
               </div>
-
-              {/* Border effect */}
-              <div className="absolute inset-0 rounded-3xl border border-white/0 group-hover:border-accent/50 transition-all duration-500 pointer-events-none" />
             </article>
           </Link>
         </div>
@@ -269,7 +261,7 @@ export default function BlogPage() {
           <div ref={postsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {recentPosts.map((post) => (
               <Link key={post.id} href={`/blog/${post.slug}`}>
-                <article className="blog-card group h-full flex flex-col bg-light border border-dark/10 rounded-2xl overflow-hidden hover:border-accent/30 hover:shadow-glow transition-all duration-500">
+                <article className="blog-card group h-full flex flex-col bg-light border border-dark/10 rounded-lg overflow-hidden hover:border-accent hover:bg-light-100 transition-colors duration-200">
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden bg-light-100">
                     <Image
@@ -313,7 +305,7 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-b from-light to-light-100">
+      <section className="py-16 sm:py-24 bg-light">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-6">
             Ready to Transform Your Web Presence?
@@ -323,9 +315,9 @@ export default function BlogPage() {
           </p>
           <Link
             href="/#contact"
-            className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-accent to-sage text-white font-semibold rounded-xl shadow-glow hover:shadow-glow-lg hover:scale-[1.05] active:scale-[0.95] transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-colors duration-200"
           >
-            Start a Conversation
+            Get in Touch
           </Link>
         </div>
       </section>

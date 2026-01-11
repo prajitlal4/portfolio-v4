@@ -257,7 +257,7 @@ export default function PlumberWebsitesPage() {
           <div className="relative max-w-7xl mx-auto px-6 text-center">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight max-w-5xl mx-auto">
               Websites for{" "}
-              <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
+              <span className="text-accent">
                 Plumbers
               </span>
             </h1>
@@ -282,7 +282,7 @@ export default function PlumberWebsitesPage() {
 
           <div className="relative max-w-4xl mx-auto px-6">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-8 leading-tight">
-              Your Website Has <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">One Job</span>
+              Your Website Has <span className="text-accent">One Job</span>
             </h2>
             <div className="space-y-6 text-lg text-dark-200 leading-relaxed">
               <p>
@@ -310,7 +310,7 @@ export default function PlumberWebsitesPage() {
                 Critical Elements
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight">
-                What Customers <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Need to See</span> Immediately
+                What Customers <span className="text-accent">Need to See</span> Immediately
               </h2>
             </div>
             <p className="text-xl text-dark-200 text-center max-w-3xl mx-auto mb-16">
@@ -354,7 +354,7 @@ export default function PlumberWebsitesPage() {
                 Our Approach
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
-                Websites That <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Actually Work</span> for Plumbers
+                Websites That <span className="text-accent">Actually Work</span> for Plumbers
               </h2>
               <p className="text-lg sm:text-xl text-dark-200 max-w-3xl mx-auto leading-relaxed">
                 We don't use generic templates. Every site is built around how your customers search and what information they need to see.
@@ -393,7 +393,7 @@ export default function PlumberWebsitesPage() {
                 Strategy
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
-                <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Own</span> Your Leads
+                <span className="text-accent">Own</span> Your Leads
               </h2>
             </div>
             <div className="bg-light border border-dark/10 rounded-3xl p-8 sm:p-12 hover:border-accent/30 hover:shadow-glow transition-all duration-500">
@@ -426,7 +426,7 @@ export default function PlumberWebsitesPage() {
                 Investment
               </span>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight">
-                Simple, Transparent <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">Pricing</span>
+                Simple, Transparent <span className="text-accent">Pricing</span>
               </h2>
             </div>
             <div className="bg-gradient-to-br from-accent/10 via-transparent to-accent/5 border border-accent/20 rounded-3xl p-8 sm:p-12 hover:border-accent/40 hover:shadow-glow transition-all duration-500">
@@ -435,7 +435,7 @@ export default function PlumberWebsitesPage() {
                   <p className="text-lg text-dark-200 mb-2">Upfront</p>
                   <p className="text-4xl sm:text-5xl font-bold font-heading text-dark">
                     From{" "}
-                    <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
+                    <span className="text-accent">
                       $1,500
                     </span>
                   </p>
@@ -444,7 +444,7 @@ export default function PlumberWebsitesPage() {
                   <p className="text-lg text-dark-200 mb-2">Monthly</p>
                   <p className="text-4xl sm:text-5xl font-bold font-heading text-dark">
                     From{" "}
-                    <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
+                    <span className="text-accent">
                       $49/mo
                     </span>
                   </p>
@@ -570,7 +570,7 @@ export default function PlumberWebsitesPage() {
               <div className="flex-1 w-full max-w-2xl">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
                   <span className="text-dark">Get More Calls </span>
-                  <span className="bg-gradient-to-r from-accent via-sage to-charcoal bg-clip-text text-transparent">
+                  <span className="text-accent">
                     From Google
                   </span>
                 </h2>

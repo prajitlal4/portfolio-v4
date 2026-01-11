@@ -47,29 +47,29 @@ function Projects() {
       // Title animation
       gsap.from(titleRef.current, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
+        y: 20,
+        duration: 0.3,
         scrollTrigger: {
           trigger: titleRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
       });
 
-      // Project card animations
+      // Project cards animation
       const cards = projectsRef.current?.querySelectorAll('.project-card');
       if (cards) {
         cards.forEach((card, index) => {
           gsap.from(card, {
             opacity: 0,
-            y: 40,
-            duration: 0.7,
-            delay: index * 0.15,
+            y: 20,
+            duration: 0.3,
+            delay: 0.1 + index * 0.1,
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
           });
         });
       }
@@ -98,7 +98,7 @@ function Projects() {
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative block overflow-hidden rounded-3xl aspect-[4/3] bg-light-200"
+                className="group relative block overflow-hidden rounded-lg aspect-[4/3] bg-light-200"
               >
                 {/* Project Image */}
                 <Image
@@ -106,17 +106,14 @@ function Projects() {
                   height={600}
                   width={800}
                   alt={`${project.title} website screenshot`}
-                  className="absolute inset-0 h-full w-full object-cover object-center transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
+                  className="absolute inset-0 h-full w-full object-cover object-center"
                 />
 
-                {/* Gradient Overlay - stronger for better text visibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent md:from-black/90 md:via-black/40 md:group-hover:from-black/70 md:group-hover:via-black/20 transition-all duration-500" />
-
-                {/* Blue glow on hover */}
-                <div className="absolute inset-0 bg-accent/0 md:group-hover:bg-accent/10 transition-all duration-500" />
+                {/* Overlay - consistent visibility */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
                 {/* Content */}
-                <div className="relative h-full flex flex-col justify-end p-6 sm:p-8 md:p-10 z-10 md:group-hover:translate-y-[-8px] transition-transform duration-500">
+                <div className="relative h-full flex flex-col justify-end p-6 sm:p-8 md:p-10 z-10">
                   <span className="inline-block text-xs sm:text-sm font-bold text-accent mb-2 sm:mb-3 tracking-wide uppercase" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
                     {project.category}
                   </span>
@@ -127,17 +124,7 @@ function Projects() {
                     {project.description}
                   </p>
 
-                  {/* View Project Arrow */}
-                  <div className="mt-4 sm:mt-6 flex items-center gap-2 text-accent font-semibold opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
-                    <span>View Project</span>
-                    <svg className="w-5 h-5 md:group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
                 </div>
-
-                {/* Border effect on hover */}
-                <div className="absolute inset-0 rounded-3xl border border-white/0 md:group-hover:border-accent/50 transition-all duration-500 pointer-events-none" />
               </Link>
             </div>
           ))}
