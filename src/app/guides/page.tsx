@@ -7,6 +7,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -305,22 +306,7 @@ export default function BlogPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-light">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-6">
-            Ready to Transform Your Web Presence?
-          </h2>
-          <p className="text-lg sm:text-xl text-dark-200 mb-10 max-w-2xl mx-auto leading-relaxed">
-            These insights are just the start. Let's discuss how to apply them to your specific business.
-          </p>
-          <Link
-            href="/#contact"
-            className="inline-flex items-center justify-center px-8 py-3 bg-accent text-white font-semibold rounded-lg hover:bg-accent-dark transition-colors duration-200"
-          >
-            Get in Touch
-          </Link>
-        </div>
-      </section>
+      <CTA />
 
       <Footer />
     </main>

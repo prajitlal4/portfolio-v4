@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -232,26 +233,7 @@ export default function CaseStudiesPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="relative bg-light-100 py-24 sm:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-sage/5 to-accent/5 -z-10" />
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-accent/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -left-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-
-          <div className="relative max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
-              Ready to grow your online presence?
-            </h2>
-            <p className="text-lg sm:text-xl text-dark-200 leading-relaxed max-w-2xl mx-auto mb-8">
-              Let's create a website that generates leads for your business. Get in touch to discuss your project.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-block bg-gradient-to-r from-accent to-sage text-white font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
-            >
-              Start Your Project
-            </Link>
-          </div>
-        </section>
+        <CTA />
       </main>
       <Footer />
     </>

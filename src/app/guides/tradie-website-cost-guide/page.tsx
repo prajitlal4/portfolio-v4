@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import QuickQuoteForm from '@/components/QuickQuoteForm';
+import CTA from '@/components/CTA';
 import GetStartedButton from '@/components/GetStartedButton';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -208,25 +208,8 @@ export default function CostGuidePage() {
         </div>
       </article>
 
-      {/* Form CTA Section */}
-      <section className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-6">
-                Get Your Pricing Quote
-              </h2>
-              <p className="text-lg sm:text-xl text-dark-200 max-w-2xl mx-auto">
-                Let's discuss which package is right for your trade business, no obligation.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <QuickQuoteForm id="contact-form" title="Get Your Quote" subtitle="We'll send a personalized quote" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section */}
+      <CTA />
 
       <Footer />
     </main>

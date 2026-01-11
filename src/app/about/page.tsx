@@ -5,53 +5,39 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import QuickQuoteForm from '@/components/QuickQuoteForm';
-import GetStartedButton from '@/components/GetStartedButton';
+import Header from '@/components/Header';
+import CTA from '@/components/CTA';
 import { projects } from '@/lib/data/projects';
 import { CheckCircleIcon, SparklesIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const philosophies = [
   {
-    title: 'Direct Access',
-    description: 'You get my personal number. Not a support ticket queue. Not a chatbot. Real, direct access when you need changes or advice.',
-    icon: UserGroupIcon,
-  },
-  {
-    title: 'Trade-Focused Expertise',
-    description: 'I specialize in trade businesses because I understand your challenges: seasonality, service areas, local competition, and urgent communication needs.',
+    title: 'Competitor Research First',
+    description: 'Every site starts with deep analysis of what\'s ranking in your market. I find what\'s working for your competitors and build something better.',
     icon: SparklesIcon,
   },
   {
-    title: 'Perth-Based, Perth-Focused',
-    description: 'I\'m invested in Perth\'s success. I understand the local market, compete here myself, and build websites optimized for your specific suburbs and communities.',
+    title: 'Schema Markup & Technical SEO',
+    description: 'Schema markup puts you in the map pack with your reviews and phone number visible. I validate all markup to ensure Google can read your business info correctly.',
     icon: CheckCircleIcon,
+  },
+  {
+    title: 'Content Built for Search',
+    description: 'Service pages and suburb pages written for actual search terms your customers are making. No generic filler. Every word targets a real query.',
+    icon: UserGroupIcon,
   },
 ];
 
-const stats = [
-  {
-    number: '4+',
-    label: 'Years of Web Design',
-  },
-  {
-    number: '50+',
-    label: 'Trade Businesses Served',
-  },
-  {
-    number: '240%',
-    label: 'Avg. Lead Increase',
-  },
-];
 
 export default function AboutPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const storyRef = useRef<HTMLDivElement>(null);
   const philosophyRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -92,23 +78,6 @@ export default function AboutPage() {
         });
       }
 
-      // Stats
-      const statNumbers = statsRef.current?.querySelectorAll('.stat-number');
-      if (statNumbers) {
-        statNumbers.forEach((stat) => {
-          gsap.from(stat, {
-            opacity: 0,
-            scale: 0.8,
-            duration: 0.4,
-            scrollTrigger: {
-              trigger: stat,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          });
-        });
-      }
-
       // Projects section
       gsap.from(projectsRef.current, {
         opacity: 0,
@@ -121,17 +90,6 @@ export default function AboutPage() {
         },
       });
 
-      // CTA section
-      gsap.from(ctaRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.4,
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      });
     });
 
     return () => ctx.revert();
@@ -142,29 +100,13 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section ref={heroRef} className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-light overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-sage/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
-              About Me
-            </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight mb-6">
-              Web Design Built for Perth <span className="text-accent">Trade Businesses</span>
-            </h1>
-            <p className="text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-2xl">
-              I specialize in helping trade professionals—plumbers, electricians, landscapers, and renovators—get found online and convert visitors into customers. Direct access, proven results, Perth-focused.
-            </p>
-            <div className="mt-8">
-              <GetStartedButton />
-            </div>
-          </div>
-        </div>
-      </section>
+      <div ref={heroRef}>
+        <Header
+          secondaryText="About Me"
+          headerText="Web Design Built for Perth Trade Businesses"
+          description="I specialize in helping trade professionals—plumbers, electricians, landscapers, and renovators—get found online and convert visitors into customers. Direct access, proven results, Perth-focused."
+        />
+      </div>
 
       {/* Personal Story Section */}
       <section ref={storyRef} className="py-24 sm:py-32 bg-light-100">
@@ -183,24 +125,20 @@ export default function AboutPage() {
             {/* Story Content */}
             <div>
               <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-6 leading-tight">
-                Why I Focus on Trade Businesses
+                I Build Websites for Australian Trade Businesses
               </h2>
 
               <div className="space-y-5 text-lg text-dark-200 leading-relaxed">
                 <p>
-                  I didn't start out as a web designer. I worked in the construction and trades industry, and I saw the same problem over and over: talented, hardworking trade professionals were losing business because they weren't visible online.
+                  Most web agencies treat tradies like every other client. Template site, stock photos, done. But that doesn't work when your customers are searching "emergency plumber Fremantle" at 9pm on a Sunday.
                 </p>
 
                 <p>
-                  They'd lose jobs to competitors with basic websites. They'd get undercut by national directories like HiPages and Hipages. They'd spend thousands on ads and get nothing back. It frustrated me.
+                  <span className="text-accent font-semibold">Trade businesses need different things.</span> You're competing in tight local markets. Customers need to trust you before they call. And 90% of your leads come from Google searches, not people who already know your business name.
                 </p>
 
                 <p>
-                  So I learned web design specifically to solve this problem. Now, I build websites for trade businesses that actually work: sites that rank on Google, convert visitors into phone calls, and give you a competitive advantage in your local market.
-                </p>
-
-                <p>
-                  <span className="text-accent font-semibold">Perth is my focus.</span> I'm based here, I understand the local market, and I believe in building businesses that stay local and thrive locally.
+                  I don't just build websites. I study what's already ranking in your area first. Before I write any code, I analyze the top plumbers, electricians, or landscapers in your suburbs. What keywords are they using? How is their content structured? What technical stuff are they doing right or wrong? Then I build you something better.
                 </p>
               </div>
             </div>
@@ -213,10 +151,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16 sm:mb-20">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-6">
-              How I Work
+              What You Actually Get
             </h2>
             <p className="text-xl text-dark-200 max-w-2xl mx-auto">
-              Three core principles that guide everything I do for my clients.
+              Every site is built with three core components that drive real results.
             </p>
           </div>
 
@@ -241,26 +179,6 @@ export default function AboutPage() {
                 <p className="text-sm sm:text-base text-dark-200 leading-relaxed">
                   {philosophy.description}
                 </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats/Proof Section */}
-      <section ref={statsRef} className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="stat-number">
-                  <p className="text-5xl sm:text-6xl font-bold font-heading text-accent mb-3">
-                    {stat.number}
-                  </p>
-                  <p className="text-lg text-dark-200 font-medium">
-                    {stat.label}
-                  </p>
-                </div>
               </div>
             ))}
           </div>
@@ -321,25 +239,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section with Form */}
-      <section ref={ctaRef} className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-6">
-                Ready to Get Found Online?
-              </h2>
-              <p className="text-lg sm:text-xl text-dark-200 max-w-2xl mx-auto">
-                Let's discuss how a professional website can attract more customers for your trade business.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <QuickQuoteForm id="contact-form" title="Start Your Project" subtitle="Let's get your website built" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA />
 
       <Footer />
     </main>

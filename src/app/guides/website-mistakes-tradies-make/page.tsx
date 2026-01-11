@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import QuickQuoteForm from '@/components/QuickQuoteForm';
+import CTA from '@/components/CTA';
 import GetStartedButton from '@/components/GetStartedButton';
 import { XCircleIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
 
@@ -158,25 +158,8 @@ export default function MistakesGuidePage() {
         </div>
       </article>
 
-      {/* Form CTA Section */}
-      <section className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-6">
-                Fix Your Website Today
-              </h2>
-              <p className="text-lg sm:text-xl text-dark-200 max-w-2xl mx-auto">
-                Let's review your current website and identify opportunities to get more leads.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <QuickQuoteForm id="contact-form" title="Website Review" subtitle="Let's fix what's not working" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section */}
+      <CTA />
 
       <Footer />
     </main>

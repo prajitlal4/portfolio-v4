@@ -34,6 +34,7 @@ interface TradeServiceTemplateProps {
     metric: string;
   }>;
   faqs: FAQItem[];
+  showHero?: boolean;
 }
 
 export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
@@ -47,6 +48,7 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
     features,
     caseStudies = [],
     faqs,
+    showHero = true,
   } = props;
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
@@ -202,29 +204,31 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
   return (
     <>
       {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-light overflow-hidden"
-      >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-sage/5 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
-              For {tradeName}s
-            </span>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight mb-6">
-              {headline}
-            </h1>
-            <p className="text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-2xl">
-              {subheadline}
-            </p>
+      {showHero && (
+        <section
+          ref={heroRef}
+          className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 bg-light overflow-hidden"
+        >
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <div className="absolute top-20 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-sage/5 rounded-full blur-3xl" />
           </div>
-        </div>
-      </section>
+
+          <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-3xl">
+              <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
+                For {tradeName}s
+              </span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight mb-6">
+                {headline}
+              </h1>
+              <p className="text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-2xl">
+                {subheadline}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Problem & Solution Section */}
       <section ref={problemRef} className="py-24 sm:py-32 bg-light-100">

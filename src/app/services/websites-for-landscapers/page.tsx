@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import TradeServiceTemplate from '@/components/TradeServiceTemplate';
 import {
   SparklesIcon,
@@ -115,7 +116,15 @@ export default function LandscapersPage() {
   return (
     <main className="bg-light min-h-screen">
       <Navbar />
-      <TradeServiceTemplate {...landscaperContent} />
+      <Header
+        secondaryText="For Landscapers"
+        headerText={landscaperContent.headline}
+        description={landscaperContent.subheadline}
+        showButton={false}
+        useImage={true}
+        imageUrl={null}
+      />
+      <TradeServiceTemplate {...landscaperContent} showHero={false} />
       <Footer />
     </main>
   );

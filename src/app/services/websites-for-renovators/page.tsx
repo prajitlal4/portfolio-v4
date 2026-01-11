@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import TradeServiceTemplate from '@/components/TradeServiceTemplate';
 import {
   SparklesIcon,
@@ -115,7 +116,15 @@ export default function RenovatorsPage() {
   return (
     <main className="bg-light min-h-screen">
       <Navbar />
-      <TradeServiceTemplate {...renovatorContent} />
+      <Header
+        secondaryText="For Renovators"
+        headerText={renovatorContent.headline}
+        description={renovatorContent.subheadline}
+        showButton={false}
+        useImage={true}
+        imageUrl={null}
+      />
+      <TradeServiceTemplate {...renovatorContent} showHero={false} />
       <Footer />
     </main>
   );

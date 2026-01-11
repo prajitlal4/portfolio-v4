@@ -84,10 +84,6 @@ export const footerColumns = {
         label: "About",
         href: "/about",
       },
-      {
-        label: "Perth Coverage",
-        href: "/perth",
-      },
     ],
   },
   resources: {
@@ -113,10 +109,6 @@ export const footerColumns = {
       {
         label: "Get in Touch",
         href: "/contact",
-      },
-      {
-        label: "Perth, WA",
-        href: "/perth",
       },
     ],
   },

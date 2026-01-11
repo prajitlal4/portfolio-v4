@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import TradeServiceTemplate from '@/components/TradeServiceTemplate';
 import {
   PhoneIcon,
@@ -114,7 +115,15 @@ export default function ElectriciansPage() {
   return (
     <main className="bg-light min-h-screen">
       <Navbar />
-      <TradeServiceTemplate {...electricianContent} />
+      <Header
+        secondaryText="For Electricians"
+        headerText={electricianContent.headline}
+        description={electricianContent.subheadline}
+        showButton={false}
+        useImage={true}
+        imageUrl={null}
+      />
+      <TradeServiceTemplate {...electricianContent} showHero={false} />
       <Footer />
     </main>
   );

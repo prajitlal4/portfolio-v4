@@ -27,7 +27,7 @@ function Content() {
             About Me
           </h2>
 
-          <div className="mt-20 flex flex-col gap-32">
+          <div className="mt-8 flex flex-col gap-32">
             {/* Row 1: Text left, image right */}
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div

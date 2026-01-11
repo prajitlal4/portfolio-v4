@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import QuickQuoteForm from '@/components/QuickQuoteForm';
+import CTA from '@/components/CTA';
 import GetStartedButton from '@/components/GetStartedButton';
 import { CheckIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 
@@ -181,7 +181,6 @@ export default function PricingPage() {
   const supportRef = useRef<HTMLDivElement>(null);
   const addOnsRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLDivElement>(null);
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
 
@@ -254,17 +253,6 @@ export default function PricingPage() {
         },
       });
 
-      // CTA animation
-      gsap.from(ctaRef.current, {
-        opacity: 0,
-        y: 20,
-        duration: 0.4,
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: 'top 85%',
-          toggleActions: 'play none none none',
-        },
-      });
     });
 
     return () => ctx.revert();
@@ -543,25 +531,8 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Final CTA with Form */}
-      <section ref={ctaRef} className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark mb-6">
-                Ready to Get Started?
-              </h2>
-              <p className="text-lg sm:text-xl text-dark-200 max-w-2xl mx-auto">
-                Pick a package above or let's talk about what's right for your business.
-              </p>
-            </div>
-
-            <div className="flex justify-center">
-              <QuickQuoteForm id="contact-form" title="Get a Quote" subtitle="Tell us about your project" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* CTA Section */}
+      <CTA />
 
       <Footer />
     </main>

@@ -14,6 +14,8 @@ import {
 } from '@heroicons/react/24/outline';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import CTA from "@/components/CTA";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -131,17 +133,14 @@ export default function ServicesPageContent() {
       <Navbar />
       
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[70vh] flex items-center bg-light pt-32 pb-24 overflow-hidden">
-
-        <div className="relative max-w-7xl mx-auto px-6 text-center">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1] tracking-tight max-w-5xl mx-auto">
-            What We Offer
-          </h1>
-          <p className="mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-3xl mx-auto">
-            From custom websites to SEO and ongoing support—everything you need to grow your business online.
-          </p>
-        </div>
-      </section>
+      <div ref={heroRef}>
+        <Header
+          secondaryText="Services"
+          headerText="What We Offer"
+          description="From custom websites to SEO and ongoing support—everything you need to grow your business online."
+          showButton={false}
+        />
+      </div>
 
       {/* Core Services Section */}
       <section className="bg-light py-24">
@@ -226,35 +225,7 @@ export default function ServicesPageContent() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative bg-light overflow-hidden">
-
-        <div className="relative px-6 py-24 sm:px-6 sm:py-32 lg:px-8">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight leading-tight">
-              <span className="text-dark">Ready to </span>
-              <span className="text-accent">Get Started?</span>
-            </h2>
-            <p className="mt-8 text-xl sm:text-2xl text-dark-200 leading-relaxed">
-              Let's talk about what you need. Get in touch and we'll find the right solution for your business.
-            </p>
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a
-                href="/#contact"
-                className="rounded-lg bg-accent px-8 py-3 text-base font-semibold text-white hover:bg-accent-dark transition-colors duration-200"
-              >
-                Get in Touch
-              </a>
-              <Link
-                href="/#projects"
-                className="rounded-lg border border-dark/20 text-dark px-8 py-3 text-base font-semibold hover:border-accent hover:text-accent transition-colors duration-200"
-              >
-                View Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA />
 
       <Footer />
     </main>
