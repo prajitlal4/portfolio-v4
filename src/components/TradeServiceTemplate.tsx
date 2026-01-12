@@ -35,6 +35,7 @@ interface TradeServiceTemplateProps {
   }>;
   faqs: FAQItem[];
   showHero?: boolean;
+  showCTA?: boolean;
 }
 
 export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
@@ -49,6 +50,7 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
     caseStudies = [],
     faqs,
     showHero = true,
+    showCTA = true,
   } = props;
 
   const [expandedFAQ, setExpandedFAQ] = useState<number | null>(null);
@@ -312,7 +314,7 @@ export default function TradeServiceTemplate(props: TradeServiceTemplateProps) {
       )}
 
       {/* CTA Section */}
-      <CTA />
+      {showCTA && <CTA />}
 
       {/* FAQ Section */}
       <section ref={faqRef} className="py-24 sm:py-32 bg-light">

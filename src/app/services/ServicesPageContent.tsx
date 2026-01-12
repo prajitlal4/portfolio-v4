@@ -137,7 +137,7 @@ export default function ServicesPageContent() {
         <Header
           secondaryText="Services"
           headerText="What We Offer"
-          description="From custom websites to SEO and ongoing support—everything you need to grow your business online."
+          description="Custom websites, SEO, ongoing support. Everything you need to actually grow your business online."
           showButton={false}
         />
       </div>
@@ -179,13 +179,13 @@ export default function ServicesPageContent() {
         <div className="relative max-w-7xl mx-auto px-6">
           <div className="mb-16 sm:mb-20">
             <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wide mb-4">
-              Specialized Solutions
+              By Trade
             </span>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight mb-6">
-              Industry-Specific Websites
+              Built for Your Trade
             </h2>
             <p className="text-lg sm:text-xl text-dark-200 max-w-3xl leading-relaxed">
-              Specialized websites designed for your industry's unique needs and growth opportunities.
+              Each trade has different needs. We build websites that actually work for plumbers, electricians, landscapers, and renovators.
             </p>
           </div>
           

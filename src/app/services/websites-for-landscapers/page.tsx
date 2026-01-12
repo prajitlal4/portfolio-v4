@@ -5,111 +5,94 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import TradeServiceTemplate from '@/components/TradeServiceTemplate';
+import CTA from '@/components/CTA';
 import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 import {
-  SparklesIcon,
-  CheckCircleIcon,
-  StarIcon,
-  MapPinIcon,
   PhoneIcon,
-  UserGroupIcon,
+  MapPinIcon,
+  SparklesIcon,
+  ShieldCheckIcon,
+  StarIcon,
+  WrenchScrewdriverIcon,
 } from '@heroicons/react/24/outline';
 
 const landscaperContent = {
   tradeName: 'Landscapers',
-  headline: 'Professional Websites for Landscapers',
-  subheadline: 'Showcase your work. Attract premium clients. Book more projects.',
+  headline: 'Websites for Landscapers',
+  subheadline: 'Showcase your work. Get found online. Convert visitors into project quotes.',
   problemStatement:
-    'Your landscape work is visual. A project showcase website with stunning before/after galleries shows potential clients exactly what you can do. That\'s how you attract customers willing to pay top dollar—because they\'ve already seen your quality.',
+    'When a homeowner decides to fix their backyard, they search "landscaper near me" or "landscape design Perth." They\'re scrolling through options, comparing work quality, and trying to figure out who they can trust with a $15k-$50k project. If your website doesn\'t show your best work or looks unprofessional, they move on to the next landscaper. Your website\'s only job is to showcase your work so well that they reach out for a quote.',
   solutionPoints: [
-    'Large, beautiful image galleries of your best work',
-    'Before/after project showcases',
-    'Seasonal service highlights (maintenance, installations, seasonal specials)',
-    'Project timeline and planning information',
-    'Service area maps covering Perth suburbs',
-    'Instant quote request and consultation booking',
+    'Photo galleries showing your best projects (before and after)',
+    'Clear breakdown of your services and process',
+    'Testimonials from real customers displayed prominently',
+    'Mobile-friendly design since most people browse on their phone',
+    'Fast loading so customers don\'t bounce before seeing your work',
   ],
   customerNeeds: [
     {
       icon: SparklesIcon,
-      title: 'Can you do my project type?',
-      description: 'Project type showcases with examples',
-    },
-    {
-      icon: CheckCircleIcon,
-      title: 'What\'s your quality level?',
-      description: 'High-quality before/after galleries',
-    },
-    {
-      icon: StarIcon,
-      title: 'Do you handle maintenance?',
-      description: 'Seasonal service highlighting',
-    },
-    {
-      icon: PhoneIcon,
-      title: 'How long does it take?',
-      description: 'Project timelines and planning guides',
+      title: 'Can I see examples of your work?',
+      description: 'High-quality photos of completed projects answer this instantly.',
     },
     {
       icon: MapPinIcon,
-      title: 'Do you service my area?',
-      description: 'Coverage maps and suburb listing',
+      title: 'Do you work in my area?',
+      description: 'Customers want to see you\'ve done projects in their suburb or nearby.',
     },
     {
-      icon: UserGroupIcon,
-      title: 'What do others think?',
-      description: 'Reviews and testimonials section',
+      icon: PhoneIcon,
+      title: 'What\'s the process like?',
+      description: 'People want to know what happens from first contact to finished backyard.',
+    },
+    {
+      icon: StarIcon,
+      title: 'How much does it cost?',
+      description: 'Even rough pricing guides help customers know if they\'re in the right ballpark.',
+    },
+    {
+      icon: ShieldCheckIcon,
+      title: 'What do past customers say?',
+      description: 'Reviews and testimonials build trust before the first conversation.',
+    },
+    {
+      icon: WrenchScrewdriverIcon,
+      title: 'Do you handle what I need?',
+      description: 'Make it clear what you can do. Garden design, paving, retaining walls—customers should know your full range.',
     },
   ],
   features: [
-    'Large, fast-loading image galleries',
-    'Before/after comparison sliders',
-    'Project type filtering and categories',
-    'Seasonal service showcase pages',
-    'Project timeline and planning information',
-    'Service area maps with suburb coverage',
-    'Maintenance plan pages',
-    'Consultation booking system',
-    'Testimonial showcases',
-    'Mobile-optimized portfolio view',
-  ],
-  caseStudies: [
-    {
-      title: 'Perth Liquid Limestone',
-      slug: 'perth-liquid-limestone',
-      metric: '+320% increase in qualified leads',
-    },
+    'Mobile-first design (70%+ of your visitors are on their phone)',
+    'Project gallery with before/after photos (your work sells itself)',
+    'Service pages (garden design, paving, retaining walls, turf, decking, irrigation)',
+    'Suburb pages (targeting "landscaper + suburb" local searches)',
+    'Process breakdown (consultation, design, quote, build, completion)',
+    'Google reviews displayed directly on your site',
+    'Trust signals (license number, insurance, ABN prominently shown)',
+    'Contact forms and click-to-call buttons throughout',
+    'Fast loading (under 3 seconds to keep visitors engaged)',
+    'SEO foundations (proper titles, descriptions, headings, site structure)',
   ],
   faqs: [
     {
-      question: 'How do you handle large image galleries?',
-      answer:
-        'Professional optimization ensures your galleries load fast without sacrificing quality. Large images are optimized for web, and galleries use lazy loading so pages stay fast even with hundreds of photos.',
+      question: 'Do I need a website if I\'m on HiPages?',
+      answer: 'HiPages is lead generation - you\'re paying for access to customers you don\'t own. When someone sees your work and searches for your business name, they expect to find a proper website with your portfolio. If you\'re not there, you look less established than competitors who are.',
     },
     {
-      question: 'Can you help me sell maintenance plans?',
-      answer:
-        'Yes. We create dedicated pages for maintenance offerings, showing customers the value and making it easy to request a maintenance consultation or plan.',
+      question: 'How long does it take?',
+      answer: 'Most sites are done within 2 weeks. We\'ll give you a clear timeline before we start. This includes building the site, setting up your gallery, optimizing for your service areas, and making sure everything works perfectly.',
     },
     {
-      question: 'Do you help with seasonal promotions?',
-      answer:
-        'Absolutely. We set up seasonal pages highlighting spring plantings, summer maintenance, autumn cleanup, and winter services—keeping your offerings front and center.',
+      question: 'What do I need to provide?',
+      answer: 'Your business details, logo if you have one, photos of your best projects (phone photos work, but higher quality is better), your services, and the areas you cover. We handle the content writing.',
     },
     {
-      question: 'Can I add new projects regularly?',
-      answer:
-        'Yes. We\'ll set you up with easy-to-use project gallery pages. You can add new before/after galleries as you complete projects—keeping your portfolio fresh and ranking power high.',
+      question: 'Can you help with Google Business Profile?',
+      answer: 'Yes. We can set up or optimize your Google Business Profile as part of the project or separately.',
     },
     {
-      question: 'How do before/after galleries help SEO?',
-      answer:
-        'Visual content ranks well on Google. High-quality before/after galleries with proper optimization boost rankings, keep visitors engaged longer, and improve conversion rates significantly.',
-    },
-    {
-      question: 'Do you cover one-off projects or retainers only?',
-      answer:
-        'Both. Whether you\'re a general landscaper doing residential and commercial work, or you specialize in specific project types, we build portfolios that match your business model.',
+      question: 'What are the ongoing costs?',
+      answer: 'Ongoing costs are typically $50-$150 per month depending on your needs. This covers hosting, security updates, backups, and support. No surprise fees.',
     },
   ],
 };
@@ -122,13 +105,32 @@ export default function LandscapersPage() {
       { name: 'Websites for Landscapers', url: '/services/websites-for-landscapers' },
     ]);
 
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.innerHTML = breadcrumbSchema;
-    document.head.appendChild(script);
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: landscaperContent.faqs.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    };
+
+    const breadcrumbScript = document.createElement('script');
+    breadcrumbScript.type = 'application/ld+json';
+    breadcrumbScript.innerHTML = breadcrumbSchema;
+    document.head.appendChild(breadcrumbScript);
+
+    const faqScript = document.createElement('script');
+    faqScript.type = 'application/ld+json';
+    faqScript.innerHTML = JSON.stringify(faqSchema);
+    document.head.appendChild(faqScript);
 
     return () => {
-      document.head.removeChild(script);
+      document.head.removeChild(breadcrumbScript);
+      document.head.removeChild(faqScript);
     };
   }, []);
 
@@ -143,7 +145,81 @@ export default function LandscapersPage() {
         useImage={true}
         imageUrl={null}
       />
-      <TradeServiceTemplate {...landscaperContent} showHero={false} />
+      <TradeServiceTemplate {...landscaperContent} showHero={false} showCTA={false} />
+
+      {/* Google Business Profile Section */}
+      <section className="py-24 sm:py-32 bg-light-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-6 leading-tight">
+                Your Website + Google Business Profile = More Leads
+              </h2>
+              <p className="text-lg sm:text-xl text-dark-200 leading-relaxed mb-8">
+                Here's something most landscapers don't know: your website and your Google Business Profile work together. When someone searches "landscaper near me" or "landscaper in [suburb]," Google looks at both to decide if you show up in the map results.
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-bold font-heading text-dark mb-3">What is Google Business Profile?</h3>
+                  <p className="text-lg text-dark-200 leading-relaxed">
+                    It's the box that shows up on the right side of Google when someone searches your business name. It displays your hours, phone number, location, photos, and reviews. For local searches, it's what puts you on the map (literally).
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold font-heading text-dark mb-3">Why it matters for landscapers</h3>
+                  <p className="text-lg text-dark-200 leading-relaxed">
+                    Most of your customers find you through local searches. "Landscaper Perth," "garden design Fremantle," "retaining walls Joondalup." If your Google Business Profile isn't set up properly or if you don't have a website linked to it, you're invisible for these searches.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold font-heading text-dark mb-3">How they work together</h3>
+                  <p className="text-lg text-dark-200 leading-relaxed">
+                    Google wants consistency. Your business name, address, and phone need to match everywhere. A fast site with great photos that people actually spend time on tells Google you're worth ranking. That's how you get into the map pack.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold font-heading text-dark mb-3">What we do</h3>
+                  <p className="text-lg text-dark-200 leading-relaxed">
+                    We set everything up to work together. Matching business info across both, service areas clearly marked, and a site that loads fast. This is how you outrank your competition.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative h-96 sm:h-[500px] rounded-lg overflow-hidden bg-gradient-to-br from-accent/10 to-sage/10 border border-dark/10 flex items-center justify-center">
+              <div className="text-center">
+                <svg
+                  className="w-24 h-24 text-accent/50 mx-auto mb-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+                <p className="text-dark-200 text-sm">[Google Business Profile visualization]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CTA />
+
       <Footer />
     </main>
   );

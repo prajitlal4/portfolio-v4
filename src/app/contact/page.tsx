@@ -220,7 +220,7 @@ export default function ContactPage() {
               Let's Talk About Your <span className="text-accent">Website</span>
             </h1>
             <p className="text-xl sm:text-2xl text-dark-200 leading-relaxed max-w-2xl">
-              Whether you're ready to build, want to learn more about pricing, or just have questions—I'm here to help. Direct conversation, no pressure.
+              Ready to build? Want pricing info? Just have questions? Let's chat. Direct conversation, no pressure.
             </p>
           </div>
         </div>

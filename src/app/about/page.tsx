@@ -23,7 +23,7 @@ const philosophies = [
   },
   {
     title: 'Schema Markup & Technical SEO',
-    description: 'Schema markup puts you in the map pack with your reviews and phone number visible. I validate all markup to ensure Google can read your business info correctly.',
+    description: 'Schema markup gets your reviews and phone number showing in Google maps. I validate everything so Google actually understands your business info.',
     icon: CheckCircleIcon,
   },
   {
@@ -121,7 +121,7 @@ export default function AboutPage() {
         <Header
           secondaryText="About Me"
           headerText="Web Design Built for Perth Trade Businesses"
-          description="I specialize in helping trade professionals—plumbers, electricians, landscapers, and renovators—get found online and convert visitors into customers. Direct access, proven results, Perth-focused."
+          description="I help trade professionals (plumbers, electricians, landscapers, renovators) get found online and turn visitors into customers. Direct access, real results, Perth-focused."
         />
       </div>
 
@@ -215,11 +215,13 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {projects.slice(0, 4).map((project) => (
+            {[projects[2], projects[3], projects[1], projects[0]].map((project) => (
               <Link
                 key={project.title}
-                href={`/case-studies/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                href={project.href}
                 className="group relative overflow-hidden rounded-lg aspect-[4/3] bg-light-200 border border-dark/10 hover:border-accent transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Image
                   src={project.image}
