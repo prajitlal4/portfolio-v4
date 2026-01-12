@@ -1,8 +1,27 @@
 'use client';
 
+import { useEffect } from 'react';
 import CaseStudyTemplate from '@/components/CaseStudyTemplate';
+import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 
 export default function HighsidePlumbingCase() {
+  useEffect(() => {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Our Work', url: '/case-studies' },
+      { name: 'Highside Plumbing', url: '/case-studies/highside-plumbing' },
+    ]);
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = breadcrumbSchema;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <CaseStudyTemplate
       title="Highside Plumbing"

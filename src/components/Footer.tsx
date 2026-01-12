@@ -117,21 +117,13 @@ export default function Footer() {
           {/* Bottom Links */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
             <p className="text-sm text-dark-200">
-              &copy; 2025 PL Solutions. Crafted with care for Australian trade businesses.
+              &copy; {new Date().getFullYear()} PL Solutions. Crafted with care for Australian trade businesses.
             </p>
-            <nav className="flex gap-6 text-sm text-dark-200">
-              <Link href="/privacy" className="hover:text-accent transition-colors duration-200">
-                Privacy Policy
-              </Link>
-              <Link href="/terms" className="hover:text-accent transition-colors duration-200">
-                Terms of Service
-              </Link>
-            </nav>
           </div>
 
           {/* ABN */}
           <p className="text-xs text-dark-200 text-center">
-            ABN: [Your ABN Here]
+            ABN: 98 796 976 416
           </p>
         </div>
       </div>

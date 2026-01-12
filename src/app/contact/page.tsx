@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -122,6 +123,22 @@ export default function ContactPage() {
     });
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Contact', url: '/contact' },
+    ]);
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = breadcrumbSchema;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
   }, []);
 
   const handleChange = (

@@ -5,6 +5,7 @@ import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
@@ -95,6 +96,22 @@ export default function CaseStudiesPage() {
     });
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Our Work', url: '/case-studies' },
+    ]);
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = breadcrumbSchema;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
   }, []);
 
   return (

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -93,6 +94,22 @@ export default function AboutPage() {
     });
 
     return () => ctx.revert();
+  }, []);
+
+  useEffect(() => {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'About', url: '/about' },
+    ]);
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = breadcrumbSchema;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
   }, []);
 
   return (

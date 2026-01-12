@@ -9,20 +9,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: "Jestin Auto Electrics",
-    category: "Custom Website Launch",
-    description: "Delivered a high-performance, SEO-optimised website that helped this business attract more clients and stand out in their industry. I provide direct communication and ongoing support for every client.",
-    image: "/JestinAutoElectrics.jpg",
-    href: "https://jestinautoelectrics.com",
-  },
-  {
-    title: "Perth Liquid Limestone",
-    category: "Website Revamp & SEO Boost",
-    description: "Upgraded an existing website for better usability, faster load times, and higher Google rankings. My hands-on approach means clients always have direct access to me for updates and support.",
-    image: "/PerthLiquidLimestone.jpg",
-    href: "https://perthliquidlimestone.com.au",
-  },
-  {
     title: "Highside Plumbing and Gas",
     category: "Professional Plumbing Website",
     description: "Created a modern, professional website for a trusted plumbing and gas service provider. Designed to showcase their expertise and make it easy for customers to get in touch for reliable service.",
@@ -35,6 +21,20 @@ const projects = [
     description: "Built a stunning showcase website for a premium bathroom renovation company. Features their beautiful work with an elegant design that converts visitors into customers.",
     image: "/scopebathrooms-image.webp",
     href: "https://scopebathroomrenovations.com",
+  },
+  {
+    title: "Perth Liquid Limestone",
+    category: "Website Revamp & SEO Boost",
+    description: "Upgraded an existing website for better usability, faster load times, and higher Google rankings. My hands-on approach means clients always have direct access to me for updates and support.",
+    image: "/PerthLiquidLimestone.jpg",
+    href: "https://perthliquidlimestone.com.au",
+  },
+  {
+    title: "Jestin Auto Electrics",
+    category: "Custom Website Launch",
+    description: "Delivered a high-performance, SEO-optimised website that helped this business attract more clients and stand out in their industry. I provide direct communication and ongoing support for every client.",
+    image: "/JestinAutoElectrics.jpg",
+    href: "https://jestinautoelectrics.com",
   },
 ];
 

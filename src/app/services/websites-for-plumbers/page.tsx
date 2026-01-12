@@ -1,9 +1,11 @@
 'use client';
 
+import { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import TradeServiceTemplate from '@/components/TradeServiceTemplate';
+import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 import {
   PhoneIcon,
   MapPinIcon,
@@ -93,6 +95,23 @@ const plumberContent = {
 };
 
 export default function PlumbersPage() {
+  useEffect(() => {
+    const breadcrumbSchema = generateBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Services', url: '/services' },
+      { name: 'Websites for Plumbers', url: '/services/websites-for-plumbers' },
+    ]);
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = breadcrumbSchema;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <main className="bg-light min-h-screen">
       <Navbar />

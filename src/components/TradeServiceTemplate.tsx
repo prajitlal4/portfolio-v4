@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 interface CustomerNeed {
   title: string;
   description: string;
-  icon: React.ComponentType<{ className: string }>;
+  icon: React.ComponentType<any>;
 }
 
 interface FAQItem {
