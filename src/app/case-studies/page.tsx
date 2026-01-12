@@ -30,7 +30,7 @@ const caseStudies: CaseStudy[] = [
     tagline: 'Web presence that drives bathroom renovation inquiries',
     metric: 'Increase in Qualified Leads',
     metricValue: 'TBD',
-    description: 'A modern, conversion-focused website built to showcase Scope Bathrooms\' premium renovation work and generate qualified leads.',
+    description: 'A website built to showcase Scope Bathrooms\' work and bring in renovation inquiries.',
   },
   {
     id: 'highside-plumbing',
@@ -39,7 +39,7 @@ const caseStudies: CaseStudy[] = [
     tagline: 'Professional online presence for emergency and residential plumbing',
     metric: 'Increase in Service Calls',
     metricValue: 'TBD',
-    description: 'A fully-featured plumbing services website optimized for local search and 24/7 availability messaging.',
+    description: 'A plumbing website that gets found on Google and shows they\'re available for emergencies.',
   },
 ];
 

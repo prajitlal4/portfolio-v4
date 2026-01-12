@@ -58,7 +58,7 @@ const landscaperContent = {
     {
       icon: WrenchScrewdriverIcon,
       title: 'Do you handle what I need?',
-      description: 'Make it clear what you can do. Garden design, paving, retaining walls—customers should know your full range.',
+      description: 'Customers need to know the full range of what you offer. Garden design, paving, retaining walls, and more.',
     },
   ],
   features: [

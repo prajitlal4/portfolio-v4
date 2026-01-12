@@ -26,7 +26,7 @@ export default function HighsidePlumbingCase() {
     <CaseStudyTemplate
       title="Highside Plumbing"
       industry="Plumbing Services"
-      tagline="24/7 online booking and emergency service website that increases service calls and customer convenience"
+      tagline="A website where customers can book plumbing services anytime, even for emergencies"
       // clientLogo="/logos/highside-plumbing.png" // Add your logo here
       results={[
         {
@@ -66,7 +66,7 @@ export default function HighsidePlumbingCase() {
       solution={{
         title: 'Our Solution',
         description:
-          'We developed a comprehensive plumbing services website with integrated 24/7 online booking, emergency service highlighting, detailed service information, and local SEO optimization. The site makes it easy for customers to find services, book appointments, and get emergency help anytime.',
+          'We built a website where customers can book plumbing services anytime, day or night. The site shows all their services, highlights emergency help, and makes it easy to find them on Google in Perth.',
         sections: [
           {
             title: 'Service Catalog',
@@ -75,33 +75,33 @@ export default function HighsidePlumbingCase() {
             icon: '💧',
           },
           {
-            title: '24/7 Online Booking',
+            title: 'Anytime Booking',
             description:
-              'Customers can request service appointments or emergency calls anytime, day or night, with automated confirmation and reminder system.',
+              'Customers can book regular appointments or emergency calls anytime. They get confirmations and reminders automatically.',
             icon: '📅',
           },
           {
-            title: 'Emergency Service Highlight',
+            title: 'Emergency Services',
             description:
-              'Prominent emergency contact information and rapid response messaging ensures customers know Highside handles urgent situations.',
+              'Customers can clearly see the emergency number and know what to expect for urgent plumbing problems.',
             icon: '🚨',
           },
           {
-            title: 'Local SEO Optimization',
+            title: 'Found on Google',
             description:
-              'Optimized for plumbing searches in Perth suburbs with proper location pages, schema markup, and review integration.',
+              'People searching for a plumber in Perth suburbs find Highside. Each area has its own page with service details and reviews.',
             icon: '📍',
           },
           {
-            title: 'Service Area Mapping',
+            title: 'Service Area Map',
             description:
-              'Clear visualization of service areas and response times helps customers know if they\'re covered and what to expect.',
+              'Customers can see where Highside works and how fast they can respond. No guessing if their area is covered.',
             icon: '🗺️',
           },
           {
-            title: 'Mobile-First Design',
+            title: 'Mobile Friendly',
             description:
-              'Perfect for customers calling or booking from mobile devices with one-tap calling and streamlined booking process.',
+              'Works great on phones. One tap to call, easy booking, quick quote. No fussing around.',
             icon: '📱',
           },
         ],
@@ -111,19 +111,19 @@ export default function HighsidePlumbingCase() {
         {
           title: 'Emergency Service System',
           description:
-            'Dedicated emergency services section with prominent phone numbers, response time guarantees, and availability status. Customers can quickly understand available emergency help and initiate urgent service requests.',
+            'The emergency phone number is obvious. Customers know what to expect for response time and that help is available when they need it.',
           // image: '/images/case-studies/highside-plumbing-emergency.png',
         },
         {
           title: 'Service Area Pages',
           description:
-            'Dedicated pages for each suburb and service area Highside covers. Localized content helps with search visibility and assures customers that their location is served with proper response time expectations.',
+            'Each suburb has its own page so locals can find them on Google. Customers know what to expect for response times.',
           // image: '/images/case-studies/highside-plumbing-areas.png',
         },
         {
-          title: 'Automated Booking System',
+          title: 'Online Booking',
           description:
-            'Integrated appointment booking system allows customers to reserve time slots, while automatic notifications keep both the business and customers updated on service scheduling.',
+            'Customers book appointments anytime. Both the business and customer get automatic updates on the scheduling.',
           // image: '/images/case-studies/highside-plumbing-booking.png',
         },
       ]}

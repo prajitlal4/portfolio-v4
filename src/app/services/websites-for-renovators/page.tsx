@@ -58,7 +58,7 @@ const renovatorContent = {
     {
       icon: WrenchScrewdriverIcon,
       title: 'Do you handle what I need?',
-      description: 'Show what you can do. Kitchen renos, bathroom renos, extensions—customers need to know your full range.',
+      description: 'Customers need to see your full range. Kitchen renos, bathroom renos, extensions, full home renovations.',
     },
   ],
   features: [

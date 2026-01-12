@@ -58,7 +58,7 @@ const plumberContent = {
     {
       icon: WrenchScrewdriverIcon,
       title: 'Do you handle my problem?',
-      description: 'Customers need to know exactly what problems you solve. Blocked drains, hot water, gas fitting—list everything you offer.',
+      description: 'Customers need to know you handle blocked drains, hot water, gas fitting. List everything you do.',
     },
   ],
   features: [

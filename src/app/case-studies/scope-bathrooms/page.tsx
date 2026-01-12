@@ -26,7 +26,7 @@ export default function ScopeBathroomsCase() {
     <CaseStudyTemplate
       title="Scope Bathrooms"
       industry="Bathroom Renovations"
-      tagline="A modern website that showcases premium bathroom work and generates quality renovation leads"
+      tagline="A website that shows off their best work and brings in renovation inquiries"
       // clientLogo="/logos/scope-bathrooms.png" // Add your logo here
       results={[
         {
@@ -65,42 +65,42 @@ export default function ScopeBathroomsCase() {
       solution={{
         title: 'Our Solution',
         description:
-          'We built a conversion-focused website that showcases Scope Bathrooms\' premium work, tells the story of their process, and makes it easy for potential customers to request quotes. The site features a portfolio of completed bathroom renovations, detailed service information, and a streamlined inquiry process.',
+          'We built a website that shows off Scope Bathrooms\' best work and makes it easy for customers to request quotes. The site has a portfolio of completed bathrooms, service details, and a simple way to get in touch.',
         sections: [
           {
-            title: 'Project Portfolio',
+            title: 'Project Gallery',
             description:
-              'High-quality gallery of completed bathroom renovations with before/after photos, project details, and customer outcomes.',
+              'Before/after photos of completed bathrooms with details about what was done and what customers say about it.',
             icon: '🏠',
           },
           {
             title: 'Service Pages',
             description:
-              'Detailed pages for each service (full renovations, partial updates, tile work, etc.) optimized for local search.',
+              'Pages for each type of bathroom work they do. Customers can find them on Google by searching for their specific needs.',
             icon: '🔧',
           },
           {
-            title: 'Lead Generation',
+            title: 'Easy Quote Requests',
             description:
-              'Multiple conversion paths with easy quote request forms, phone integration, and instant inquiry notifications.',
+              'Simple ways for customers to ask for quotes. Forms are easy on mobile, and we get instant notifications when someone reaches out.',
             icon: '📋',
           },
           {
-            title: 'Local SEO',
+            title: 'Found on Google',
             description:
-              'Optimized for Perth bathroom renovation searches with proper schema markup, local business information, and review integration.',
+              'People searching for bathroom renovations in Perth find Scope. Reviews and local info show they\'re the real deal.',
             icon: '📍',
           },
           {
-            title: 'Mobile Optimized',
+            title: 'Mobile Friendly',
             description:
-              'Fully responsive design ensures potential customers can browse and request quotes on any device.',
+              'Works great on phones. Customers can browse and request quotes from any device.',
             icon: '📱',
           },
           {
             title: 'Fast & Reliable',
             description:
-              'Built on modern web technology ensuring fast loading times and 99.9% uptime for zero missed leads.',
+              'The site loads fast so customers don\'t bounce. No downtime means no missed leads.',
             icon: '⚡',
           },
         ],
@@ -110,19 +110,19 @@ export default function ScopeBathroomsCase() {
         {
           title: 'Portfolio Showcase',
           description:
-            'A beautiful gallery of Scope Bathrooms\' completed projects. High-quality before/after images with project details help potential customers envision their own renovations. Each project includes materials used, timeline, and customer testimonials.',
+            'Great before/after photos of completed bathrooms. Customers can see what was done, how long it took, and what other customers think about the work.',
           // image: '/images/case-studies/scope-bathrooms-portfolio.png',
         },
         {
-          title: 'Lead Capture System',
+          title: 'Easy to Request Quotes',
           description:
-            'Strategic placement of quote request forms throughout the website ensures multiple conversion opportunities. Forms are optimized for mobile and include smart validation to ensure quality leads.',
+            'Forms are placed throughout the site so customers can easily ask for quotes. They work great on mobile and catch bad submissions before they happen.',
           // image: '/images/case-studies/scope-bathrooms-form.png',
         },
         {
           title: 'Customer Testimonials',
           description:
-            'Real customer testimonials and reviews build trust with potential clients. Integrated 5-star ratings and detailed feedback showcase the quality of Scope Bathrooms\' work and customer service.',
+            'Real reviews from actual customers. Ratings and feedback show the quality of their work and how they treat people.',
           // image: '/images/case-studies/scope-bathrooms-testimonials.png',
         },
       ]}

@@ -16,7 +16,7 @@ const callouts = [
   {
     name: "Marketing",
     description:
-      "A marketing website that showcases your business and helps you reach more clients. Optimised for SEO and conversions, so you stand out from your competitors.",
+      "A website that shows off your work and brings in more clients. Gets found on Google and converts visitors into customers.",
     imageSrc: "/marketing-example.PNG",
     imageAlt:
       "A marketing website that showcases your business and helps you reach more clients.",

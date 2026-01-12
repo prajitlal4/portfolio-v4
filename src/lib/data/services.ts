@@ -92,7 +92,7 @@ export const tradeServices = {
       "Google reviews integration",
       "License & insurance display",
       "Booking/quote request forms",
-      "Mobile-optimized for on-site browsing",
+      "Works perfectly on mobile",
     ],
   },
   electricians: {

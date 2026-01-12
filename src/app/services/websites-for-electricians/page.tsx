@@ -58,7 +58,7 @@ const electricianContent = {
     {
       icon: WrenchScrewdriverIcon,
       title: 'Do you handle my problem?',
-      description: 'Customers need to know what problems you solve. Safety switches, switchboard upgrades, rewiring, lighting—list all your services.',
+      description: 'Customers need to know you handle safety switches, switchboard upgrades, rewiring, and lighting. List all your services.',
     },
   ],
   features: [
