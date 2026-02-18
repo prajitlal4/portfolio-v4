@@ -8,6 +8,7 @@ import { useEffect, useRef } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import CTA from './CTA';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -415,27 +416,8 @@ export default function CaseStudyTemplate({
           </section>
         )}
 
-        {/* Final CTA */}
-        <section className="relative px-6 lg:px-8 py-24 sm:py-32 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-sage/5 to-accent/5 -z-10" />
-          <div className="absolute -top-40 -left-40 w-80 h-80 bg-sage/10 rounded-full blur-3xl" />
-          <div className="absolute -bottom-20 -right-32 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
-
-          <div className="relative max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading leading-tight mb-6 text-dark">
-              Ready to transform your online presence?
-            </h2>
-            <p className="text-lg sm:text-xl text-dark-200 leading-relaxed mb-8 max-w-2xl mx-auto">
-              Let's create a website that generates results for your business.
-            </p>
-            <Link
-              href="/#contact"
-              className="inline-block bg-gradient-to-r from-accent to-sage text-white font-semibold px-8 py-4 rounded-full hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
-            >
-              Start Your Project
-            </Link>
-          </div>
-        </section>
+        {/* CTA */}
+        <CTA />
       </main>
       <Footer />
     </>
