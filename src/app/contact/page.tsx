@@ -309,7 +309,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {toast && <Toast message={toast.message} type={toast.type} />}
+      {toast && <Toast show={true} message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
       <Footer />
     </main>
   );
