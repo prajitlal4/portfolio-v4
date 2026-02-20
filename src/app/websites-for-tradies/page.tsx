@@ -6,6 +6,13 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import {
+  WrenchScrewdriverIcon,
+  Squares2X2Icon,
+  HomeModernIcon,
+  PaintBrushIcon,
+} from '@heroicons/react/24/outline';
+import { CheckIcon } from '@heroicons/react/24/solid';
 
 // Register at module level — matches CaseStudyTemplate pattern
 gsap.registerPlugin(ScrollTrigger);
@@ -85,7 +92,34 @@ const steps = [
   {
     number: '03',
     title: 'We build it, you get jobs',
-    body: "We handle everything. You stay on the tools. When it's live, your site is working for you around the clock.",
+    body: "We handle everything. Most sites are live within 7 days of getting started.",
+  },
+];
+
+const faqs = [
+  {
+    q: 'How long does it take to build?',
+    a: "Most sites are live within 7 days. We'll confirm the exact timeline when we quote.",
+  },
+  {
+    q: 'Do I need to provide content or photos?',
+    a: "We handle the copy after a quick call with you. If you have photos from past jobs, send them through. If not, we'll work with what we've got.",
+  },
+  {
+    q: 'Will my site show up on Google?',
+    a: "Every site gets suburb targeting, proper page structure, and fast load times built in. You won't rank overnight, but the foundations are there from day one.",
+  },
+  {
+    q: 'Can I make changes after it goes live?',
+    a: "Most clients just message us and we turn it around the same day. Minor changes are included in the monthly fee. Extra pages or bigger work gets a separate quote.",
+  },
+  {
+    q: 'What trades do you work with?',
+    a: "Plumbers, electricians, tilers, bathroom renovators, landscapers, painters, carpenters, and builders. If you're a tradie in Perth, get in touch.",
+  },
+  {
+    q: 'Why do I need a website if I already get work through word of mouth?',
+    a: "Word of mouth still works. But when someone gets your number from a mate and Googles you before calling, what do they find? A good site turns that warm lead into a confirmed job.",
   },
 ];
 
@@ -93,9 +127,9 @@ const pricingIncludes = [
   'Mobile-first design (your customers are on their phones)',
   'Suburb targeting so Google shows you in your area',
   'Click-to-call on every page',
-  'Fast load times — under 3 seconds',
+  'Loads in under 3 seconds on mobile',
   'SEO foundations built in from the start',
-  'No surprises, no add-ons you didn\'t ask for',
+  'Fixed-price quote before we start anything',
 ];
 
 export default function WebsitesForTradiesPage() {
@@ -328,6 +362,23 @@ export default function WebsitesForTradiesPage() {
 
   return (
     <main className="bg-light min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((faq) => ({
+              '@type': 'Question',
+              name: faq.q,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
@@ -356,7 +407,7 @@ export default function WebsitesForTradiesPage() {
                 ref={heroSubRef}
                 className="mt-6 text-xl sm:text-2xl text-dark-200 font-sans leading-relaxed"
               >
-                We build websites for Perth tradies that bring in real work — designed around how your customers actually search for you.
+                We build websites for Perth tradies that bring in real work. Designed around how your customers actually search for you.
               </p>
               <div ref={heroCtaRef} className="mt-10">
                 <a
@@ -367,7 +418,7 @@ export default function WebsitesForTradiesPage() {
                 </a>
               </div>
               <p ref={heroTrustRef} className="mt-4 text-dark-200 font-sans text-sm">
-                From $999 · No lock-in contracts · Perth-based
+                From $1,200 · Live in 7 days · Perth-based
               </p>
             </div>
 
@@ -419,7 +470,7 @@ export default function WebsitesForTradiesPage() {
               <p className="mt-6 text-lg text-dark-200 font-sans leading-relaxed">
                 Before anyone calls you, they Google you. That&rsquo;s just how it works now. If your site looks like it
                 hasn&rsquo;t been touched in five years, takes forever to load on a phone, or just doesn&rsquo;t show up
-                at all — they&rsquo;re already calling someone else.
+                at all, they&rsquo;re already calling someone else.
               </p>
               <p className="mt-4 text-lg text-dark-200 font-sans leading-relaxed">
                 We&rsquo;ve built websites for plumbers, electricians, landscapers, tilers, builders, and bathroom
@@ -482,46 +533,22 @@ export default function WebsitesForTradiesPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-dark/[0.08]">
             {[
               {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                  </svg>
-                ),
+                icon: <WrenchScrewdriverIcon className="w-6 h-6" />,
                 title: tradeCards[0].title,
                 body: tradeCards[0].body,
               },
               {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                    <rect x="3" y="3" width="7" height="7" />
-                    <rect x="14" y="3" width="7" height="7" />
-                    <rect x="14" y="14" width="7" height="7" />
-                    <rect x="3" y="14" width="7" height="7" />
-                  </svg>
-                ),
+                icon: <Squares2X2Icon className="w-6 h-6" />,
                 title: tradeCards[1].title,
                 body: tradeCards[1].body,
               },
               {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                    <path d="M17 14l3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14" />
-                    <path d="M14 10l3.4 3.8a1 1 0 0 1-.75 1.67H7.35a1 1 0 0 1-.75-1.67L10 10" />
-                    <path d="M12 3L11 10h2L12 3z" />
-                    <line x1="12" y1="21" x2="12" y2="18" />
-                  </svg>
-                ),
+                icon: <HomeModernIcon className="w-6 h-6" />,
                 title: tradeCards[2].title,
                 body: tradeCards[2].body,
               },
               {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6">
-                    <path d="M15 12l-8.5 8.5c-.83.83-2.17.83-3 0a2.12 2.12 0 0 1 0-3L12 9" />
-                    <path d="M17.64 15 22 10.64" />
-                    <path d="M20.35 6.35 17.65 9.05a1.5 1.5 0 0 1-2.12 0l-.88-.88a1.5 1.5 0 0 1 0-2.12l2.7-2.7a1.5 1.5 0 0 1 2.12 0l.88.88a1.5 1.5 0 0 1 0 2.12Z" />
-                  </svg>
-                ),
+                icon: <PaintBrushIcon className="w-6 h-6" />,
                 title: tradeCards[3].title,
                 body: tradeCards[3].body,
               },
@@ -529,18 +556,10 @@ export default function WebsitesForTradiesPage() {
               <div
                 key={card.title}
                 ref={cardRefs[idx]}
-                className="relative bg-light p-8 lg:p-10 group overflow-hidden"
+                className="bg-light p-8 lg:p-10"
               >
-                {/* Faded number watermark */}
-                <span
-                  aria-hidden="true"
-                  className="absolute top-5 right-6 text-[80px] font-bold font-heading text-dark/[0.04] leading-none select-none pointer-events-none"
-                >
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-
                 {/* Icon: dark square → accent on hover */}
-                <div className="w-11 h-11 bg-dark flex items-center justify-center text-white group-hover:bg-accent transition-colors duration-300 flex-shrink-0">
+                <div className="w-11 h-11 bg-dark flex items-center justify-center text-white flex-shrink-0">
                   {card.icon}
                 </div>
 
@@ -550,9 +569,6 @@ export default function WebsitesForTradiesPage() {
                 <p className="mt-3 text-dark-200 font-sans leading-relaxed text-[15px]">
                   {card.body}
                 </p>
-
-                {/* Bottom accent sweep */}
-                <div className="absolute bottom-0 left-0 h-[3px] w-0 group-hover:w-full bg-accent transition-all duration-500 ease-out" />
               </div>
             ))}
           </div>
@@ -567,7 +583,7 @@ export default function WebsitesForTradiesPage() {
               The process
             </span>
             <h2 className="mt-4 text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
-              Simple process. No tech headaches.
+              Three steps and you&rsquo;re live.
             </h2>
           </div>
 
@@ -694,57 +710,131 @@ export default function WebsitesForTradiesPage() {
       {/* ── PRICING ──────────────────────────────────────────── */}
       <section className="py-24 sm:py-32 bg-light-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="max-w-2xl mb-12">
+
+          <div className="mb-12">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
               Pricing
             </span>
             <h2 className="mt-4 text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
-              Straight up pricing.
+              What does a tradie website cost?
             </h2>
           </div>
 
-          {/* Dark featured pricing card */}
-          <div ref={pricingRef} className="bg-dark rounded-2xl p-10 sm:p-14 relative overflow-hidden max-w-2xl">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -top-20 -right-20 w-72 h-72 bg-accent/10 rounded-full blur-3xl"
-            />
-            <p className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
-              Starting from
-            </p>
-            <p className="mt-2 text-7xl sm:text-8xl font-bold font-heading text-white leading-none">
-              $999
-            </p>
-            <p className="mt-5 text-white/70 font-sans leading-relaxed text-lg">
-              That gets you a fast, mobile-first site built specifically for your trade and your service area.
-            </p>
-            <ul className="mt-7 space-y-3">
-              {pricingIncludes.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-white/80 font-sans">
-                  <span className="mt-0.5 w-5 h-5 rounded-full bg-accent flex items-center justify-center flex-shrink-0 text-white font-bold text-xs">
-                    ✓
-                  </span>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 text-white/50 font-sans text-sm">
-              We also offer ongoing support plans for updates, SEO, and performance. Ask us when you get in touch.
-            </p>
-            <div className="mt-8">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 shadow-glow hover:shadow-glow-lg"
-              >
-                Get a Free Quote
-              </a>
+          {/* Same gap-px grid language as trade cards */}
+          <div ref={pricingRef} className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-dark/[0.08]">
+
+            {/* LEFT — dark pricing panel */}
+            <div className="bg-dark px-10 py-14 sm:px-14 sm:py-16 relative overflow-hidden">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -top-32 -right-32 w-72 h-72 bg-accent/10 rounded-full blur-3xl"
+              />
+
+              <p className="uppercase tracking-widest text-accent/80 font-semibold text-xs font-sans">
+                One-time build fee
+              </p>
+              <div className="mt-2 flex items-start gap-2">
+                <span className="text-white/40 font-sans text-xl mt-4 leading-none">from</span>
+                <span className="text-8xl sm:text-9xl font-bold font-heading text-white leading-none tracking-tight">
+                  $1,200
+                </span>
+              </div>
+              <p className="mt-5 text-white/60 font-sans leading-relaxed">
+                We quote the price before we start and that&rsquo;s what you pay.
+              </p>
+
+              {/* $50/month — featured inset block */}
+              <div className="mt-8 border border-white/10 bg-white/5 p-6">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold font-heading text-white">$50</span>
+                  <span className="text-white/50 font-sans">/month</span>
+                </div>
+                <p className="mt-2 text-white/60 font-sans text-sm leading-relaxed">
+                  Covers hosting, updates, and support. We handle the technical side so you don&rsquo;t have to.
+                </p>
+              </div>
+
+              <div className="mt-10">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 shadow-glow hover:shadow-glow-lg"
+                >
+                  Get a Free Quote
+                </a>
+              </div>
             </div>
+
+            {/* RIGHT — includes + extras */}
+            <div className="bg-light px-10 py-14 sm:px-14 sm:py-16 flex flex-col">
+
+              <p className="uppercase tracking-widest text-dark/40 font-semibold text-xs font-sans mb-6">
+                Every build includes
+              </p>
+              <ul className="space-y-4">
+                {pricingIncludes.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 bg-accent flex items-center justify-center">
+                      <CheckIcon className="w-3 h-3 text-white" />
+                    </span>
+                    <span className="text-dark font-sans leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Extras */}
+              <div className="mt-10 pt-10 border-t border-dark/10">
+                <p className="uppercase tracking-widest text-dark/40 font-semibold text-xs font-sans mb-4">
+                  Optional extras
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['Google Ads setup', 'Extra service pages', 'Blog setup', 'Photography', 'Ongoing SEO'].map((extra) => (
+                    <span
+                      key={extra}
+                      className="border border-dark/15 px-3 py-1.5 text-sm font-sans text-dark/70"
+                    >
+                      + {extra}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-5 text-dark/40 font-sans text-sm">
+                  Ask us about extras when you get in touch.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ──────────────────────────────────────────────── */}
+      <section className="py-24 sm:py-32 bg-light">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="max-w-2xl mb-16">
+            <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
+              FAQ
+            </span>
+            <h2 className="mt-4 text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
+              Common questions.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-dark/[0.08]">
+            {faqs.map((faq) => (
+              <div key={faq.q} className="bg-light p-8 lg:p-10">
+                <h3 className="text-lg font-bold font-heading text-dark leading-snug">
+                  {faq.q}
+                </h3>
+                <p className="mt-3 text-dark-200 font-sans leading-relaxed text-[15px]">
+                  {faq.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ── CONTACT FORM ─────────────────────────────────────── */}
-      <section id="contact" className="py-24 sm:py-32 bg-light">
+      <section id="contact" className="py-24 sm:py-32 bg-light-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div ref={formRef} className="max-w-2xl mx-auto">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
@@ -754,8 +844,7 @@ export default function WebsitesForTradiesPage() {
               Ready to get more work from your website?
             </h2>
             <p className="mt-4 text-lg text-dark-200 font-sans leading-relaxed">
-              Fill in the form below and we&rsquo;ll get back to you within one business day. No sales pitch, just a
-              straight conversation about what your business needs.
+              Fill in the form and we&rsquo;ll get back to you within one business day with a straight answer on what we&rsquo;d build and what it costs.
             </p>
 
             {submitted ? (
