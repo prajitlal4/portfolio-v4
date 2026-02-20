@@ -178,8 +178,10 @@ export default function WebsitesForTradiesPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
+    const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+
     const ctx = gsap.context(() => {
-      // ── Hero (on mount, no scroll trigger)
+      // ── Hero (on mount, no scroll trigger — runs on all screen sizes)
       const heroEls = [
         heroBadgeRef.current,
         heroH1Ref.current,
@@ -198,6 +200,11 @@ export default function WebsitesForTradiesPage() {
           delay: 0.1,
         });
       }
+
+      // ── Scroll-triggered animations: desktop only
+      // On mobile, 12+ concurrent ScrollTrigger instances cause significant
+      // scroll jank due to JS overhead on lower-powered CPUs.
+      if (isMobile) return;
 
       // ── Hook section
       if (hookRef.current) {
@@ -423,7 +430,7 @@ export default function WebsitesForTradiesPage() {
             </div>
 
             {/* Hero image */}
-            <div className="relative hidden lg:block self-center mr-4 mb-4">
+            <div className="relative self-center mr-4 mb-4">
               {/* Accent offset block — translates behind and below the image */}
               <div
                 aria-hidden="true"

@@ -30,7 +30,7 @@ export default function Footer() {
 
   return (
     <footer ref={footerRef} className="relative bg-light border-t border-dark/10 overflow-hidden">
-      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-32 lg:pb-16 lg:px-8">
         {/* Four Column Footer */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Services Column */}
