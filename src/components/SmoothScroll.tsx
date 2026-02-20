@@ -12,26 +12,33 @@ export default function SmoothScroll({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   useEffect(() => {
+    // Lenis intercepts native scroll with a JS RAF loop.
+    // On mobile, native scroll is hardware-accelerated — Lenis fights it and
+    // causes visible jank. Only enable on desktop (pointer: fine = mouse).
+    const isDesktop = window.matchMedia('(pointer: fine)').matches;
+    if (!isDesktop) return;
+
     const lenis = new Lenis({
       duration: 0.5,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.2,
-      touchMultiplier: 2,
     });
+
+    let rafId: number;
 
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
-    // Update ScrollTrigger when Lenis scrolls
     lenis.on('scroll', ScrollTrigger.update);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
