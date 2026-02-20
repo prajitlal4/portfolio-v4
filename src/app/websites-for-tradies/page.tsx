@@ -178,10 +178,13 @@ export default function WebsitesForTradiesPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    const isMobile = window.matchMedia('(max-width: 1023px)').matches;
+    // Skip all GSAP on mobile — gsap.from() forces a repaint on mount by
+    // setting elements to opacity:0 before animating in, which causes visible
+    // lag on every navigation. Content is better shown instantly on mobile.
+    if (window.matchMedia('(max-width: 1023px)').matches) return;
 
     const ctx = gsap.context(() => {
-      // ── Hero (on mount, no scroll trigger — runs on all screen sizes)
+      // ── Hero (on mount, no scroll trigger)
       const heroEls = [
         heroBadgeRef.current,
         heroH1Ref.current,
@@ -200,11 +203,6 @@ export default function WebsitesForTradiesPage() {
           delay: 0.1,
         });
       }
-
-      // ── Scroll-triggered animations: desktop only
-      // On mobile, 12+ concurrent ScrollTrigger instances cause significant
-      // scroll jank due to JS overhead on lower-powered CPUs.
-      if (isMobile) return;
 
       // ── Hook section
       if (hookRef.current) {
@@ -915,7 +913,7 @@ export default function WebsitesForTradiesPage() {
                       type="text"
                       name="suburb"
                       required
-                      placeholder="e.g. Joondalup, Swan Valley"
+                      placeholder="e.g. Joondalup, Cannington"
                       value={formData.suburb}
                       onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
                       className="w-full border border-dark/10 rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none focus:border-accent transition-colors duration-200 placeholder:text-dark/30"

@@ -12,6 +12,8 @@ export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    if (window.matchMedia('(max-width: 1023px)').matches) return;
+
     const ctx = gsap.context(() => {
       gsap.from(footerRef.current, {
         opacity: 0,
