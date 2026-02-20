@@ -8,7 +8,6 @@ import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Toast from '@/components/Toast';
-import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,36 +24,6 @@ interface ToastMessage {
   message: string;
 }
 
-const contactMethods = [
-  {
-    icon: PhoneIcon,
-    title: 'Phone',
-    value: '(08) XXXX XXXX',
-    href: 'tel:+61',
-    description: 'Call anytime during business hours',
-  },
-  {
-    icon: EnvelopeIcon,
-    title: 'Email',
-    value: 'hello@example.com',
-    href: 'mailto:hello@example.com',
-    description: 'Response within 24 hours',
-  },
-  {
-    icon: MapPinIcon,
-    title: 'Location',
-    value: 'Perth, WA',
-    href: '#',
-    description: 'Proudly Perth-based',
-  },
-  {
-    icon: ClockIcon,
-    title: 'Hours',
-    value: '9am - 5pm AWST',
-    href: '#',
-    description: 'Monday to Friday',
-  },
-];
 
 const trades = [
   'Select your trade',
@@ -69,7 +38,6 @@ const trades = [
 export default function ContactPage() {
   const heroRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  const contactCardsRef = useRef<HTMLDivElement>(null);
 
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -90,24 +58,6 @@ export default function ContactPage() {
         y: 30,
         duration: 0.5,
       });
-
-      // Contact cards animation
-      const cards = contactCardsRef.current?.querySelectorAll('.contact-card');
-      if (cards) {
-        cards.forEach((card, index) => {
-          gsap.from(card, {
-            opacity: 0,
-            y: 20,
-            duration: 0.4,
-            delay: index * 0.1,
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          });
-        });
-      }
 
       // Form animation
       gsap.from(formRef.current, {
@@ -165,7 +115,7 @@ export default function ContactPage() {
         },
         body: new URLSearchParams({
           'form-name': 'contact',
-          ...formData,
+          ...(formData as unknown as Record<string, string>),
         }).toString(),
       });
 
@@ -226,37 +176,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Methods */}
-      <section ref={contactCardsRef} className="py-24 sm:py-32 bg-light-100">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactMethods.map((method) => {
-              const Icon = method.icon;
-              return (
-                <a
-                  key={method.title}
-                  href={method.href}
-                  className="contact-card group bg-light border border-dark/10 rounded-lg p-6 sm:p-8 hover:border-accent hover:bg-light-100 transition-all duration-300 text-center"
-                >
-                  <div className="flex justify-center mb-4">
-                    <Icon className="h-10 w-10 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="text-lg font-bold font-heading text-dark mb-2">
-                    {method.title}
-                  </h3>
-                  <p className="text-sm sm:text-base font-semibold text-dark mb-2">
-                    {method.value}
-                  </p>
-                  <p className="text-xs sm:text-sm text-dark-200">
-                    {method.description}
-                  </p>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form Section */}
       <section className="py-24 sm:py-32 bg-light">
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
@@ -279,95 +198,81 @@ export default function ContactPage() {
               <input type="hidden" name="form-name" value="contact" />
               <input type="hidden" name="bot-field" />
 
-              {/* Name */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-semibold text-dark mb-2"
-                >
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="John"
-                  className="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                />
+              {/* Name + Business Name */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    placeholder="John Smith"
+                    className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="businessName" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                    Business name
+                  </label>
+                  <input
+                    type="text"
+                    id="businessName"
+                    name="businessName"
+                    value={formData.businessName}
+                    onChange={handleChange}
+                    placeholder="Smith Plumbing"
+                    className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200"
+                  />
+                </div>
               </div>
 
-              {/* Business Name */}
-              <div>
-                <label
-                  htmlFor="businessName"
-                  className="block text-sm font-semibold text-dark mb-2"
-                >
-                  Business Name
-                </label>
-                <input
-                  type="text"
-                  id="businessName"
-                  name="businessName"
-                  value={formData.businessName}
-                  onChange={handleChange}
-                  placeholder="Your Business"
-                  className="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                />
-              </div>
-
-              {/* Trade */}
-              <div>
-                <label
-                  htmlFor="trade"
-                  className="block text-sm font-semibold text-dark mb-2"
-                >
-                  Your Trade
-                </label>
-                <select
-                  id="trade"
-                  name="trade"
-                  value={formData.trade}
-                  onChange={handleChange}
-                  className="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                >
-                  {trades.map((trade) => (
-                    <option key={trade} value={trade === 'Select your trade' ? '' : trade}>
-                      {trade}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Phone */}
-              <div>
-                <label
-                  htmlFor="phone"
-                  className="block text-sm font-semibold text-dark mb-2"
-                >
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                  placeholder="0412 345 678"
-                  className="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300"
-                />
+              {/* Trade + Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="trade" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                    Your trade
+                  </label>
+                  <select
+                    id="trade"
+                    name="trade"
+                    value={formData.trade}
+                    onChange={handleChange}
+                    className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark focus:outline-none focus:border-accent transition-colors duration-200"
+                  >
+                    {trades.map((trade) => (
+                      <option key={trade} value={trade === 'Select your trade' ? '' : trade}>
+                        {trade}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                    Phone number
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    placeholder="04xx xxx xxx"
+                    className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200"
+                  />
+                </div>
               </div>
 
               {/* Message */}
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-semibold text-dark mb-2"
-                >
-                  Message
+                <label htmlFor="message" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                  What you&rsquo;re after{' '}
+                  <span className="text-dark-200 font-normal">(optional)</span>
                 </label>
                 <textarea
                   id="message"
@@ -375,8 +280,8 @@ export default function ContactPage() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  placeholder="Tell me about your business and what you're looking for..."
-                  className="w-full rounded-lg border border-dark/10 bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 resize-none"
+                  placeholder="Tell us a bit about your business and what you need..."
+                  className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200 resize-none"
                 />
               </div>
 
@@ -384,18 +289,21 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full rounded-lg bg-accent px-6 py-4 text-base font-semibold text-white hover:bg-accent-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
+                className="bg-accent hover:bg-accent-dark disabled:opacity-60 text-white font-semibold px-10 py-4 rounded-xl text-lg transition-all duration-200 shadow-glow hover:shadow-glow-lg w-full sm:w-auto"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                {isSubmitting ? 'Sending...' : 'Send My Details'}
               </button>
             </form>
 
             <p className="text-xs sm:text-sm text-dark-200 mt-6 text-center">
-              I'll respond to your message within 24 business hours. You can also{' '}
-              <a href="tel:+61" className="text-accent font-semibold hover:underline">
-                call me directly
+              I'll respond within 24 business hours. Prefer to call?{' '}
+              <a href="tel:+61434128554" className="text-accent font-semibold hover:underline">
+                0434 128 554
               </a>
-              {' '}if you prefer to chat now.
+              {' '}or email{' '}
+              <a href="mailto:info@lalsolutions.com.au" className="text-accent font-semibold hover:underline">
+                info@lalsolutions.com.au
+              </a>
             </p>
           </div>
         </div>

@@ -149,8 +149,8 @@ export default function WebsitesForTradiesPage() {
   const testimonial1Ref = useRef<HTMLDivElement>(null);
 
   // Project refs
-  const proj0Ref = useRef<HTMLDivElement>(null);
-  const proj1Ref = useRef<HTMLDivElement>(null);
+  const proj0Ref = useRef<HTMLAnchorElement>(null);
+  const proj1Ref = useRef<HTMLAnchorElement>(null);
 
   // Trade card refs
   const card0Ref = useRef<HTMLDivElement>(null);
@@ -621,25 +621,25 @@ export default function WebsitesForTradiesPage() {
               <div
                 key={t.company}
                 ref={idx === 0 ? testimonial0Ref : testimonial1Ref}
-                className="bg-light border border-dark/10 border-l-4 border-l-accent rounded-xl p-8"
+                className="bg-light border border-dark/10 border-l-4 border-l-accent rounded-xl p-8 flex flex-col"
               >
-                <p className="text-lg font-heading text-dark leading-relaxed italic">
+                <p className="text-lg font-heading text-dark leading-relaxed italic flex-grow">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="mt-6 flex items-center gap-4 flex-wrap">
+                <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
                   <div>
                     <p className="font-semibold text-dark font-sans">{t.author}</p>
                     <p className="text-dark-200 text-sm font-sans">
                       {t.role}, {t.company}
                     </p>
                   </div>
-                  <div className="bg-white rounded-lg p-2 shadow-sm ml-auto">
+                  <div className="bg-white rounded-lg p-2 shadow-sm sm:ml-auto flex-shrink-0 self-start sm:self-auto">
                     <Image
                       src={t.logo}
                       alt={t.logoAlt}
-                      width={100}
-                      height={32}
-                      className="h-8 w-auto"
+                      width={80}
+                      height={24}
+                      className="h-6 w-auto"
                     />
                   </div>
                 </div>
@@ -663,9 +663,12 @@ export default function WebsitesForTradiesPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {recentProjects.map((proj, idx) => (
-              <div
+              <a
                 key={proj.title}
                 ref={idx === 0 ? proj0Ref : proj1Ref}
+                href={proj.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="border border-dark/10 rounded-xl overflow-hidden group hover:border-accent/30 hover:shadow-glow transition-all duration-500"
               >
                 {/* Project image */}
@@ -674,7 +677,7 @@ export default function WebsitesForTradiesPage() {
                     src={proj.image}
                     alt={proj.title}
                     fill
-                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
@@ -684,24 +687,17 @@ export default function WebsitesForTradiesPage() {
                   <p className="uppercase tracking-widest text-accent font-semibold text-xs font-sans">
                     {proj.category}
                   </p>
-                  <h3 className="mt-2 text-xl font-bold font-heading text-dark">
+                  <h3 className="mt-2 text-xl font-bold font-heading text-dark group-hover:text-accent transition-colors duration-200">
                     {proj.title}
                   </h3>
                   <p className="mt-2 text-dark-200 font-sans text-sm leading-relaxed">
                     {proj.description}
                   </p>
-                  <div className="mt-5">
-                    <a
-                      href={proj.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm font-semibold text-accent hover:text-accent-dark font-sans transition-colors duration-200"
-                    >
-                      View live site →
-                    </a>
-                  </div>
+                  <p className="mt-5 text-sm font-semibold text-accent font-sans">
+                    View live site →
+                  </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -734,8 +730,8 @@ export default function WebsitesForTradiesPage() {
                 One-time build fee
               </p>
               <div className="mt-2 flex items-start gap-2">
-                <span className="text-white/40 font-sans text-xl mt-4 leading-none">from</span>
-                <span className="text-8xl sm:text-9xl font-bold font-heading text-white leading-none tracking-tight">
+                <span className="text-white/40 font-sans text-base sm:text-xl mt-3 sm:mt-4 leading-none">from</span>
+                <span className="text-6xl sm:text-8xl lg:text-9xl font-bold font-heading text-white leading-none tracking-tight">
                   $1,200
                 </span>
               </div>

@@ -129,16 +129,6 @@ export default function AboutPage() {
       <section ref={storyRef} className="py-24 sm:py-32 bg-light-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Image/Photo Placeholder */}
-            <div className="relative h-96 sm:h-[500px] rounded-lg overflow-hidden bg-light border border-dark/10 flex items-center justify-center">
-              <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-br from-dark/5 to-accent/5">
-                <svg className="w-24 h-24 text-dark-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <p className="text-sm text-dark-200 mt-4">[Your Photo Here]</p>
-              </div>
-            </div>
-
             {/* Story Content */}
             <div>
               <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark mb-6 leading-tight">
@@ -158,6 +148,20 @@ export default function AboutPage() {
                   I don't just build websites. I study what's already ranking in your area first. Before I write any code, I analyze the top plumbers, electricians, or landscapers in your suburbs. What keywords are they using? How is their content structured? What technical stuff are they doing right or wrong? Then I build you something better.
                 </p>
               </div>
+            </div>
+
+            {/* Photo */}
+            <div className="relative aspect-[3/4] w-full max-w-sm mx-auto lg:mx-0 lg:ml-auto overflow-hidden">
+              <Image
+                src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&h=800&fit=crop&q=80"
+                alt="Laptop and coffee on a desk"
+                fill
+                className="object-cover object-center"
+                sizes="(max-width: 1024px) 80vw, 40vw"
+              />
+              {/* Corner brackets */}
+              <div aria-hidden="true" className="absolute -top-2.5 -left-2.5 w-5 h-5 border-t-[3px] border-l-[3px] border-accent" />
+              <div aria-hidden="true" className="absolute -bottom-2.5 -right-2.5 w-5 h-5 border-b-[3px] border-r-[3px] border-accent" />
             </div>
           </div>
         </div>

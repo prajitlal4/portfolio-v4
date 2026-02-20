@@ -8,26 +8,8 @@ export const navigationLinks = [
     href: "/about",
   },
   {
-    label: "Services",
-    href: "/services",
-    submenu: [
-      {
-        label: "Websites for Plumbers",
-        href: "/services/websites-for-plumbers",
-      },
-      {
-        label: "Websites for Electricians",
-        href: "/services/websites-for-electricians",
-      },
-      {
-        label: "Websites for Landscapers",
-        href: "/services/websites-for-landscapers",
-      },
-      {
-        label: "Websites for Renovators",
-        href: "/services/websites-for-renovators",
-      },
-    ],
+    label: "Websites for Tradies",
+    href: "/websites-for-tradies",
   },
   {
     label: "Our Work",
@@ -44,20 +26,8 @@ export const footerColumns = {
     title: "Services",
     links: [
       {
-        label: "Websites for Plumbers",
-        href: "/services/websites-for-plumbers",
-      },
-      {
-        label: "Websites for Electricians",
-        href: "/services/websites-for-electricians",
-      },
-      {
-        label: "Websites for Landscapers",
-        href: "/services/websites-for-landscapers",
-      },
-      {
-        label: "Websites for Renovators",
-        href: "/services/websites-for-renovators",
+        label: "Websites for Tradies",
+        href: "/websites-for-tradies",
       },
     ],
   },

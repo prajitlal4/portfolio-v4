@@ -89,10 +89,10 @@ export default function QuickQuoteForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/__forms.html', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'contact', ...formData }),
+        body: encode({ 'form-name': 'quick-quote', ...formData }),
       });
 
       if (response.ok) {
@@ -132,47 +132,59 @@ export default function QuickQuoteForm({
           {subtitle}
         </p>
         <form onSubmit={handleSubmit} className="space-y-5">
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="quick-quote" />
           <input type="hidden" name="bot-field" />
 
           <div>
+            <label htmlFor="qqf-name" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+              Your name
+            </label>
             <input
+              id="qqf-name"
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder="Your Name"
-              className={`w-full rounded-lg border ${
+              placeholder="John Smith"
+              className={`w-full rounded-xl border ${
                 errors.name ? 'border-red-500' : 'border-dark/10'
-              } bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base`}
+              } bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200 text-base`}
             />
             {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
           </div>
 
           <div>
+            <label htmlFor="qqf-email" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+              Email address
+            </label>
             <input
+              id="qqf-email"
               type="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="Email *"
-              className={`w-full rounded-lg border ${
+              placeholder="john@example.com"
+              className={`w-full rounded-xl border ${
                 errors.email ? 'border-red-500' : 'border-dark/10'
-              } bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base`}
+              } bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200 text-base`}
             />
             {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
           </div>
 
           <div>
+            <label htmlFor="qqf-message" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+              How can we help?
+            </label>
             <textarea
+              id="qqf-message"
               name="message"
               rows={4}
               value={formData.message}
               onChange={handleChange}
-              placeholder="How can we help your business?"
-              className={`w-full rounded-lg border ${
+              placeholder="Tell us a bit about your business and what you need..."
+              className={`w-full rounded-xl border ${
                 errors.message ? 'border-red-500' : 'border-dark/10'
-              } bg-light px-4 py-3 text-dark placeholder:text-dark-200 focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all duration-300 text-base resize-none`}
+              } bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200 text-base resize-none`}
             />
             {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
           </div>
@@ -180,9 +192,9 @@ export default function QuickQuoteForm({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-lg bg-accent px-6 py-3 text-base font-semibold text-white hover:bg-accent-dark transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full rounded-xl bg-accent px-6 py-4 text-base font-semibold text-white hover:bg-accent-dark transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-glow hover:shadow-glow-lg"
           >
-            {isSubmitting ? 'SENDING...' : buttonText}
+            {isSubmitting ? 'Sending...' : buttonText}
           </button>
         </form>
       </div>

@@ -3,6 +3,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,10 +15,10 @@ interface CaseStudy {
   id: string;
   title: string;
   industry: string;
-  tagline: string;
-  metric: string;
-  metricValue: string;
   description: string;
+  href: string;
+  screenshot: string;
+  screenshotAlt: string;
 }
 
 const caseStudies: CaseStudy[] = [
@@ -25,19 +26,19 @@ const caseStudies: CaseStudy[] = [
     id: 'scope-bathrooms',
     title: 'Scope Bathrooms',
     industry: 'Bathroom Renovations',
-    tagline: 'Web presence that drives bathroom renovation inquiries',
-    metric: 'Increase in Qualified Leads',
-    metricValue: 'TBD',
     description: 'A website built to showcase Scope Bathrooms\' work and bring in renovation inquiries.',
+    href: 'https://scopebathroomrenovations.com',
+    screenshot: '/scopebathrooms-screenshot.jpg',
+    screenshotAlt: 'Scope Bathroom Renovations website',
   },
   {
     id: 'highside-plumbing',
     title: 'Highside Plumbing',
     industry: 'Plumbing Services',
-    tagline: 'Professional online presence for emergency and residential plumbing',
-    metric: 'Increase in Service Calls',
-    metricValue: 'TBD',
     description: 'A plumbing website that gets found on Google and shows they\'re available for emergencies.',
+    href: 'https://highsideplumbing.com.au',
+    screenshot: '/highside-screenshot.jpg',
+    screenshotAlt: 'Highside Plumbing website',
   },
 ];
 
@@ -156,77 +157,40 @@ export default function CaseStudiesPage() {
             </div>
 
             <div ref={card0Ref} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 h-full flex flex-col">
-                {/* Placeholder for screenshot/image */}
-                <div className="relative w-full aspect-video bg-gradient-to-br from-dark/10 to-dark/5 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-dark/10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-dark/0 via-transparent to-dark/10" />
-                  <div className="relative z-10 text-center">
-                    <svg className="w-12 h-12 mx-auto text-accent/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
-                    </svg>
-                    <p className="text-dark/50 text-xs font-medium">Website screenshot</p>
+              {caseStudies.map((study) => (
+                <a
+                  key={study.id}
+                  href={study.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 h-full flex flex-col group hover:border-accent/30 hover:shadow-glow transition-all duration-300"
+                >
+                  <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-6 border border-dark/10">
+                    <Image
+                      src={study.screenshot}
+                      alt={study.screenshotAlt}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
-                </div>
 
-                {/* Content */}
-                <div className="flex-grow">
-                  <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
-                    {caseStudies[0].industry}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3">
-                    {caseStudies[0].title}
-                  </h3>
-                  <p className="text-base sm:text-lg text-dark-200 mb-6 leading-relaxed">
-                    {caseStudies[0].description}
-                  </p>
-
-                  {/* Key Metric */}
-                  <div className="bg-dark/3 rounded-xl p-4 border border-dark/5">
-                    <p className="text-dark-200 text-xs uppercase tracking-widest font-semibold mb-1">
-                      {caseStudies[0].metric}
+                  <div className="flex-grow">
+                    <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
+                      {study.industry}
+                    </span>
+                    <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3 group-hover:text-accent transition-colors duration-200">
+                      {study.title}
+                    </h3>
+                    <p className="text-base sm:text-lg text-dark-200 leading-relaxed">
+                      {study.description}
                     </p>
-                    <p className="text-2xl font-bold font-heading text-accent">
-                      {caseStudies[0].metricValue}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 h-full flex flex-col">
-                {/* Placeholder for screenshot/image */}
-                <div className="relative w-full aspect-video bg-gradient-to-br from-dark/10 to-dark/5 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-dark/10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-dark/0 via-transparent to-dark/10" />
-                  <div className="relative z-10 text-center">
-                    <svg className="w-12 h-12 mx-auto text-accent/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
-                    </svg>
-                    <p className="text-dark/50 text-xs font-medium">Website screenshot</p>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="flex-grow">
-                  <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
-                    {caseStudies[1].industry}
-                  </span>
-                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3">
-                    {caseStudies[1].title}
-                  </h3>
-                  <p className="text-base sm:text-lg text-dark-200 mb-6 leading-relaxed">
-                    {caseStudies[1].description}
-                  </p>
-
-                  {/* Key Metric */}
-                  <div className="bg-dark/3 rounded-xl p-4 border border-dark/5">
-                    <p className="text-dark-200 text-xs uppercase tracking-widest font-semibold mb-1">
-                      {caseStudies[1].metric}
-                    </p>
-                    <p className="text-2xl font-bold font-heading text-accent">
-                      {caseStudies[1].metricValue}
+                    <p className="mt-4 text-sm font-semibold text-accent">
+                      View live site →
                     </p>
                   </div>
-                </div>
-              </div>
+                </a>
+              ))}
             </div>
           </div>
         </section>
