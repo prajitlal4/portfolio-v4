@@ -4,15 +4,9 @@ import { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import { footerColumns } from "@/lib/data/navigation";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
@@ -35,26 +29,101 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer ref={footerRef} className="bg-dark border-t border-white/10">
-      <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
-        <div className="flex flex-col items-center justify-center gap-8">
-          {/* Navigation Links */}
-          <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-base text-light-muted hover:text-apple-blue transition-colors duration-300 relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-blue transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
-          </nav>
+    <footer ref={footerRef} className="relative bg-light border-t border-dark/10 overflow-hidden">
+      <div className="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
+        {/* Four Column Footer */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Services Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.services.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.services.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-          {/* Copyright */}
-          <p className="text-center text-sm text-light-muted">
-            &copy; 2025 PL Solutions. All rights reserved.
+          {/* Company Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.company.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.company.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.resources.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.resources.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Column */}
+          <div>
+            <h3 className="text-sm font-bold text-dark uppercase tracking-wider mb-6">
+              {footerColumns.contact.title}
+            </h3>
+            <ul className="space-y-3">
+              {footerColumns.contact.links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-dark-200 hover:text-accent transition-colors duration-200"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="text-sm text-dark-200">Perth, WA</li>
+              <li className="text-sm text-dark-200">9am - 5pm AWST</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-dark/10 pt-8">
+          {/* Bottom Links */}
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
+            <p className="text-sm text-dark-200">
+              &copy; {new Date().getFullYear()} PL Solutions. Built for Australian tradies.
+            </p>
+          </div>
+
+          {/* ABN */}
+          <p className="text-xs text-dark-200 text-center">
+            ABN: 98 796 976 416
           </p>
         </div>
       </div>

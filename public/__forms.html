@@ -3,14 +3,26 @@
   <body>
     <form name="contact" data-netlify="true" hidden netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
-      <p hidden>
-        <label>
-          Don’t fill this out if you're human: <input name="bot-field" />
-        </label>
-      </p>
+      <input name="bot-field" />
+      <input name="name" type="text" />
+      <input name="businessName" type="text" />
+      <input name="trade" type="text" />
+      <input name="phone" type="tel" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="quick-quote" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="quick-quote" />
       <input name="name" type="text" />
       <input name="email" type="email" />
-      <textarea name="message" rows="4"></textarea>
+      <textarea name="message"></textarea>
+    </form>
+    <form name="websites-for-tradies" data-netlify="true" hidden>
+      <input type="hidden" name="form-name" value="websites-for-tradies" />
+      <input name="name" type="text" />
+      <input name="trade" type="text" />
+      <input name="suburb" type="text" />
+      <input name="phone" type="tel" />
+      <textarea name="message"></textarea>
     </form>
   </body>
 </html> 

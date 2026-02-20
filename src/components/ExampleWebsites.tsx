@@ -16,7 +16,7 @@ const callouts = [
   {
     name: "Marketing",
     description:
-      "A marketing website that showcases your business and helps you reach more clients. Optimised for SEO and conversions, so you stand out from your competitors.",
+      "A website that shows off your work and brings in more clients. Gets found on Google and converts visitors into customers.",
     imageSrc: "/marketing-example.PNG",
     imageAlt:
       "A marketing website that showcases your business and helps you reach more clients.",
@@ -34,41 +34,46 @@ const callouts = [
 
 function ExampleWebsites() {
   return (
-    <div id="examples" className="bg-gray-900">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
-          <h2 className="text-3xl font-bold text-gray-100">
-            Demo Websites
+    <div id="examples" className="relative bg-light-100 py-24 sm:py-32 overflow-hidden">
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mb-16 sm:mb-20">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading text-dark leading-tight max-w-3xl">
+            Example Websites
           </h2>
-          <div className="mt-10 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
-            {callouts.map((callout, idx) => (
-              <motion.div
-                key={callout.name}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{ duration: 0.7, delay: idx * 0.15 }}
-                className="group relative"
-              >
-                <div className="transition-[transform,opacity] ease-in-out delay-50 duration-300 group-hover:-translate-y-6 relative h-80 w-full overflow-hidden rounded-lg bg-white sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-                  <Image
-                    src={callout.imageSrc}
-                    alt={callout.imageAlt}
-                    className="h-full w-full object-cover object-center"
-                    height={400}
-                    width={400}
-                  />
+          <p className="mt-6 text-lg sm:text-xl text-dark-200 max-w-2xl leading-relaxed">
+            Here's what we build for tradie businesses.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {callouts.map((callout, idx) => (
+            <div
+              key={callout.name}
+              className="relative flex flex-col h-full bg-light border border-dark/10 rounded-lg overflow-hidden hover:border-accent hover:bg-light-100 transition-colors duration-200"
+            >
+              <div className="relative h-64 overflow-hidden bg-light-100">
+                <Image
+                  src={callout.imageSrc}
+                  alt={callout.imageAlt}
+                  className="h-full w-full object-cover object-center"
+                  height={400}
+                  width={400}
+                />
+              </div>
+
+              <div className="flex-1 flex flex-col justify-between p-8">
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold font-heading text-dark mb-3">
+                    {callout.name}
+                  </h3>
+                  <p className="text-sm sm:text-base text-dark-200 leading-relaxed">
+                    {callout.description}
+                  </p>
                 </div>
-                <h3 className="mt-6 text-sm text-gray-300">
-                  <span className="absolute inset-0" />
-                  {callout.name}
-                </h3>
-                <p className="mt-2 text-base font-semibold text-gray-200">
-                  {callout.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

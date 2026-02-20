@@ -9,28 +9,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const services = [
   {
-    title: "Website Development",
-    subtitle: "Launch a high-converting website that works 24/7 to grow your business and outshine competitors.",
+    title: "Website Design & Build",
+    subtitle: "A professional website that showcases your work and makes it easy for customers to find you and book jobs.",
     icon: CodeBracketSquareIcon,
   },
   {
-    title: "Google Business Profile Management",
-    subtitle: "Get more leads from Google by optimizing your profile and ensuring your business appears in the right places.",
+    title: "Google Maps Setup",
+    subtitle: "Get your business on Google Maps so locals can find you when they search for your trade in their area.",
     icon: WrenchScrewdriverIcon,
   },
   {
-    title: "SEO Optimization",
-    subtitle: "Dominate page one of Google and watch qualified leads find you instead of your competition.",
+    title: "Local SEO",
+    subtitle: "Show up in Google search results for the areas you service. Simple as that.",
     icon: MagnifyingGlassCircleIcon,
   },
   {
-    title: "Website Maintenance & Security",
-    subtitle: "Sleep soundly knowing your site is bulletproof, lightning-fast, and always generating revenue.",
+    title: "Website Maintenance",
+    subtitle: "Keep your site secure, fast, and up to date. No surprises, no downtime.",
     icon: ShieldCheckIcon,
   },
   {
-    title: "Support & Consulting",
-    subtitle: "Get instant answers and strategic insights from me, and I will treat your success like my mission.",
+    title: "Direct Support",
+    subtitle: "You get my number. Direct access when you need changes, advice, or just have a question.",
     icon: UserGroupIcon,
   },
 ];
@@ -44,29 +44,29 @@ function Services() {
       // Title animation
       gsap.from(titleRef.current, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
+        y: 20,
+        duration: 0.3,
         scrollTrigger: {
           trigger: titleRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
-        }
+          start: 'top 85%',
+          toggleActions: 'play none none none',
+        },
       });
 
-      // Card animations
+      // Cards animation
       const cards = cardsRef.current?.querySelectorAll('.service-card');
       if (cards) {
         cards.forEach((card, index) => {
           gsap.from(card, {
             opacity: 0,
-            y: 40,
-            duration: 0.6,
-            delay: index * 0.1,
+            y: 20,
+            duration: 0.3,
+            delay: 0.1 + index * 0.05,
             scrollTrigger: {
               trigger: card,
-              start: "top 80%",
-              toggleActions: "play none none none"
-            }
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
           });
         });
       }
@@ -76,13 +76,13 @@ function Services() {
   }, []);
 
   return (
-    <div id="services" className="bg-dark py-24 sm:py-32">
+    <div className="bg-light py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 
+        <h2
           ref={titleRef}
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-light text-center max-w-4xl mx-auto leading-tight"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading tracking-tight text-dark text-center max-w-4xl mx-auto leading-tight"
         >
-          Professional Web Development Services
+          What We Do
         </h2>
 
         {/* Grid layout for all cards */}
@@ -90,24 +90,20 @@ function Services() {
           {services.map((service, idx) => (
             <div
               key={service.title}
-              className="service-card group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 hover:bg-white/[0.07] hover:border-apple-blue/30 hover:-translate-y-2 hover:shadow-glow transition-all duration-500 flex flex-col items-center text-center"
+              className="service-card group relative bg-light border border-dark/10 rounded-lg p-8 hover:border-accent hover:bg-light-100 transition-colors duration-200 flex flex-col items-center text-center"
             >
-              {/* Icon with glow effect */}
-              <div className="relative mb-6">
-                <div className="absolute inset-0 bg-apple-blue/30 blur-xl rounded-full group-hover:bg-apple-blue/50 transition-all duration-500" />
-                <service.icon className="relative h-16 w-16 text-apple-blue group-hover:text-apple-blue-light group-hover:scale-110 transition-all duration-500" />
+              {/* Icon */}
+              <div className="mb-6">
+                <service.icon className="h-12 w-12 text-accent" />
               </div>
 
               {/* Content */}
-              <h3 className="text-xl sm:text-2xl font-bold font-heading text-light mb-4 group-hover:text-apple-blue-light transition-colors duration-300">
+              <h3 className="text-lg sm:text-xl font-bold font-heading text-dark mb-3">
                 {service.title}
               </h3>
-              <p className="text-base sm:text-lg text-light-muted leading-relaxed">
+              <p className="text-sm sm:text-base text-dark-200 leading-relaxed">
                 {service.subtitle}
               </p>
-
-              {/* Decorative gradient on hover */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-apple-blue/0 via-apple-blue/0 to-apple-blue/0 group-hover:from-apple-blue/5 group-hover:via-transparent group-hover:to-apple-blue/5 transition-all duration-500 pointer-events-none" />
             </div>
           ))}
         </div>

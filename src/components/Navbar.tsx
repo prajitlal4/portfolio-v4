@@ -5,13 +5,13 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import Image from "next/image";
+import { navigationLinks } from "@/lib/data/navigation";
 
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+// Map navigation links for display
+const navigation = navigationLinks.map((link) => ({
+  name: link.label,
+  href: link.href,
+}));
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -46,7 +46,7 @@ function Navbar() {
         hidden ? "-translate-y-full" : "translate-y-0"
       } ${
         scrolled 
-          ? "bg-dark/80 backdrop-blur-xl border-b border-white/10" 
+          ? "bg-light/80 backdrop-blur-xl border-b border-dark/10" 
           : "bg-transparent"
       }`}
     >
@@ -70,7 +70,7 @@ function Navbar() {
         <div className="flex lg:hidden">
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-light hover:text-apple-blue transition-colors"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-dark hover:text-accent transition-colors"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
@@ -82,10 +82,9 @@ function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="relative text-base font-medium text-light hover:text-apple-blue transition-all duration-300 group"
+              className="text-base font-medium text-dark hover:text-accent transition-colors duration-200"
             >
               {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-apple-blue transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </div>
@@ -96,14 +95,14 @@ function Navbar() {
         open={mobileMenuOpen}
         onClose={setMobileMenuOpen}
       >
-        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-dark-100 px-6 py-6 sm:max-w-sm border-l border-white/10">
+        <div className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm" />
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-light-100 px-6 py-6 sm:max-w-sm border-l border-dark/10">
           <div className="flex items-center justify-between">
             <Link href="/" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
               <span className="sr-only">PL Solutions</span>
               <Image
                 className="h-10 w-auto"
-                src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20White.png"
+                src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20Black.png"
                 alt="PL Solutions Logo"
                 height={40}
                 width={160}
@@ -111,7 +110,7 @@ function Navbar() {
             </Link>
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5 text-light hover:text-apple-blue transition-colors"
+              className="-m-2.5 rounded-md p-2.5 text-dark hover:text-accent transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
@@ -124,7 +123,7 @@ function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="block rounded-lg px-4 py-3 text-base font-semibold text-light hover:bg-white/5 hover:text-apple-blue transition-all duration-300"
+                  className="block rounded-lg px-4 py-3 text-base font-semibold text-dark hover:bg-dark/5 hover:text-accent transition-all duration-300"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}

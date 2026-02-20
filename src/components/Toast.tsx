@@ -37,28 +37,28 @@ export default function Toast({ show, message, type = 'success', onClose }: Toas
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl ring-1 ring-black ring-opacity-5">
+          <div className="pointer-events-auto w-full max-w-sm overflow-hidden rounded-2xl bg-light backdrop-blur-xl border border-dark/20 shadow-2xl ring-1 ring-dark/10 ring-opacity-5">
             <div className="p-4">
               <div className="flex items-start">
                 <div className="flex-shrink-0">
                   {type === 'success' ? (
-                    <CheckCircleIcon className="h-6 w-6 text-green-400" aria-hidden="true" />
+                    <CheckCircleIcon className="h-6 w-6 text-green-500" aria-hidden="true" />
                   ) : (
-                    <XCircleIcon className="h-6 w-6 text-red-400" aria-hidden="true" />
+                    <XCircleIcon className="h-6 w-6 text-red-500" aria-hidden="true" />
                   )}
                 </div>
                 <div className="ml-3 w-0 flex-1 pt-0.5">
-                  <p className="text-sm font-medium text-white">
+                  <p className="text-sm font-medium text-dark">
                     {type === 'success' ? 'Success!' : 'Error'}
                   </p>
-                  <p className="mt-1 text-sm text-light-muted">
+                  <p className="mt-1 text-sm text-dark-200">
                     {message}
                   </p>
                 </div>
                 <div className="ml-4 flex flex-shrink-0">
                   <button
                     type="button"
-                    className="inline-flex rounded-md bg-white/5 text-light-muted hover:text-light hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-apple-blue focus:ring-offset-2 transition-all duration-200"
+                    className="inline-flex rounded-md bg-dark/5 text-dark-200 hover:text-dark hover:bg-dark/10 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200"
                     onClick={onClose}
                   >
                     <span className="sr-only">Close</span>
