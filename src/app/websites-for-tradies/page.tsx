@@ -178,164 +178,66 @@ export default function WebsitesForTradiesPage() {
   const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
-    // Skip all GSAP on mobile — gsap.from() forces a repaint on mount by
-    // setting elements to opacity:0 before animating in, which causes visible
-    // lag on every navigation. Content is better shown instantly on mobile.
+    // Mobile: no GSAP — CSS handles the hero fade (see className below).
+    // GSAP's from() sets inline opacity:0 after first paint, causing a flash
+    // on every navigation. CSS animations avoid this by running before paint.
     if (window.matchMedia('(max-width: 1023px)').matches) return;
 
     const ctx = gsap.context(() => {
-      // ── Hero (on mount, no scroll trigger)
-      const heroEls = [
-        heroBadgeRef.current,
-        heroH1Ref.current,
-        heroSubRef.current,
-        heroCtaRef.current,
-        heroTrustRef.current,
-      ].filter(Boolean);
+      // ── Hero
+      gsap.from(
+        [heroBadgeRef.current, heroH1Ref.current, heroSubRef.current, heroCtaRef.current, heroTrustRef.current].filter(Boolean),
+        { opacity: 0, y: 20, duration: 0.4, stagger: 0.08, ease: 'power2.out' }
+      );
 
-      if (heroEls.length) {
-        gsap.from(heroEls, {
-          opacity: 0,
-          y: 28,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: 'power3.out',
-          delay: 0.1,
-        });
-      }
-
-      // ── Hook section
-      if (hookRef.current) {
-        gsap.from(hookRef.current, {
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: hookRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        });
-      }
-
-      // ── Trade section header
-      if (tradesSectionRef.current) {
-        gsap.from(tradesSectionRef.current.querySelectorAll('.trades-header-child'), {
-          opacity: 0,
-          y: 20,
-          duration: 0.5,
-          stagger: 0.08,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: tradesSectionRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
-        });
-      }
-
-      // ── Trade cards (each individually for stagger)
-      const cardRefs = [card0Ref, card1Ref, card2Ref, card3Ref];
-      cardRefs.forEach((ref, idx) => {
+      // ── Scroll sections — grouped to minimise ScrollTrigger instances
+      const scrollEls: [React.RefObject<HTMLElement>, string][] = [
+        [hookRef,          'top 85%'],
+        [tradesSectionRef, 'top 85%'],
+        [pricingRef,       'top 85%'],
+        [formRef,          'top 85%'],
+      ];
+      scrollEls.forEach(([ref, start]) => {
         if (ref.current) {
           gsap.from(ref.current, {
-            opacity: 0,
-            y: 28,
-            duration: 0.5,
-            delay: 0.08 * idx,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
+            opacity: 0, y: 20, duration: 0.4, ease: 'power2.out',
+            scrollTrigger: { trigger: ref.current, start, toggleActions: 'play none none none' },
           });
         }
       });
 
-      // ── Steps
-      const stepRefs = [step0Ref, step1Ref, step2Ref];
-      stepRefs.forEach((ref, idx) => {
-        if (ref.current) {
-          gsap.from(ref.current, {
-            opacity: 0,
-            y: 24,
-            duration: 0.5,
-            delay: 0.1 * idx,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          });
-        }
-      });
-
-      // ── Testimonials
-      [testimonial0Ref, testimonial1Ref].forEach((ref, idx) => {
-        if (ref.current) {
-          gsap.from(ref.current, {
-            opacity: 0,
-            y: 24,
-            duration: 0.6,
-            delay: 0.1 * idx,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          });
-        }
-      });
-
-      // ── Recent projects
-      [proj0Ref, proj1Ref].forEach((ref, idx) => {
-        if (ref.current) {
-          gsap.from(ref.current, {
-            opacity: 0,
-            y: 24,
-            duration: 0.6,
-            delay: 0.12 * idx,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: ref.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-          });
-        }
-      });
-
-      // ── Pricing card
-      if (pricingRef.current) {
-        gsap.from(pricingRef.current, {
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: pricingRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
+      // ── Cards as a group
+      const cards = [card0Ref, card1Ref, card2Ref, card3Ref].map(r => r.current).filter(Boolean);
+      if (cards.length && card0Ref.current) {
+        gsap.from(cards, {
+          opacity: 0, y: 15, duration: 0.35, stagger: 0.06, ease: 'power2.out',
+          scrollTrigger: { trigger: card0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
         });
       }
 
-      // ── Form section
-      if (formRef.current) {
-        gsap.from(formRef.current, {
-          opacity: 0,
-          y: 30,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: formRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none none',
-          },
+      // ── Steps as a group
+      const steps = [step0Ref, step1Ref, step2Ref].map(r => r.current).filter(Boolean);
+      if (steps.length && step0Ref.current) {
+        gsap.from(steps, {
+          opacity: 0, y: 15, duration: 0.35, stagger: 0.08, ease: 'power2.out',
+          scrollTrigger: { trigger: step0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
+
+      // ── Testimonials + projects as groups
+      const testimonials = [testimonial0Ref, testimonial1Ref].map(r => r.current).filter(Boolean);
+      if (testimonials.length && testimonial0Ref.current) {
+        gsap.from(testimonials, {
+          opacity: 0, y: 15, duration: 0.35, stagger: 0.08, ease: 'power2.out',
+          scrollTrigger: { trigger: testimonial0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
+        });
+      }
+
+      const projs = [proj0Ref, proj1Ref].map(r => r.current).filter(Boolean);
+      if (projs.length && proj0Ref.current) {
+        gsap.from(projs, {
+          opacity: 0, y: 15, duration: 0.35, stagger: 0.08, ease: 'power2.out',
+          scrollTrigger: { trigger: proj0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
         });
       }
     });
@@ -387,7 +289,7 @@ export default function WebsitesForTradiesPage() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 bg-light">
+      <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 bg-light animate-fadeIn lg:animate-none">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-accent/5 blur-3xl"
