@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useEffect, useRef } from 'react';
@@ -158,93 +156,77 @@ export default function CaseStudiesPage() {
             </div>
 
             <div ref={card0Ref} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <Link href="/case-studies/scope-bathrooms">
-                <div className="group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 hover:bg-dark/[0.07] hover:border-accent/30 hover:shadow-glow transition-all duration-500 cursor-pointer h-full flex flex-col">
-                  {/* Placeholder for screenshot/image */}
-                  <div className="relative w-full aspect-video bg-gradient-to-br from-dark/10 to-dark/5 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-dark/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-dark/0 via-transparent to-dark/10" />
-                    <div className="relative z-10 text-center">
-                      <svg className="w-12 h-12 mx-auto text-accent/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
-                      </svg>
-                      <p className="text-dark/50 text-xs font-medium">Website screenshot</p>
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-grow">
-                    <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
-                      {caseStudies[0].industry}
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3 group-hover:text-accent transition-colors duration-300">
-                      {caseStudies[0].title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-dark-200 mb-6 leading-relaxed">
-                      {caseStudies[0].description}
-                    </p>
-
-                    {/* Key Metric */}
-                    <div className="bg-dark/3 rounded-xl p-4 mb-6 border border-dark/5">
-                      <p className="text-dark-200 text-xs uppercase tracking-widest font-semibold mb-1">
-                        {caseStudies[0].metric}
-                      </p>
-                      <p className="text-2xl font-bold font-heading text-accent">
-                        {caseStudies[0].metricValue}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex items-center text-accent font-semibold group-hover:gap-2 transition-all duration-300">
-                    View Case Study
-                    <ArrowRightIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+              <div className="relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 h-full flex flex-col">
+                {/* Placeholder for screenshot/image */}
+                <div className="relative w-full aspect-video bg-gradient-to-br from-dark/10 to-dark/5 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-dark/10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-dark/0 via-transparent to-dark/10" />
+                  <div className="relative z-10 text-center">
+                    <svg className="w-12 h-12 mx-auto text-accent/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+                    </svg>
+                    <p className="text-dark/50 text-xs font-medium">Website screenshot</p>
                   </div>
                 </div>
-              </Link>
 
-              <Link href="/case-studies/highside-plumbing">
-                <div className="group relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 hover:bg-dark/[0.07] hover:border-accent/30 hover:shadow-glow transition-all duration-500 cursor-pointer h-full flex flex-col">
-                  {/* Placeholder for screenshot/image */}
-                  <div className="relative w-full aspect-video bg-gradient-to-br from-dark/10 to-dark/5 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-dark/10">
-                    <div className="absolute inset-0 bg-gradient-to-br from-dark/0 via-transparent to-dark/10" />
-                    <div className="relative z-10 text-center">
-                      <svg className="w-12 h-12 mx-auto text-accent/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
-                      </svg>
-                      <p className="text-dark/50 text-xs font-medium">Website screenshot</p>
-                    </div>
-                  </div>
+                {/* Content */}
+                <div className="flex-grow">
+                  <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
+                    {caseStudies[0].industry}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3">
+                    {caseStudies[0].title}
+                  </h3>
+                  <p className="text-base sm:text-lg text-dark-200 mb-6 leading-relaxed">
+                    {caseStudies[0].description}
+                  </p>
 
-                  {/* Content */}
-                  <div className="flex-grow">
-                    <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
-                      {caseStudies[1].industry}
-                    </span>
-                    <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3 group-hover:text-accent transition-colors duration-300">
-                      {caseStudies[1].title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-dark-200 mb-6 leading-relaxed">
-                      {caseStudies[1].description}
+                  {/* Key Metric */}
+                  <div className="bg-dark/3 rounded-xl p-4 border border-dark/5">
+                    <p className="text-dark-200 text-xs uppercase tracking-widest font-semibold mb-1">
+                      {caseStudies[0].metric}
                     </p>
-
-                    {/* Key Metric */}
-                    <div className="bg-dark/3 rounded-xl p-4 mb-6 border border-dark/5">
-                      <p className="text-dark-200 text-xs uppercase tracking-widest font-semibold mb-1">
-                        {caseStudies[1].metric}
-                      </p>
-                      <p className="text-2xl font-bold font-heading text-accent">
-                        {caseStudies[1].metricValue}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex items-center text-accent font-semibold group-hover:gap-2 transition-all duration-300">
-                    View Case Study
-                    <ArrowRightIcon className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <p className="text-2xl font-bold font-heading text-accent">
+                      {caseStudies[0].metricValue}
+                    </p>
                   </div>
                 </div>
-              </Link>
+              </div>
+
+              <div className="relative bg-dark/5 backdrop-blur-sm border border-dark/10 rounded-3xl overflow-hidden p-8 h-full flex flex-col">
+                {/* Placeholder for screenshot/image */}
+                <div className="relative w-full aspect-video bg-gradient-to-br from-dark/10 to-dark/5 rounded-2xl overflow-hidden flex items-center justify-center mb-6 border border-dark/10">
+                  <div className="absolute inset-0 bg-gradient-to-br from-dark/0 via-transparent to-dark/10" />
+                  <div className="relative z-10 text-center">
+                    <svg className="w-12 h-12 mx-auto text-accent/30 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V6z" />
+                    </svg>
+                    <p className="text-dark/50 text-xs font-medium">Website screenshot</p>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-grow">
+                  <span className="inline-block text-xs uppercase tracking-widest text-accent font-semibold mb-3">
+                    {caseStudies[1].industry}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-heading text-dark mb-3">
+                    {caseStudies[1].title}
+                  </h3>
+                  <p className="text-base sm:text-lg text-dark-200 mb-6 leading-relaxed">
+                    {caseStudies[1].description}
+                  </p>
+
+                  {/* Key Metric */}
+                  <div className="bg-dark/3 rounded-xl p-4 border border-dark/5">
+                    <p className="text-dark-200 text-xs uppercase tracking-widest font-semibold mb-1">
+                      {caseStudies[1].metric}
+                    </p>
+                    <p className="text-2xl font-bold font-heading text-accent">
+                      {caseStudies[1].metricValue}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
