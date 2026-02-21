@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PL Solutions - Web Development Perth",
+  title: "Lal Solutions - Web Development Perth",
   description: "Perth's best website development agency. Professional web development services that get you leads, not just seen.",
 };
 

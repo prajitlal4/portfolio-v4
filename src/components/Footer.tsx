@@ -119,7 +119,7 @@ export default function Footer() {
           {/* Bottom Links */}
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 mb-8">
             <p className="text-sm text-dark-200">
-              &copy; {new Date().getFullYear()} PL Solutions. Built for Australian tradies.
+              &copy; {new Date().getFullYear()} Lal Solutions. Built for Australian tradies.
             </p>
           </div>
 

@@ -3,7 +3,7 @@ import ServicesPageContent from './ServicesPageContent';
 import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
 
 export const metadata: Metadata = {
-  title: 'Services | Web Development & Digital Marketing | PL Solutions',
+  title: 'Services | Web Development & Digital Marketing | Lal Solutions',
   description: 'Professional web development, SEO, and digital marketing services for Australian businesses. Custom websites, Google Business Profile management, and more.',
 };
 

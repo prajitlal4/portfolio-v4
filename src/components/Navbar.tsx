@@ -79,11 +79,11 @@ function Navbar() {
         >
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5 group">
-              <span className="sr-only">PL Solutions</span>
+              <span className="sr-only">Lal Solutions</span>
               <Image
                 className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
                 src="https://portfolio1.syd1.cdn.digitaloceanspaces.com/PL%20Solutions%20White.png"
-                alt="PL Solutions Logo"
+                alt="Lal Solutions Logo"
                 height={40}
                 width={160}
                 priority

@@ -1,9 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import {
@@ -13,9 +11,6 @@ import {
   PaintBrushIcon,
 } from '@heroicons/react/24/outline';
 import { CheckIcon } from '@heroicons/react/24/solid';
-
-// Register at module level — matches CaseStudyTemplate pattern
-gsap.registerPlugin(ScrollTrigger);
 
 const tradeCards = [
   {
@@ -65,7 +60,6 @@ const recentProjects = [
       'Built a website where customers can easily book plumbing and gas services. Shows their expertise and makes it simple to get in touch.',
     image: '/highside-image.png',
     href: 'https://highsideplumbing.com.au',
-    caseStudy: '/case-studies/highside-plumbing',
   },
   {
     title: 'Scope Bathroom Renovations',
@@ -74,7 +68,6 @@ const recentProjects = [
       'Built a website that shows off their bathroom work beautifully. Brings visitors in and turns them into customers.',
     image: '/scopebathrooms-image.webp',
     href: 'https://scopebathroomrenovations.com',
-    caseStudy: '/case-studies/scope-bathrooms',
   },
 ];
 
@@ -133,40 +126,6 @@ const pricingIncludes = [
 ];
 
 export default function WebsitesForTradiesPage() {
-  // Hero refs
-  const heroBadgeRef = useRef<HTMLParagraphElement>(null);
-  const heroH1Ref = useRef<HTMLHeadingElement>(null);
-  const heroSubRef = useRef<HTMLParagraphElement>(null);
-  const heroCtaRef = useRef<HTMLDivElement>(null);
-  const heroTrustRef = useRef<HTMLParagraphElement>(null);
-
-  // Section refs
-  const hookRef = useRef<HTMLDivElement>(null);
-  const tradesSectionRef = useRef<HTMLDivElement>(null);
-
-  // Testimonial refs
-  const testimonial0Ref = useRef<HTMLDivElement>(null);
-  const testimonial1Ref = useRef<HTMLDivElement>(null);
-
-  // Project refs
-  const proj0Ref = useRef<HTMLAnchorElement>(null);
-  const proj1Ref = useRef<HTMLAnchorElement>(null);
-
-  // Trade card refs
-  const card0Ref = useRef<HTMLDivElement>(null);
-  const card1Ref = useRef<HTMLDivElement>(null);
-  const card2Ref = useRef<HTMLDivElement>(null);
-  const card3Ref = useRef<HTMLDivElement>(null);
-
-  // Step refs
-  const step0Ref = useRef<HTMLDivElement>(null);
-  const step1Ref = useRef<HTMLDivElement>(null);
-  const step2Ref = useRef<HTMLDivElement>(null);
-
-  // Pricing + form refs
-  const pricingRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLDivElement>(null);
-
   const [formData, setFormData] = useState({
     name: '',
     trade: '',
@@ -176,74 +135,6 @@ export default function WebsitesForTradiesPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-
-  useEffect(() => {
-    // Mobile: no GSAP — CSS handles the hero fade (see className below).
-    // GSAP's from() sets inline opacity:0 after first paint, causing a flash
-    // on every navigation. CSS animations avoid this by running before paint.
-    if (window.matchMedia('(max-width: 1023px)').matches) return;
-
-    const ctx = gsap.context(() => {
-      // ── Hero
-      gsap.from(
-        [heroBadgeRef.current, heroH1Ref.current, heroSubRef.current, heroCtaRef.current, heroTrustRef.current].filter(Boolean),
-        { opacity: 0, y: 20, duration: 0.4, stagger: 0.08, ease: 'power2.out' }
-      );
-
-      // ── Scroll sections — grouped to minimise ScrollTrigger instances
-      const scrollEls: [React.RefObject<HTMLElement>, string][] = [
-        [hookRef,          'top 85%'],
-        [tradesSectionRef, 'top 85%'],
-        [pricingRef,       'top 85%'],
-        [formRef,          'top 85%'],
-      ];
-      scrollEls.forEach(([ref, start]) => {
-        if (ref.current) {
-          gsap.from(ref.current, {
-            opacity: 0, y: 20, duration: 0.4, ease: 'power2.out',
-            scrollTrigger: { trigger: ref.current, start, toggleActions: 'play none none none' },
-          });
-        }
-      });
-
-      // ── Cards as a group
-      const cards = [card0Ref, card1Ref, card2Ref, card3Ref].map(r => r.current).filter(Boolean);
-      if (cards.length && card0Ref.current) {
-        gsap.from(cards, {
-          opacity: 0, y: 15, duration: 0.35, stagger: 0.06, ease: 'power2.out',
-          scrollTrigger: { trigger: card0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
-        });
-      }
-
-      // ── Steps as a group
-      const steps = [step0Ref, step1Ref, step2Ref].map(r => r.current).filter(Boolean);
-      if (steps.length && step0Ref.current) {
-        gsap.from(steps, {
-          opacity: 0, y: 15, duration: 0.35, stagger: 0.08, ease: 'power2.out',
-          scrollTrigger: { trigger: step0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
-        });
-      }
-
-      // ── Testimonials + projects as groups
-      const testimonials = [testimonial0Ref, testimonial1Ref].map(r => r.current).filter(Boolean);
-      if (testimonials.length && testimonial0Ref.current) {
-        gsap.from(testimonials, {
-          opacity: 0, y: 15, duration: 0.35, stagger: 0.08, ease: 'power2.out',
-          scrollTrigger: { trigger: testimonial0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
-        });
-      }
-
-      const projs = [proj0Ref, proj1Ref].map(r => r.current).filter(Boolean);
-      if (projs.length && proj0Ref.current) {
-        gsap.from(projs, {
-          opacity: 0, y: 15, duration: 0.35, stagger: 0.08, ease: 'power2.out',
-          scrollTrigger: { trigger: proj0Ref.current, start: 'top 85%', toggleActions: 'play none none none' },
-        });
-      }
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -264,11 +155,8 @@ export default function WebsitesForTradiesPage() {
     }
   };
 
-  const cardRefs = [card0Ref, card1Ref, card2Ref, card3Ref] as const;
-  const stepRefs = [step0Ref, step1Ref, step2Ref] as const;
-
   return (
-    <main className="bg-light min-h-screen">
+    <main className="bg-light min-h-screen animate-fadeIn">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -289,7 +177,7 @@ export default function WebsitesForTradiesPage() {
       <Navbar />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 bg-light animate-fadeIn lg:animate-none">
+      <section className="relative overflow-hidden pt-32 pb-24 sm:pt-40 sm:pb-32 bg-light">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 right-0 w-[700px] h-[700px] rounded-full bg-accent/5 blur-3xl"
@@ -297,26 +185,17 @@ export default function WebsitesForTradiesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
-              <p
-                ref={heroBadgeRef}
-                className="uppercase tracking-widest text-accent font-semibold text-sm font-sans"
-              >
+              <p className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
                 Perth Web Design for Tradies
               </p>
-              <h1
-                ref={heroH1Ref}
-                className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1]"
-              >
+              <h1 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1]">
                 Websites for Tradies.<br />
                 <span className="text-accent">Built to Get You Jobs.</span>
               </h1>
-              <p
-                ref={heroSubRef}
-                className="mt-6 text-xl sm:text-2xl text-dark-200 font-sans leading-relaxed"
-              >
+              <p className="mt-6 text-xl sm:text-2xl text-dark-200 font-sans leading-relaxed">
                 We build websites for Perth tradies that bring in real work. Designed around how your customers actually search for you.
               </p>
-              <div ref={heroCtaRef} className="mt-10">
+              <div className="mt-10">
                 <a
                   href="#contact"
                   className="inline-flex items-center justify-center bg-accent hover:bg-accent-dark text-white font-semibold px-8 py-4 rounded-xl text-lg transition-all duration-200 shadow-glow hover:shadow-glow-lg"
@@ -324,20 +203,17 @@ export default function WebsitesForTradiesPage() {
                   Get a Free Quote
                 </a>
               </div>
-              <p ref={heroTrustRef} className="mt-4 text-dark-200 font-sans text-sm">
+              <p className="mt-4 text-dark-200 font-sans text-sm">
                 From $1,200 · Live in 7 days · Perth-based
               </p>
             </div>
 
             {/* Hero image */}
             <div className="relative self-center mr-4 mb-4">
-              {/* Accent offset block — translates behind and below the image */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 translate-x-4 translate-y-4 bg-accent"
               />
-
-              {/* Image — sharp corners, horizontally flipped */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/websites-for-tradies-header.webp"
@@ -350,13 +226,10 @@ export default function WebsitesForTradiesPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/20 to-transparent pointer-events-none" />
               </div>
-
-              {/* Top-left alignment bracket */}
               <div
                 aria-hidden="true"
                 className="absolute -top-2.5 -left-2.5 w-5 h-5 border-t-[3px] border-l-[3px] border-dark"
               />
-              {/* Bottom-right alignment bracket (sits on accent block) */}
               <div
                 aria-hidden="true"
                 className="absolute bottom-[-6px] right-[-6px] translate-x-4 translate-y-4 w-5 h-5 border-b-[3px] border-r-[3px] border-dark/40"
@@ -370,7 +243,7 @@ export default function WebsitesForTradiesPage() {
       <section className="py-24 sm:py-32 bg-light">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            <div ref={hookRef}>
+            <div>
               <h2 className="text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
                 Your website is sending customers to your competitor.
               </h2>
@@ -387,13 +260,10 @@ export default function WebsitesForTradiesPage() {
 
             {/* Hook image */}
             <div className="relative ml-4 mt-4">
-              {/* Accent offset block — top-left this time */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 -translate-x-4 -translate-y-4 bg-accent"
               />
-
-              {/* Image — sharp corners */}
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/websites-for-tradies-second.webp"
@@ -404,13 +274,10 @@ export default function WebsitesForTradiesPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark/20 to-transparent pointer-events-none" />
               </div>
-
-              {/* Top-right alignment bracket */}
               <div
                 aria-hidden="true"
                 className="absolute -top-2.5 -right-2.5 w-5 h-5 border-t-[3px] border-r-[3px] border-dark"
               />
-              {/* Bottom-left alignment bracket (on accent block) */}
               <div
                 aria-hidden="true"
                 className="absolute bottom-[-6px] left-[-6px] -translate-x-4 -translate-y-4 w-5 h-5 border-b-[3px] border-l-[3px] border-dark/40"
@@ -422,54 +289,31 @@ export default function WebsitesForTradiesPage() {
 
       {/* ── TRADE CARDS ──────────────────────────────────────── */}
       <section className="py-24 sm:py-32 bg-light-100">
-        <div ref={tradesSectionRef} className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
-            <span className="trades-header-child uppercase tracking-widest text-accent font-semibold text-sm font-sans">
+            <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
               Built for your trade
             </span>
-            <h2 className="trades-header-child mt-4 text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
+            <h2 className="mt-4 text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
               Every trade is different. Your website should be too.
             </h2>
-            <p className="trades-header-child mt-4 text-lg text-dark-200 font-sans leading-relaxed">
+            <p className="mt-4 text-lg text-dark-200 font-sans leading-relaxed">
               The way someone searches for a plumber at 10pm is nothing like the way someone shops for a bathroom
               renovation. We build around that.
             </p>
           </div>
 
-          {/* Publication-style grid: gap-px dividers via bg on wrapper */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-dark/[0.08]">
             {[
-              {
-                icon: <WrenchScrewdriverIcon className="w-6 h-6" />,
-                title: tradeCards[0].title,
-                body: tradeCards[0].body,
-              },
-              {
-                icon: <Squares2X2Icon className="w-6 h-6" />,
-                title: tradeCards[1].title,
-                body: tradeCards[1].body,
-              },
-              {
-                icon: <HomeModernIcon className="w-6 h-6" />,
-                title: tradeCards[2].title,
-                body: tradeCards[2].body,
-              },
-              {
-                icon: <PaintBrushIcon className="w-6 h-6" />,
-                title: tradeCards[3].title,
-                body: tradeCards[3].body,
-              },
-            ].map((card, idx) => (
-              <div
-                key={card.title}
-                ref={cardRefs[idx]}
-                className="bg-light p-8 lg:p-10"
-              >
-                {/* Icon: dark square → accent on hover */}
+              { icon: <WrenchScrewdriverIcon className="w-6 h-6" />, ...tradeCards[0] },
+              { icon: <Squares2X2Icon className="w-6 h-6" />, ...tradeCards[1] },
+              { icon: <HomeModernIcon className="w-6 h-6" />, ...tradeCards[2] },
+              { icon: <PaintBrushIcon className="w-6 h-6" />, ...tradeCards[3] },
+            ].map((card) => (
+              <div key={card.title} className="bg-light p-8 lg:p-10">
                 <div className="w-11 h-11 bg-dark flex items-center justify-center text-white flex-shrink-0">
                   {card.icon}
                 </div>
-
                 <h3 className="mt-6 text-xl font-bold font-heading text-dark leading-snug">
                   {card.title}
                 </h3>
@@ -495,9 +339,8 @@ export default function WebsitesForTradiesPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-16">
-            {steps.map((step, idx) => (
-              <div key={step.number} ref={stepRefs[idx]}>
-                {/* Orange circle badge */}
+            {steps.map((step) => (
+              <div key={step.number}>
                 <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center flex-shrink-0 mb-5">
                   <span className="text-white font-bold font-heading text-xl leading-none">
                     {step.number}
@@ -524,10 +367,9 @@ export default function WebsitesForTradiesPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {testimonials.map((t, idx) => (
+            {testimonials.map((t) => (
               <div
                 key={t.company}
-                ref={idx === 0 ? testimonial0Ref : testimonial1Ref}
                 className="bg-light border border-dark/10 border-l-4 border-l-accent rounded-xl p-8 flex flex-col"
               >
                 <p className="text-lg font-heading text-dark leading-relaxed italic flex-grow">
@@ -569,16 +411,14 @@ export default function WebsitesForTradiesPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {recentProjects.map((proj, idx) => (
+            {recentProjects.map((proj) => (
               <a
                 key={proj.title}
-                ref={idx === 0 ? proj0Ref : proj1Ref}
                 href={proj.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="border border-dark/10 rounded-xl overflow-hidden group hover:border-accent/30 hover:shadow-glow transition-all duration-500"
               >
-                {/* Project image */}
                 <div className="relative w-full aspect-video bg-light-100 overflow-hidden">
                   <Image
                     src={proj.image}
@@ -588,8 +428,6 @@ export default function WebsitesForTradiesPage() {
                     sizes="(max-width: 640px) 100vw, 50vw"
                   />
                 </div>
-
-                {/* Project info */}
                 <div className="p-6">
                   <p className="uppercase tracking-widest text-accent font-semibold text-xs font-sans">
                     {proj.category}
@@ -613,7 +451,6 @@ export default function WebsitesForTradiesPage() {
       {/* ── PRICING ──────────────────────────────────────────── */}
       <section className="py-24 sm:py-32 bg-light-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-
           <div className="mb-12">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
               Pricing
@@ -623,16 +460,13 @@ export default function WebsitesForTradiesPage() {
             </h2>
           </div>
 
-          {/* Same gap-px grid language as trade cards */}
-          <div ref={pricingRef} className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-dark/[0.08]">
-
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-dark/[0.08]">
             {/* LEFT — dark pricing panel */}
             <div className="bg-dark px-10 py-14 sm:px-14 sm:py-16 relative overflow-hidden">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -top-32 -right-32 w-72 h-72 bg-accent/10 rounded-full blur-3xl"
               />
-
               <p className="uppercase tracking-widest text-accent/80 font-semibold text-xs font-sans">
                 One-time build fee
               </p>
@@ -645,8 +479,6 @@ export default function WebsitesForTradiesPage() {
               <p className="mt-5 text-white/60 font-sans leading-relaxed">
                 We quote the price before we start and that&rsquo;s what you pay.
               </p>
-
-              {/* $50/month — featured inset block */}
               <div className="mt-8 border border-white/10 bg-white/5 p-6">
                 <div className="flex items-baseline gap-2">
                   <span className="text-4xl font-bold font-heading text-white">$50</span>
@@ -656,7 +488,6 @@ export default function WebsitesForTradiesPage() {
                   Covers hosting, updates, and support. We handle the technical side so you don&rsquo;t have to.
                 </p>
               </div>
-
               <div className="mt-10">
                 <a
                   href="#contact"
@@ -669,7 +500,6 @@ export default function WebsitesForTradiesPage() {
 
             {/* RIGHT — includes + extras */}
             <div className="bg-light px-10 py-14 sm:px-14 sm:py-16 flex flex-col">
-
               <p className="uppercase tracking-widest text-dark/40 font-semibold text-xs font-sans mb-6">
                 Every build includes
               </p>
@@ -683,8 +513,6 @@ export default function WebsitesForTradiesPage() {
                   </li>
                 ))}
               </ul>
-
-              {/* Extras */}
               <div className="mt-10 pt-10 border-t border-dark/10">
                 <p className="uppercase tracking-widest text-dark/40 font-semibold text-xs font-sans mb-4">
                   Optional extras
@@ -704,7 +532,6 @@ export default function WebsitesForTradiesPage() {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -739,7 +566,7 @@ export default function WebsitesForTradiesPage() {
       {/* ── CONTACT FORM ─────────────────────────────────────── */}
       <section id="contact" className="py-24 sm:py-32 bg-light-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div ref={formRef} className="max-w-2xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
               Get in touch
             </span>
