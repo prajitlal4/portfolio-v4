@@ -140,14 +140,21 @@ export default function WebsitesForTradiesPage() {
     e.preventDefault();
     setSubmitting(true);
 
-    const data = new FormData(e.currentTarget);
     try {
-      await fetch('/', {
+      const response = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data as unknown as Record<string, string>).toString(),
+        body: new URLSearchParams({
+          'form-name': 'websites-for-tradies',
+          ...(formData as unknown as Record<string, string>),
+        }).toString(),
       });
-      setSubmitted(true);
+
+      if (response.ok) {
+        setSubmitted(true);
+      } else {
+        console.error('Form submission failed:', response.status);
+      }
     } catch (err) {
       console.error('Form error:', err);
     } finally {
