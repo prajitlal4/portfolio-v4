@@ -128,6 +128,7 @@ const pricingIncludes = [
 export default function WebsitesForTradiesPage() {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     trade: '',
     suburb: '',
     phone: '',
@@ -135,9 +136,40 @@ export default function WebsitesForTradiesPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errors, setErrors] = useState<{ name?: string; email?: string; phone?: string }>({});
+
+  const validate = () => {
+    const next: { name?: string; email?: string; phone?: string } = {};
+    if (!formData.name.trim()) next.name = 'Name is required.';
+    if (!formData.email.trim()) {
+      next.email = 'Email is required.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      next.email = 'Enter a valid email address.';
+    }
+    const digits = formData.phone.replace(/\D/g, '');
+    if (!formData.phone.trim()) {
+      next.phone = 'Phone number is required.';
+    } else if (digits.length < 8 || digits.length > 12) {
+      next.phone = 'Enter a valid phone number.';
+    }
+    return next;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === 'name' || name === 'email' || name === 'phone') {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     setSubmitting(true);
 
     try {
@@ -146,6 +178,7 @@ export default function WebsitesForTradiesPage() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams({
           'form-name': 'websites-for-tradies',
+          'bot-field': '',
           ...(formData as unknown as Record<string, string>),
         }).toString(),
       });
@@ -601,11 +634,14 @@ export default function WebsitesForTradiesPage() {
                 name="websites-for-tradies"
                 method="POST"
                 data-netlify="true"
+                netlify-honeypot="bot-field"
                 onSubmit={handleSubmit}
                 className="mt-10 space-y-6"
               >
                 <input type="hidden" name="form-name" value="websites-for-tradies" />
+                <input type="hidden" name="bot-field" />
 
+                {/* Name + Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
@@ -615,13 +651,32 @@ export default function WebsitesForTradiesPage() {
                       id="name"
                       type="text"
                       name="name"
-                      required
                       placeholder="John Smith"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full border border-dark/10 rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none focus:border-accent transition-colors duration-200 placeholder:text-dark/30"
+                      onChange={handleChange}
+                      className={`w-full border rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none transition-colors duration-200 placeholder:text-dark/30 ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-dark/10 focus:border-accent'}`}
                     />
+                    {errors.name && <p className="mt-1.5 text-sm text-red-500">{errors.name}</p>}
                   </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                      Email address
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      placeholder="john@smithplumbing.com.au"
+                      value={formData.email}
+                      onChange={handleChange}
+                      className={`w-full border rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none transition-colors duration-200 placeholder:text-dark/30 ${errors.email ? 'border-red-400 focus:border-red-400' : 'border-dark/10 focus:border-accent'}`}
+                    />
+                    {errors.email && <p className="mt-1.5 text-sm text-red-500">{errors.email}</p>}
+                  </div>
+                </div>
+
+                {/* Trade + Suburb */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="trade" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
                       Your trade
@@ -630,16 +685,12 @@ export default function WebsitesForTradiesPage() {
                       id="trade"
                       type="text"
                       name="trade"
-                      required
                       placeholder="e.g. Plumber, Electrician"
                       value={formData.trade}
-                      onChange={(e) => setFormData({ ...formData, trade: e.target.value })}
+                      onChange={handleChange}
                       className="w-full border border-dark/10 rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none focus:border-accent transition-colors duration-200 placeholder:text-dark/30"
                     />
                   </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="suburb" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
                       Suburb / service area
@@ -648,13 +699,16 @@ export default function WebsitesForTradiesPage() {
                       id="suburb"
                       type="text"
                       name="suburb"
-                      required
                       placeholder="e.g. Joondalup, Cannington"
                       value={formData.suburb}
-                      onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
+                      onChange={handleChange}
                       className="w-full border border-dark/10 rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none focus:border-accent transition-colors duration-200 placeholder:text-dark/30"
                     />
                   </div>
+                </div>
+
+                {/* Phone */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
                       Phone number
@@ -663,12 +717,12 @@ export default function WebsitesForTradiesPage() {
                       id="phone"
                       type="tel"
                       name="phone"
-                      required
                       placeholder="04xx xxx xxx"
                       value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full border border-dark/10 rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none focus:border-accent transition-colors duration-200 placeholder:text-dark/30"
+                      onChange={handleChange}
+                      className={`w-full border rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none transition-colors duration-200 placeholder:text-dark/30 ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-dark/10 focus:border-accent'}`}
                     />
+                    {errors.phone && <p className="mt-1.5 text-sm text-red-500">{errors.phone}</p>}
                   </div>
                 </div>
 

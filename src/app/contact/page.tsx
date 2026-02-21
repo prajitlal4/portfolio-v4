@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { generateBreadcrumbSchema } from '@/lib/schema/breadcrumbs';
-import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Toast from '@/components/Toast';
@@ -49,6 +48,21 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState<ToastMessage | null>(null);
+  const [errors, setErrors] = useState<{ name?: string; phone?: string }>({});
+
+  const validate = () => {
+    const next: { name?: string; phone?: string } = {};
+    if (!formData.name.trim()) {
+      next.name = 'Name is required.';
+    }
+    const digits = formData.phone.replace(/\D/g, '');
+    if (!formData.phone.trim()) {
+      next.phone = 'Phone number is required.';
+    } else if (digits.length < 8 || digits.length > 12) {
+      next.phone = 'Enter a valid phone number.';
+    }
+    return next;
+  };
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -97,14 +111,19 @@ export default function ContactPage() {
     >
   ) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (name === 'name' || name === 'phone') {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -210,10 +229,10 @@ export default function ContactPage() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    required
                     placeholder="John Smith"
-                    className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200"
+                    className={`w-full rounded-xl border px-4 py-3 text-dark bg-light-100 placeholder:text-dark/30 focus:outline-none transition-colors duration-200 ${errors.name ? 'border-red-400 focus:border-red-400' : 'border-dark/10 focus:border-accent'}`}
                   />
+                  {errors.name && <p className="mt-1.5 text-sm text-red-500">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="businessName" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
@@ -261,10 +280,10 @@ export default function ContactPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    required
                     placeholder="04xx xxx xxx"
-                    className="w-full rounded-xl border border-dark/10 bg-light-100 px-4 py-3 text-dark placeholder:text-dark/30 focus:outline-none focus:border-accent transition-colors duration-200"
+                    className={`w-full rounded-xl border px-4 py-3 text-dark bg-light-100 placeholder:text-dark/30 focus:outline-none transition-colors duration-200 ${errors.phone ? 'border-red-400 focus:border-red-400' : 'border-dark/10 focus:border-accent'}`}
                   />
+                  {errors.phone && <p className="mt-1.5 text-sm text-red-500">{errors.phone}</p>}
                 </div>
               </div>
 
