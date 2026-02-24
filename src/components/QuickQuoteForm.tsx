@@ -96,6 +96,8 @@ export default function QuickQuoteForm({
       });
 
       if (response.ok) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17955414133/uOJFCPTR_v0bEPXA5_FC' });
         setToastType('success');
         setToastMessage("Thank you for your enquiry! I'll be in touch shortly.");
         setShowToast(true);
