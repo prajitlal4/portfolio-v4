@@ -185,6 +185,7 @@ export default function WebsitesForTradiesPage() {
 
       if (response.ok) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).gtag?.('event', 'generate_lead', { event_category: 'contact', event_label: 'websites-for-tradies' });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17955414133/uOJFCPTR_v0bEPXA5_FC' });
         setSubmitted(true);
       } else {

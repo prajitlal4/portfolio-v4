@@ -89,7 +89,7 @@ export default function QuickQuoteForm({
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('/__forms.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: encode({ 'form-name': 'quick-quote', ...formData }),
@@ -97,6 +97,7 @@ export default function QuickQuoteForm({
 
       if (response.ok) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).gtag?.('event', 'generate_lead', { event_category: 'contact', event_label: 'quick-quote' });
         (window as any).gtag?.('event', 'conversion', { send_to: 'AW-17955414133/uOJFCPTR_v0bEPXA5_FC' });
         setToastType('success');
         setToastMessage("Thank you for your enquiry! I'll be in touch shortly.");
