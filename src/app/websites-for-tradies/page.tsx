@@ -108,7 +108,7 @@ const faqs = [
   },
   {
     q: 'What trades do you work with?',
-    a: "Plumbers, electricians, tilers, bathroom renovators, landscapers, painters, carpenters, and builders. If you're a tradie in Perth, get in touch.",
+    a: "Plumbers, electricians, tilers, bathroom renovators, landscapers, painters, carpenters, and builders. If you're a tradie in Australia, get in touch.",
   },
   {
     q: 'Why do I need a website if I already get work through word of mouth?',
@@ -228,14 +228,14 @@ export default function WebsitesForTradiesPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div>
               <p className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
-                Perth Web Design for Tradies
+                Web Design for Australian Tradies
               </p>
               <h1 className="mt-4 text-5xl sm:text-6xl lg:text-7xl font-bold font-heading text-dark leading-[1.1]">
                 Websites for Tradies.<br />
                 <span className="text-accent">Built to Get You Jobs.</span>
               </h1>
               <p className="mt-6 text-xl sm:text-2xl text-dark-200 font-sans leading-relaxed">
-                We build websites for Perth tradies that bring in real work. Designed around how your customers actually search for you.
+                We build websites for Australian tradies that bring in real work. Designed around how your customers actually search for you.
               </p>
               <div className="mt-10">
                 <a
@@ -246,7 +246,7 @@ export default function WebsitesForTradiesPage() {
                 </a>
               </div>
               <p className="mt-4 text-dark-200 font-sans text-sm">
-                From $1,200 · Live in 7 days · Perth-based
+                From $1,200 · Live in 7 days · Australia-wide
               </p>
             </div>
 
@@ -259,7 +259,7 @@ export default function WebsitesForTradiesPage() {
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
                   src="/websites-for-tradies-header.webp"
-                  alt="Perth tradie at work"
+                  alt="Australian tradie at work"
                   fill
                   className="object-cover object-center"
                   style={{ transform: 'scaleX(-1)' }}
@@ -296,7 +296,7 @@ export default function WebsitesForTradiesPage() {
               </p>
               <p className="mt-4 text-lg text-dark-200 font-sans leading-relaxed">
                 We&rsquo;ve built websites for plumbers, electricians, landscapers, tilers, builders, and bathroom
-                renovators across Perth. We know what works for each trade, and it&rsquo;s not the same thing twice.
+                renovators across Australia. We know what works for each trade, and it&rsquo;s not the same thing twice.
               </p>
             </div>
 
@@ -401,7 +401,7 @@ export default function WebsitesForTradiesPage() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
-              What Perth tradies say
+              What tradies say
             </span>
             <h2 className="mt-4 text-4xl sm:text-5xl font-bold font-heading text-dark leading-tight">
               Don&rsquo;t take our word for it.
@@ -757,7 +757,7 @@ export default function WebsitesForTradiesPage() {
             )}
 
             <p className="mt-6 text-sm text-dark-200 font-sans">
-              We&rsquo;re Perth-based and we reply fast. Usually same day.
+              We reply fast. Usually same day.
             </p>
           </div>
         </div>

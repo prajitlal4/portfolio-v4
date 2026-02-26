@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Websites for Tradies Perth | Built to get you jobs',
+  title: 'Websites for Australian Tradies | Built to Get You Jobs',
   description:
-    'Perth web design for tradies. We build websites for plumbers, electricians, landscapers, bathroom renovators and more. From $999. Built to get you more calls and more jobs.',
+    'Web design for Australian tradies. We build websites for plumbers, electricians, landscapers, bathroom renovators and more. Built to get you more calls and more jobs.',
 };
 
 export default function WebsitesForTradiesLayout({
