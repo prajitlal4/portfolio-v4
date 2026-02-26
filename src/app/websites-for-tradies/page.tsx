@@ -130,7 +130,7 @@ export default function WebsitesForTradiesPage() {
     name: '',
     email: '',
     trade: '',
-    suburb: '',
+    state: '',
     phone: '',
     message: '',
   });
@@ -695,15 +695,15 @@ export default function WebsitesForTradiesPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="suburb" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
-                      Suburb / service area
+                    <label htmlFor="state" className="block text-sm font-semibold text-dark-100 font-sans mb-2">
+                      State
                     </label>
                     <input
-                      id="suburb"
+                      id="state"
                       type="text"
-                      name="suburb"
-                      placeholder="e.g. Joondalup, Cannington"
-                      value={formData.suburb}
+                      name="state"
+                      placeholder="e.g. Western Australia"
+                      value={formData.state}
                       onChange={handleChange}
                       className="w-full border border-dark/10 rounded-xl px-4 py-3 text-dark bg-light-100 font-sans text-base focus:outline-none focus:border-accent transition-colors duration-200 placeholder:text-dark/30"
                     />
@@ -720,6 +720,7 @@ export default function WebsitesForTradiesPage() {
                       id="phone"
                       type="tel"
                       name="phone"
+                      autoComplete="tel"
                       placeholder="04xx xxx xxx"
                       value={formData.phone}
                       onChange={handleChange}
