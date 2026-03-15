@@ -370,7 +370,7 @@ export default function WebsitesForTradiesPage() {
       </section>
 
       {/* ── HOW IT WORKS ─────────────────────────────────────── */}
-      <section className="py-24 sm:py-32 bg-light">
+      <section id="process" className="py-24 sm:py-32 bg-light">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
@@ -442,7 +442,7 @@ export default function WebsitesForTradiesPage() {
       </section>
 
       {/* ── RECENT PROJECTS ──────────────────────────────────── */}
-      <section className="py-24 sm:py-32 bg-light">
+      <section id="examples" className="py-24 sm:py-32 bg-light">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
@@ -492,7 +492,7 @@ export default function WebsitesForTradiesPage() {
       </section>
 
       {/* ── PRICING ──────────────────────────────────────────── */}
-      <section className="py-24 sm:py-32 bg-light-100">
+      <section id="pricing" className="py-24 sm:py-32 bg-light-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="mb-12">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
