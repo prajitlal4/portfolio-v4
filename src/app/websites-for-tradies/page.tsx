@@ -580,7 +580,7 @@ export default function WebsitesForTradiesPage() {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────── */}
-      <section className="py-24 sm:py-32 bg-light">
+      <section id="faq" className="py-24 sm:py-32 bg-light">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="max-w-2xl mb-16">
             <span className="uppercase tracking-widest text-accent font-semibold text-sm font-sans">
