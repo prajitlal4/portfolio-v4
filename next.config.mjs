@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // googleapis uses Node.js internals — must run only on the server
+  serverExternalPackages: ['googleapis', 'google-auth-library'],
   async redirects() {
     return [
       { source: '/services/websites-for-plumbers', destination: '/websites-for-tradies', permanent: false },
