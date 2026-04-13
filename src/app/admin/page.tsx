@@ -1,7 +1,12 @@
 import { auth, currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 import { CLIENTS, type ClientConfig } from '@/lib/admin/config'
-import { getSiteMetrics, getKeywordPosition } from '@/lib/google/searchConsole'
+import {
+  getSiteMetrics,
+  getKeywordPosition,
+  getTopKeywords,
+  type KeywordData,
+} from '@/lib/google/searchConsole'
 import { getEventCount } from '@/lib/google/analytics'
 import { SignOutButton } from './_components/SignOutButton'
 
@@ -12,13 +17,11 @@ import { SignOutButton } from './_components/SignOutButton'
 function getDateRanges() {
   const now = new Date()
 
-  // GSC has a ~2-day lag — using yesterday as the end avoids empty-data gaps
   const yesterday = new Date(now)
   yesterday.setDate(yesterday.getDate() - 1)
 
   const thisMonthStart = new Date(now.getFullYear(), now.getMonth(), 1)
   const lastMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1)
-  // Day 0 of the current month = last day of the previous month
   const lastMonthEnd = new Date(now.getFullYear(), now.getMonth(), 0)
 
   const fmt = (d: Date) => d.toISOString().split('T')[0]
@@ -44,7 +47,10 @@ interface ClientData {
   previousClicks: number | null
   currentImpressions: number | null
   previousImpressions: number | null
-  avgPosition: number | null
+  siteAvgPosition: number | null
+  previousSiteAvgPosition: number | null
+  primaryKeywordPosition: number | null
+  topKeywords: KeywordData[]
   callClicks: number | null
   formSubmissions: number | null
 }
@@ -55,7 +61,7 @@ async function fetchClientData(
   client: ClientConfig,
   dates: DateRanges
 ): Promise<ClientData> {
-  const [gscCurrent, gscPrevious, position, calls, forms] =
+  const [gscCurrent, gscPrevious, primaryPos, topKws, calls, forms] =
     await Promise.allSettled([
       getSiteMetrics(client.gscSiteUrl, dates.currentStart, dates.currentEnd),
       getSiteMetrics(client.gscSiteUrl, dates.previousStart, dates.previousEnd),
@@ -65,6 +71,7 @@ async function fetchClientData(
         dates.currentStart,
         dates.currentEnd
       ),
+      getTopKeywords(client.gscSiteUrl, dates.currentStart, dates.currentEnd),
       getEventCount(
         client.ga4PropertyId,
         'call_button_click',
@@ -79,7 +86,6 @@ async function fetchClientData(
       ),
     ])
 
-  // Trailing comma disambiguates generic from JSX in .tsx files
   const ok = <T,>(r: PromiseSettledResult<T>): T | null =>
     r.status === 'fulfilled' ? r.value : null
 
@@ -95,14 +101,17 @@ async function fetchClientData(
     previousClicks: prev?.clicks ?? null,
     currentImpressions: curr?.impressions ?? null,
     previousImpressions: prev?.impressions ?? null,
-    avgPosition: ok(position),
+    siteAvgPosition: curr?.avgPosition ?? null,
+    previousSiteAvgPosition: prev?.avgPosition ?? null,
+    primaryKeywordPosition: ok(primaryPos),
+    topKeywords: ok(topKws) ?? [],
     callClicks: ok(calls),
     formSubmissions: ok(forms),
   }
 }
 
 // ---------------------------------------------------------------------------
-// UI components (all server-renderable, no hooks needed)
+// UI components
 // ---------------------------------------------------------------------------
 
 function ChangeTag({
@@ -116,7 +125,6 @@ function ChangeTag({
 }) {
   if (previous === 0) return null
   const delta = ((current - previous) / previous) * 100
-  // "inverted" = lower is better (e.g. avg position)
   const improved = inverted ? delta < 0 : delta > 0
   const color = improved ? 'text-emerald-600' : 'text-red-500'
   const arrow = delta >= 0 ? '↑' : '↓'
@@ -163,14 +171,79 @@ function Metric({
   )
 }
 
+function PositionBadge({ position }: { position: number }) {
+  const color =
+    position <= 10
+      ? 'bg-emerald-50 text-emerald-700'
+      : position <= 20
+        ? 'bg-amber-50 text-amber-700'
+        : 'bg-red-50 text-red-600'
+
+  return (
+    <span className={`inline-block rounded px-1.5 py-0.5 text-xs font-semibold tabular-nums ${color}`}>
+      #{position.toFixed(1)}
+    </span>
+  )
+}
+
+function KeywordsTable({ keywords }: { keywords: KeywordData[] }) {
+  if (keywords.length === 0) {
+    return <p className="text-xs text-gray-400">No clicks recorded yet this month</p>
+  }
+
+  return (
+    <div className="w-full">
+      {/* Table header */}
+      <div className="flex items-center gap-2 pb-1.5 mb-1 border-b border-gray-100">
+        <span className="flex-1 text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+          Keyword
+        </span>
+        <span className="w-14 text-right text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+          Position
+        </span>
+        <span className="w-10 text-right text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+          Clicks
+        </span>
+        <span className="w-14 text-right text-[10px] font-semibold uppercase tracking-wider text-gray-400">
+          Impr.
+        </span>
+      </div>
+
+      {/* Rows */}
+      {keywords.map((kw) => (
+        <div
+          key={kw.keyword}
+          className="flex items-center gap-2 py-2 border-b border-gray-50 last:border-0"
+        >
+          <span
+            className="flex-1 text-sm text-gray-700 truncate"
+            title={kw.keyword}
+          >
+            {kw.keyword}
+          </span>
+          <div className="w-14 flex justify-end">
+            <PositionBadge position={kw.position} />
+          </div>
+          <span className="w-10 text-right text-sm tabular-nums text-gray-600">
+            {kw.clicks.toLocaleString()}
+          </span>
+          <span className="w-14 text-right text-sm tabular-nums text-gray-400">
+            {kw.impressions.toLocaleString()}
+          </span>
+        </div>
+      ))}
+    </div>
+  )
+}
+
 function Divider() {
   return <div className="border-t border-gray-100" />
 }
 
 function ClientCard({ data }: { data: ClientData }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col gap-0 overflow-hidden">
-      {/* Card header */}
+    <div className="bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col overflow-hidden">
+      {/* Header */}
       <div className="flex items-start justify-between px-6 pt-6 pb-4">
         <div>
           <h2 className="text-base font-semibold text-gray-900">{data.name}</h2>
@@ -190,12 +263,12 @@ function ClientCard({ data }: { data: ClientData }) {
 
       <Divider />
 
-      {/* Organic search */}
+      {/* Organic search overview */}
       <div className="px-6 py-5">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-4">
           Organic Search
         </p>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-3 gap-4">
           <Metric
             label="Clicks"
             value={data.currentClicks}
@@ -206,15 +279,43 @@ function ClientCard({ data }: { data: ClientData }) {
             value={data.currentImpressions}
             previous={data.previousImpressions}
           />
-        </div>
-        <div className="mt-5">
           <Metric
-            label={`Avg position — "${data.primaryKeyword}"`}
-            value={data.avgPosition}
+            label="Site Avg Position"
+            value={data.siteAvgPosition}
+            previous={data.previousSiteAvgPosition}
             format={(v) => v.toFixed(1)}
             inverted
           />
         </div>
+      </div>
+
+      <Divider />
+
+      {/* Primary keyword */}
+      <div className="px-6 py-5">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">
+          Primary Keyword
+        </p>
+        <div className="flex items-center justify-between">
+          <span className="text-sm text-gray-600 italic">
+            &ldquo;{data.primaryKeyword}&rdquo;
+          </span>
+          {data.primaryKeywordPosition !== null ? (
+            <PositionBadge position={data.primaryKeywordPosition} />
+          ) : (
+            <span className="text-sm text-gray-400">—</span>
+          )}
+        </div>
+      </div>
+
+      <Divider />
+
+      {/* Top keywords */}
+      <div className="px-6 py-5">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">
+          Top Keywords — This Month
+        </p>
+        <KeywordsTable keywords={data.topKeywords} />
       </div>
 
       <Divider />
@@ -259,7 +360,10 @@ export default async function AdminDashboard() {
       previousClicks: null,
       currentImpressions: null,
       previousImpressions: null,
-      avgPosition: null,
+      siteAvgPosition: null,
+      previousSiteAvgPosition: null,
+      primaryKeywordPosition: null,
+      topKeywords: [],
       callClicks: null,
       formSubmissions: null,
     }
@@ -275,7 +379,7 @@ export default async function AdminDashboard() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-100">
-        <div className="mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
+        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div>
             <span className="text-base font-semibold text-gray-900">
               Lal Solutions
@@ -294,7 +398,7 @@ export default async function AdminDashboard() {
       </header>
 
       {/* Body */}
-      <main className="mx-auto max-w-5xl px-6 py-8">
+      <main className="mx-auto max-w-6xl px-6 py-8">
         <div className="mb-6">
           <h1 className="text-xl font-semibold text-gray-900">{monthLabel}</h1>
           <p className="mt-0.5 text-xs text-gray-400">
@@ -307,7 +411,7 @@ export default async function AdminDashboard() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
           {clientsData.map((data) => (
             <ClientCard key={data.id} data={data} />
           ))}
